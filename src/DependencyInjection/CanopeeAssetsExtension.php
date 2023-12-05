@@ -29,7 +29,7 @@ class CanopeeAssetsExtension extends Extension implements PrependExtensionInterf
 
         if (isset($bundles['TwigComponentBundle'])) {
             $container->prependExtensionConfig('twig_component', [
-                'paths' => [
+                'defaults' => [
                     'AkyosCanopeeAssets\\Twig\\Components\\' => __DIR__ . '/../Resources/views/components',
                 ],
             ]);
