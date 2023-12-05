@@ -14,5 +14,3 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));
-
-registerReactControllerComponents();

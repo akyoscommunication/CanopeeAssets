@@ -1,0 +1,6 @@
+<div{{ attributes.defaults({ class: 'c-ico-text' }) }}>
+    {% if ico %}
+        <span class="c-ico-text__ico"><i class="icomoon-{{ ico }}"></i></span>
+    {% endif %}
+    <div class="c-ico-text__text">{% block content %}{% endblock %}</div>
+</div>

@@ -34,7 +34,7 @@ export default class extends Controller {
 		})
 
 		let config = {
-			title: target.dataset.title ?? trans(ALERT_CONFIRM_TITLE, {}, 'js.alert'),
+			title: target.dataset.title ?? "trans(ALERT_CONFIRM_TITLE, {}, 'js.alert')",
 			html: target.dataset.text ?? trans(ALERT_CONFIRM_TEXT, {}, 'js.alert'),
 			showDenyButton: true,
 			denyButtonText: trans(ALERT_CONFIRM_DENY_BUTTON_TEXT, {}, 'js.alert'),

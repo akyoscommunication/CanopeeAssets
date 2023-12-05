@@ -1,4 +1,4 @@
-import { localeFallbacks } from '../../../../var/translations/configuration';
+import { localeFallbacks } from '@canopee_app/var/translations/configuration';
 import {trans, getLocale, setLocale, setLocaleFallbacks} from '@symfony/ux-translator';
 /*
  * This file is part of the Symfony UX Translator package.
@@ -13,4 +13,4 @@ setLocaleFallbacks(localeFallbacks);
 
 export {trans};
 
-export * from '../../../../var/translations';
+export * from '@canopee_app/var/translations';

@@ -1,0 +1,16 @@
+{% set data = {} %}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        {% set data = data|merge([{type: label, data: message}]) %}
+    {% endfor %}
+{% endfor %}
+<flash-messages data="{{ data|json_encode }}"></flash-messages>
+
+<template id="toast-template">
+    <div class="c-toast c-toast-%status%">
+        <div class="c-toast__ico">
+            <i class="icomoon-%ico%"></i>
+        </div>
+        <div class="c-toast__title">%message%</div>
+    </div>
+</template>
