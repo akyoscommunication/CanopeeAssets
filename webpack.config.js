@@ -1,11 +1,10 @@
 const Encore = require('@symfony/webpack-encore');
 const {resolve} = require("path");
 const globImporter = require('node-sass-glob-importer');
-const WebpackRTLPlugin = require('@automattic/webpack-rtl-plugin');
 
 Encore
     .setOutputPath('./src/Resources/public/')
-    .setPublicPath('/')
+    .setPublicPath('/bundles/canopeeassets/')
     .setManifestKeyPrefix('')
     
     .cleanupOutputBeforeBuild()
@@ -14,8 +13,6 @@ Encore
     .enableVersioning(true)
     .disableSingleRuntimeChunk()
     
-    .addPlugin(new WebpackRTLPlugin())
-
     .enableSassLoader((options) => {
         options.implementation = require('sass');
         options.sassOptions = {
