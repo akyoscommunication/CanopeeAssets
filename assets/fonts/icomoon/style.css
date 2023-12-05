@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?hnn4ud');
+  src:  url('fonts/icomoon.eot?hnn4ud#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?hnn4ud') format('truetype'),
+    url('fonts/icomoon.woff?hnn4ud') format('woff'),
+    url('fonts/icomoon.svg?hnn4ud#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icomoon-"], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-times:before {
+  content: "\e927";
+}
+.icomoon-arrow-up:before {
+  content: "\e923";
+}
+.icomoon-arrow-down:before {
+  content: "\e924";
+}
+.icomoon-arrow-left:before {
+  content: "\e925";
+}
+.icomoon-arrow-right:before {
+  content: "\e926";
+}
+.icomoon-galaxy:before {
+  content: "\e922";
+}
+.icomoon-left-arrow-to-left:before {
+  content: "\e921";
+}
+.icomoon-plus:before {
+  content: "\e917";
+}
+.icomoon-minus-circle:before {
+  content: "\e918";
+}
+.icomoon-cog:before {
+  content: "\e919";
+}
+.icomoon-trophy:before {
+  content: "\e91a";
+}
+.icomoon-desktop:before {
+  content: "\e91b";
+}
+.icomoon-external-link-alt:before {
+  content: "\e91c";
+}
+.icomoon-clock-eight:before {
+  content: "\e91d";
+}
+.icomoon-pricetag-alt:before {
+  content: "\e91e";
+}
+.icomoon-calendar-alt:before {
+  content: "\e91f";
+}
+.icomoon-create-dashboard:before {
+  content: "\e920";
+}
+.icomoon-compress-point:before {
+  content: "\e912";
+}
+.icomoon-scaling-left:before {
+  content: "\e913";
+}
+.icomoon-exclamation-circle:before {
+  content: "\e90e";
+}
+.icomoon-exclamation-triangle:before {
+  content: "\e90f";
+}
+.icomoon-edit-alt:before {
+  content: "\e910";
+}
+.icomoon-eye:before {
+  content: "\e911";
+}
+.icomoon-edit:before {
+  content: "\e914";
+}
+.icomoon-trash:before {
+  content: "\e915";
+}
+.icomoon-check:before {
+  content: "\e916";
+}
+.icomoon-plus-circle:before {
+  content: "\e90d";
+}
+.icomoon-bell:before {
+  content: "\e900";
+}
+.icomoon-book-alt:before {
+  content: "\e901";
+}
+.icomoon-chart-down:before {
+  content: "\e902";
+}
+.icomoon-chart-pie-alt:before {
+  content: "\e903";
+}
+.icomoon-clock-five:before {
+  content: "\e904";
+}
+.icomoon-document-info:before {
+  content: "\e905";
+}
+.icomoon-grid:before {
+  content: "\e906";
+}
+.icomoon-left-arrow-from-left:before {
+  content: "\e907";
+}
+.icomoon-notebooks:before {
+  content: "\e908";
+}
+.icomoon-question-circle:before {
+  content: "\e909";
+}
+.icomoon-user:before {
+  content: "\e90a";
+}
+.icomoon-users-alt:before {
+  content: "\e90b";
+}
+.icomoon-window-grid:before {
+  content: "\e90c";
+}

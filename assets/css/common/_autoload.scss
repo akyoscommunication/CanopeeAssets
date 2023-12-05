@@ -1,0 +1,8 @@
+.swal2 {
+	&-actions {
+		@extend .c-button-group;
+
+		padding-inline: rem(16);
+	}
+}
+

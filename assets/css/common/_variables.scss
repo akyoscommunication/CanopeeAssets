@@ -1,0 +1,41 @@
+$font-family: "Sora", sans-serif;
+$html-font-size: 16px;
+$line-height: 1;
+
+$default-transition: .3s ease;
+
+$p-app: 12px;
+$ph-main: 20px;
+$pv-main: 16px;
+
+$default-shadow: 1.95055px 3.9011px 9.75275px -2.92583px rgba(40, 42, 73, 0.15);
+
+$br--card: 16px;
+$br--button: 6px;
+$br--main: 24px;
+$br--badge-xs: 46.813px;
+$br--badge-md: 13px;
+$br--input: 3.371px;
+$br--filter: 8px;
+
+$grid-gap: 28px;
+
+$threshold: 70%;
+
+$breakpoints: (
+	"xs": 0,
+	"sm": 320px,
+	"md": 768px,
+	"lg": 992px,
+	"xl": 1200px,
+	"xxl": 1400px,
+);
+
+$spaces: (
+	0: 0,
+	1: 4,
+	2: 8,
+	3: 16,
+	4: 32,
+	5: 64,
+);

@@ -1,0 +1,34 @@
+.c-profile {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	align-items: center;
+	gap: rem(16);
+
+	&__avatar {
+		overflow: hidden;
+		border-radius: 50%;
+		width: rem(48);
+		height: rem(48);
+		background-color: color(primary-500);
+
+		> * {
+			@include objectFit(cover);
+		}
+	}
+
+	&__content {
+		text-align: right;
+
+		.c-title {
+
+		}
+
+		.c-link {
+			@extend %fs-14;
+
+			color: color(secondary-500);
+			margin-top: rem(16);
+			text-decoration: underline;
+		}
+	}
+}

@@ -1,0 +1,94 @@
+.l-grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: min-content;
+	grid-gap: $grid-gap;
+
+	@each $s, $v in $spaces {
+		&.mb-#{$s} {
+			margin-bottom: rem($v);
+		}
+	}
+
+	@for $i from 1 through 12 {
+		&[class*="l-grid--#{$i}"] {
+			> * {
+				grid-column: span calc(12 / #{$i});
+			}
+		}
+	}
+
+	@each $breakpoint, $value in $breakpoints {
+		@include breakpoint($breakpoint) {
+			@for $i from 1 through 12 {
+				&[class*="l-grid--#{$i}:#{$breakpoint}"] {
+					> * {
+						grid-column: span calc(12 / #{$i});
+
+						&[class*="l-grid-col"] {
+							grid-column: span calc(12 / #{$i});
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@for $i from 1 through 12 {
+		& .l-grid-col {
+			&--#{$i} {
+				grid-column: span #{$i};
+			}
+
+			&--start-#{$i} {
+				grid-column-start: #{$i};
+			}
+
+			&--end-#{$i} {
+				grid-column-end: #{$i};
+			}
+		}
+	}
+
+	@each $breakpoint, $value in $breakpoints {
+		@include breakpoint($value) {
+			@for $i from 1 through 12 {
+				& [class*="l-grid-col--#{$i}:#{$breakpoint}"] {
+					grid-column: span #{$i};
+				}
+			}
+		}
+	}
+
+	&-col {
+		&--start {
+			justify-self: start;
+		}
+
+		&--center {
+			justify-self: center;
+		}
+
+		&--end {
+			justify-self: end;
+		}
+
+		&--top {
+			align-self: start;
+		}
+
+		&--middle {
+			align-self: center;
+		}
+
+		&--bottom {
+			align-self: end;
+		}
+	}
+
+	&.align-items {
+		&-center {
+			align-items: center;
+		}
+	}
+}

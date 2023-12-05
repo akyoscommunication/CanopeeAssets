@@ -1,0 +1,27 @@
+.c-title {
+	@include flex(row, wrap, flex-start, center);
+
+	gap: rem(16);
+
+	&--h {
+		&1 {
+			@extend %fs-32;
+			@extend %fw-700;
+		}
+
+		&2 {
+			@extend %fs-24;
+			@extend %fw-700;
+		}
+
+		&3 {
+			@extend %fs-20;
+			@extend %fw-700;
+		}
+
+		&4 {
+			@extend %fs-14;
+			@extend %fw-700;
+		}
+	}
+}

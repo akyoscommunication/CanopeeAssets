@@ -1,0 +1,45 @@
+.c-stat {
+	@include flex(row, wrap, flex-start, center);
+
+	gap: rem(31.21);
+
+	&__icon {
+		@include flex(row, wrap, center, center);
+		@extend %fs-24;
+		@extend %fw-700;
+
+		width: rem(53.54);
+		height: rem(53.54);
+		aspect-ratio: 1;
+		border-radius: 50%;
+
+		> * {
+			@include objectFit(contain);
+
+			font-size: rem(53.54);
+			line-height: 1;
+		}
+	}
+
+	&__value {
+		@include flex(row, wrap, flex-start, center);
+		@extend %fs-24;
+		@extend %fw-700;
+
+		column-gap: rem(8.7);
+	}
+
+	&__title {
+		@extend %fs-14;
+		@extend %fw-400;
+
+		letter-spacing: -0.14px;
+		color: color(primary-200);
+	}
+
+	&__content {
+		@include flex(column, wrap, center, flex-start);
+
+		gap: rem(5);
+	}
+}

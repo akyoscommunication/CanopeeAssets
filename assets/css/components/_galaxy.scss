@@ -1,0 +1,32 @@
+.c-galaxy {
+	.c-modal {
+		margin: 0;
+		max-width: rem(412);
+
+		&__header {
+			margin-bottom: rem(32);
+		}
+	}
+
+	&__ico {
+		@extend %fs-24;
+
+		color: color(grey-400);
+		cursor: pointer;
+		line-height: 1;
+	}
+
+	ul {
+		@include undoListStyles;
+	}
+
+	.c-widget-edit {
+		&__ico {
+			border-radius: 0;
+
+			> * {
+				@include objectFit(contain);
+			}
+		}
+	}
+}

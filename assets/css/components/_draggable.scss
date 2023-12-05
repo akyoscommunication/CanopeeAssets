@@ -1,0 +1,21 @@
+.is-draggable-active {
+	*[draggable] {
+		cursor: move;
+		box-shadow: $default-shadow;
+		transition: opacity .3s ease;
+
+		&.draggable-source--is-dragging {
+			opacity: 0;
+		}
+
+		&.draggable-mirror {
+			opacity: 1;
+		}
+	}
+}
+
+.draggable-container--over {
+	*[draggable] {
+		opacity: 0.5;
+	}
+}

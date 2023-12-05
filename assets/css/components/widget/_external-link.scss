@@ -1,0 +1,35 @@
+.c-widget {
+	&.c-external-link {
+		@include flex(column, nowrap, center, center);
+		@extend %fs-10;
+
+		--color: color(primary-500);
+
+		background: var(--color);
+		padding: rem(16) rem(8);
+		aspect-ratio: 1;
+		color: color(light);
+		gap: rem(6);
+		border-radius: $br--badge-md;
+		overflow: hidden;
+		text-align: center;
+		max-width: rem(84);
+
+		.c-external-link {
+			&__ico {
+				width: rem(27);
+				height: rem(27);
+				font-size: rem(27);
+				flex: 1;
+
+				> * {
+					@include objectFit(contain);
+				}
+			}
+		}
+
+		.c-title {
+			margin-bottom: 0;
+		}
+	}
+}

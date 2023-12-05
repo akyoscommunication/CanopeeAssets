@@ -1,0 +1,78 @@
+.c-badge {
+	@extend %fs-12;
+
+	padding: rem(8) rem(12);
+	border-radius: $br--badge-md;
+	letter-spacing: -0.12px;
+	white-space: nowrap;
+	display: inline-block;
+	line-height: 1;
+
+	a {
+		text-decoration: underline;
+	}
+
+	&.c-badge {
+		&--size {
+			&-xs {
+				@extend %fw-700;
+
+				padding: rem(3.9) rem(7.8);
+				border-radius: $br--badge-xs;
+			}
+		}
+
+		&--contrast {
+			@each $name, $color in $colors-scheme-light {
+				$v-color: "light";
+				$v-dark: "dark";
+
+				@if type-of($color) == 'map' {
+					@if map-has-key($color, 200) {
+						$v-color: #{$name}-200;
+					}
+
+					@if map-has-key($color, 700) {
+						$v-dark: #{$name}-700;
+					}
+
+					&.c-badge--#{$name} {
+						background-color: color($v-color);
+						color: color($v-dark);
+					}
+				}
+			}
+		}
+	}
+
+	@each $name, $color in $colors-scheme-light {
+		@if type-of($color) == 'map' {
+			@each $color-name, $color-value in $color {
+				$n: "#{$name}-#{$color-name}";
+				&--#{$n} {
+					background-color: color($n);
+
+					$constrast: contrast-color($color-value, $dark, $light);
+
+					@if #{$constrast} == "#000000" {
+						color: color(dark);
+					} @else {
+						color: color(light);
+					}
+				}
+			}
+		} @else {
+			&--#{$name} {
+				background-color: color($name);
+
+				$constrast: contrast-color($color, $dark, $light);
+
+				@if #{$constrast} == "#000000" {
+					color: color(dark);
+				} @else {
+					color: color(light);
+				}
+			}
+		}
+	}
+}
