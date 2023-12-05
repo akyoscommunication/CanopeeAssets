@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Twig\Components;
+namespace Akyos\CanopeeAssets\Twig\Components;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
