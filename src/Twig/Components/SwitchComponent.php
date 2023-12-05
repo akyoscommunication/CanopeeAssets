@@ -8,7 +8,7 @@ use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
-#[AsLiveComponent(name: 'switch', template: 'components/switch.html.twig')]
+#[AsLiveComponent(name: 'switch', template: '@CanopeeAssets/components/switch.html.twig')]
 final class SwitchComponent
 {
     use DefaultActionTrait;

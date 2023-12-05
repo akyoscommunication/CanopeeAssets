@@ -4,7 +4,7 @@ namespace Akyos\CanopeeAssets\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent('card', template: 'components/card.html.twig')]
+#[AsTwigComponent('card', template: '@CanopeeAssets/components/card.html.twig')]
 final class CardComponent
 {
 }

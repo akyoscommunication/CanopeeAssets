@@ -4,7 +4,7 @@ namespace Akyos\CanopeeAssets\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent('button', template: 'components/button.html.twig')]
+#[AsTwigComponent('button', template: '@CanopeeAssets/components/button.html.twig')]
 final class ButtonComponent
 {
     public string $tag = 'a';
