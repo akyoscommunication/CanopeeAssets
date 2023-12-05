@@ -1,0 +1,10 @@
+{
+  "moduleResolution": "node",
+  "compilerOptions": {
+    "target": "es6",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["assets/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

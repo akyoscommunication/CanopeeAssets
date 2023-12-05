@@ -1,0 +1,20 @@
+.c-ico-text {
+	@include flex(row, nowrap, flex-start, center);
+
+	gap: rem(16);
+	line-height: 1;
+
+	&__ico {
+		transition: $default-transition;
+
+		> * {
+			@include objectFit(contain);
+
+			font-size: 150%;
+		}
+	}
+
+	&__text {
+		transition: $default-transition;
+	}
+}

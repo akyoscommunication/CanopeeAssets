@@ -1,0 +1,92 @@
+@import "widget/*.scss";
+
+.c-widget {
+	background: color(light);
+
+	&-edit {
+		--color: color(primary-500);
+
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(16);
+		justify-items: center;
+		text-align: center;
+
+		&__ico {
+			@include flex(row, nowrap, center, center);
+
+			width: rem(80);
+			height: rem(80);
+			background: var(--color);
+			color: color(light);
+			border-radius: 50%;
+
+			> * {
+				@extend %fs-32;
+				@include objectFit(contain);
+
+				max-width: rem(32);
+			}
+		}
+
+		.c-title {
+			@extend %fs-16;
+		}
+
+		.c-link {
+
+		}
+	}
+
+	&__title {
+		@extend %fs-10;
+
+		color: color(grey-600);
+		letter-spacing: rem(-0.1);
+	}
+
+	&-instance {
+		@include flex(row, nowrap, flex-start, center);
+
+		gap: rem(24);
+
+		&__ico {
+			@extend %fs-24;
+
+			cursor: pointer;
+		}
+
+		&__thumb {
+			flex: 0 0 128px;
+			background: color(grey-100);
+			border-radius: 4px;
+			overflow: hidden;
+
+			> * {
+				@include objectFit(contain);
+			}
+		}
+
+		&__content {
+			padding-block: rem(10);
+
+			.c-title {
+				margin-bottom: rem(12);
+			}
+
+			.c-text {
+				color: color(primary-200);
+			}
+		}
+
+		&.added {
+			.c-widget {
+				&-instance {
+					&__ico {
+						color: color(danger-500);
+					}
+				}
+			}
+		}
+	}
+}

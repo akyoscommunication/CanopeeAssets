@@ -1,0 +1,40 @@
+.c-pagination {
+	@extend %fs-12;
+	@include flex(row, nowrap, center, center);
+
+	letter-spacing: 0.36px;
+	gap: rem(16);
+	color: color(grey-300);
+	text-transform: initial;
+
+	&__title {
+		@extend %fw-500;
+	}
+
+	&__content {
+		@include flex(row, nowrap, center, center);
+
+		gap: rem(8);
+	}
+
+	.previous,
+	.next {
+		color: color(dark);
+	}
+
+	&-page {
+		@include flex(row, nowrap, center, center);
+
+		&__current {
+			@include flex(row, nowrap, center, center);
+
+			&:after {
+				content: '/';
+			}
+		}
+
+		&__total {
+
+		}
+	}
+}

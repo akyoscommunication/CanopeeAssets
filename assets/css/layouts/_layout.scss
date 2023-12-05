@@ -1,0 +1,38 @@
+@import "header";
+@import "grid";
+@import "sidebar";
+
+.container {
+	margin: 0 auto;
+}
+
+@each $breakpoint, $value in $breakpoints {
+	.container-#{$breakpoint} {
+		max-width: $value;
+	}
+}
+
+.l-app {
+	display: grid;
+	grid-template-columns: min(#{rem(280px)}, 100%) 1fr;
+	grid-template-rows: auto;
+	background-color: color(primary-500);
+	color: color(light);
+	padding: rem($p-app);
+	min-height: 100vh;
+	transition: $default-transition;
+}
+
+.l-main {
+	background-color: color(light);
+	color: color(primary-400);
+	border-radius: $br--main;
+	padding: rem($pv-main) rem($ph-main);
+	position: relative;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.l-content {
+	flex: 1;
+}

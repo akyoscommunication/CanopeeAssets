@@ -1,0 +1,31 @@
+{
+    "name": "akyos/canopee-assets",
+    "type": "assets",
+    "description": "Symfony Canopee Assets",
+    "license": "MIT",
+    "authors": [
+	{
+		"name": "Lilian Carneau",
+		"email": "lilian@akyos.com"
+	},
+	{
+		"name": "Thomas Sebert",
+		"email": "thomas@akyos.com"
+	},
+	{
+		"name": "Akyos Communication",
+		"homepage": "https://akyos.com"
+	}
+    ],
+    "keywords": ["assets", "canopee"],
+    "require": {
+		"php": ">=8.2"
+    },
+    "autoload": {
+        "psr-4": { "Akyos\\CanopeeAssets\\": "src/" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "minimum-stability": "stable"
+}

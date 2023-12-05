@@ -1,0 +1,18 @@
+{
+  "entrypoints": {
+    "app": {
+      "css": [
+        "/app.735bc658.css",
+        "/app.735bc658.rtl.css"
+      ],
+      "js": [
+        "/app.20668486.js"
+      ]
+    },
+    "galaxy": {
+      "js": [
+        "/galaxy.99eebf19.js"
+      ]
+    }
+  }
+}

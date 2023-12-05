@@ -1,0 +1,103 @@
+@use "sass:map";
+
+$prefix-color: '--aky-color-';
+
+$dark: #000000;
+$light: #FFFFFF;
+
+$colors-scheme-light: (
+	primary: (
+		000: #A3A6CD,
+		100: #8A8DB3,
+		200: #595C7E,
+		300: #414363,
+		400: #282A49,
+		500: #18192C, // Client
+		600: #10111D,
+	),
+
+	secondary: (
+		200: #C2AE8B,
+		500: #A48B62, // Client
+		700: #7C643D
+	),
+
+	grey: (
+		100: #EAEDF1,
+		200: #D4DAE3,
+		300: #A9B5C6,
+		400: #94A3B8,
+		500: #7D8A9C, // Client
+		600: #657181,
+		700: #4E5765,
+		800: #363E4A,
+		900: #1F252E,
+	),
+
+	success: (
+		100: #DBF8E6,
+		200: #B7F2CC,
+		300: #6EE599,
+		400: #4ADE80,
+		500: #3CB96A,
+		600: #2F9354,
+		700: #216E3D,
+		800: #144827,
+		900: #062311,
+	),
+
+	warning: (
+		100: #FEE9D8,
+		200: #FDD3B1,
+		300: #FCA863,
+		400: #FB923C,
+		500: #D47A30,
+		600: #AD6224,
+		700: #854919,
+		800: #5E310D,
+		900: #371901,
+	),
+
+	danger: (
+		100: #FCDADA,
+		200: #F9B4B4,
+		300: #F26969,
+		400: #EF4444,
+		500: #C93737,
+		600: #A32A2A,
+		700: #7C1E1E,
+		800: #561111,
+		900: #300404,
+	),
+
+	light: $light,
+	dark: $dark,
+	error: #C93737,
+);
+
+:root {
+	@each $name, $color in $colors-scheme-light {
+		// check if the color is a map
+		@if type-of($color) == 'map' {
+			@each $shade, $value in $color {
+				#{$prefix-color}#{$name}-#{$shade}: hexToRGB($value);
+			}
+		} @else {
+			#{$prefix-color}#{$name}: hexToRGB($color);
+		}
+	}
+}
+
+@each $name, $color in $colors-scheme-light {
+	@if type-of($color) == 'map' {
+		@each $shade, $value in $color {
+			.color-#{$name}-#{$shade} {
+				color: color(#{$name}-#{$shade}) !important;
+			}
+		}
+	} @else {
+		.color-#{$name} {
+			color: color(#{$name});
+		}
+	}
+}

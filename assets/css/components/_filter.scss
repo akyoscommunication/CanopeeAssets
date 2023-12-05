@@ -1,0 +1,83 @@
+.c-filter {
+	@include undoListStyles;
+	@include flex(row, wrap, flex-start, stretch);
+
+	&-live {
+		&--hovered {
+			*[data-filter] {
+				&.active {
+					border: 1px solid color(secondary-500);
+				}
+			}
+		}
+	}
+
+	> li {
+		cursor: pointer;
+		letter-spacing: rem(-0.14);
+	}
+
+	&.c-filter {
+		&--style {
+			&-1 {
+				> li {
+					@include flex(row, wrap, center, center);
+					@extend %fw-600;
+
+					text-align: center;
+					padding: rem(12.5) rem(24);
+					border-radius: $br--filter $br--filter 0 0;
+					border: 1px solid color(grey-200);
+					margin-inline: -1px;
+					background: color(light);
+					transition: $default-transition;
+					border-bottom: none;
+					position: relative;
+
+					&:hover {
+						z-index: 2 !important;
+					}
+
+					&:hover,
+					&.active {
+						text-decoration: underline;
+						z-index: 1;
+
+						&:after {
+							content: "";
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							width: 100%;
+							height: 2px;
+							background: color(light);
+							z-index: 2;
+							transform: translateY(50%);
+						}
+					}
+				}
+			}
+
+			&-2 {
+				// TODO: ça c'est n'imp, jpp de la maquette
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: rem(16);
+				margin-bottom: rem(16);
+
+				> li {
+					@extend %fw-700;
+					@extend %fs-14;
+					@extend .c-card;
+
+					padding: rem(16) rem(24);
+
+					&:hover,
+					&.active {
+						border-color: color(secondary-500);
+					}
+				}
+			}
+		}
+	}
+}

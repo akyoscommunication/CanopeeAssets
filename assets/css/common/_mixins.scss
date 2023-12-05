@@ -1,0 +1,99 @@
+@use 'sass:math';
+
+@mixin verticalCenter() {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin horizontalCenter() {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin flex($direction, $wrap, $justify-content, $align-items) {
+	display: flex;
+	flex-flow: $direction $wrap;
+	justify-content: $justify-content;
+	align-items: $align-items;
+}
+
+@mixin objectFit($object-fit, $object-position: center, $height: 100%, $width: 100%) {
+	object-fit: $object-fit;
+	object-position: $object-position;
+	height: $height;
+	width: $width;
+}
+
+@mixin theme-dark {
+	$parent-selector: &;
+	@at-root body[data-theme="dark"] #{$parent-selector} {
+		@content;
+	}
+}
+
+@mixin scrollBarStyle() {
+	&::-webkit-scrollbar {
+		width: 5px;
+		border-radius: 32px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: color(grey-100);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 32px;
+		background: color(grey-400);
+		width: 5px;
+	}
+}
+
+@function pt-to-px-unit($size-in-points){
+	@return #{ round($size-in-points * 1.333333) };
+}
+
+@function pt-to-px($size-in-points){
+	@return #{ pt-to-px-unit($size-in-points) }px;
+}
+
+@function stripUnit($value) {
+	@return math.div($value, ($value * 0 + 1));
+}
+
+@function pt-to-rem($pxValue) {
+	@return rem(pt-to-px-unit($pxValue));
+}
+
+@function rem($pxValue) {
+	@return #{math.div(stripUnit($pxValue), stripUnit($html-font-size))}rem;
+}
+
+@function color($color-name, $opacity: 1) {
+	@return rgba(var(#{$prefix-color}#{$color-name}), $opacity);
+}
+
+@function hexToRGB($hex) {
+	@return red($hex), green($hex), blue($hex);
+}
+
+@function contrast-color($color, $dark, $light) {
+	@return if(lightness($color) < $threshold, $light, $dark)
+}
+
+@mixin undoListStyles() {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+@mixin breakpoint($breakpoint) {
+	$bp-value: $breakpoint;
+
+	@if map-has-key($breakpoints, $breakpoint) {
+		$bp-value: map-get($breakpoints, $breakpoint);
+	}
+
+	@media only screen and (max-width: $bp-value) {
+		@content;
+	}
+}

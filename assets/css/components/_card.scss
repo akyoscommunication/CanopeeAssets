@@ -1,0 +1,18 @@
+.c-card {
+	box-shadow: $default-shadow;
+	padding: rem(24);
+	border-radius: $br--card;
+	border: 1px solid color(grey-100);
+
+	&.c-card {
+		&--padding {
+			&-none {
+				padding: 0;
+			}
+
+			&-sm {
+				padding: rem(16) rem(24);
+			}
+		}
+	}
+}
