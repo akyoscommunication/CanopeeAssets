@@ -1,14 +1,14 @@
-import React, {useEffect, useReducer, useRef, useState} from 'react';
+import React from 'react';
 import List from "@canopee_app/assets/react/components/Widget/List";
 import {WidgetCreateProvider} from "@canopee_app/assets/react/provider/Widget/widgetCreateProvider";
 import {getComponent} from "@symfony/ux-live-component";
 
 export default function ({ widgets, instances, controller }) {
-	const [state, setState] = useState({
+	const [state, setState] = React.useState({
 		loading: false,
 		controller: null,
 	});
-	const dialog = useRef(null);
+	const dialog = React.useRef(null);
 	
 	const widgetAlreadyAdded = widget => {
 		return instances.find(instance => instance.widget.id === widget.id);
@@ -34,7 +34,7 @@ export default function ({ widgets, instances, controller }) {
 		setState({ ...state, controller: component });
 	}
 	
-	useEffect(() => {
+	React.useEffect(() => {
 		dialog.current && dialog.current.addEventListener('click', evt => {
 			if (evt.target === dialog.current) {
 				toggleIsOpen();
@@ -42,7 +42,7 @@ export default function ({ widgets, instances, controller }) {
 		})
 	}, []);
 	
-	useEffect(() => {
+	React.useEffect(() => {
 		fetchComponent().catch(err => console.error(err));
 	}, []);
 	

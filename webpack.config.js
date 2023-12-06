@@ -2,6 +2,10 @@ const Encore = require('@symfony/webpack-encore');
 const {resolve} = require("path");
 const globImporter = require('node-sass-glob-importer');
 
+if (!Encore.isRuntimeEnvironmentConfigured()) {
+    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
+}
+
 Encore
     .setOutputPath('./src/Resources/public/')
     .setPublicPath('/bundles/canopeeassets/')
@@ -31,7 +35,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('galaxy', './assets/js/components/Galaxy/index.tsx')
     
-    .enableStimulusBridge('./assets/controllers.json')
+    // .enableStimulusBridge('./assets/controllers.json')
 ;
 
 module.exports = Encore.getWebpackConfig();

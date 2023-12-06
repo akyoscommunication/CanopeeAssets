@@ -1,9 +1,9 @@
-import React, {memo, useContext} from "react";
+import React from "react";
 import {WidgetContext, WidgetDispatchContext} from "@canopee_app/assets/react/provider/Widget/widgetCreateProvider";
 
-const ListItem = memo(({ widget }) => {
-	const widgetContext = useContext(WidgetContext);
-	const dispatch = useContext(WidgetDispatchContext);
+const ListItem = React.memo(({ widget }) => {
+	const widgetContext = React.useContext(WidgetContext);
+	const dispatch = React.useContext(WidgetDispatchContext);
 	
 	const addWidget = () => {
 		widgetContext.controller?.action('add', { widget: widget.id }).then(() => {

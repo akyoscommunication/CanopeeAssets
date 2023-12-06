@@ -1,7 +1,5 @@
 import './css/app.scss';
 
-import { registerReactControllerComponents } from '@symfony/ux-react';
-
 import './bootstrap.js';
 import Sidebar from "./js/components/Sidebar.js";
 import {FlashMessages} from "./js/components/FlashMessages.ts";
@@ -12,5 +10,3 @@ window.addEventListener('DOMContentLoaded', () => {
 	FlashMessages.register();
 	Tooltip.register();
 });
-
-registerReactControllerComponents(require.context('./react/controllers', true, /\.(j|t)sx?$/));

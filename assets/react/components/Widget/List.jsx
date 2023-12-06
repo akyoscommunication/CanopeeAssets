@@ -1,10 +1,10 @@
-import React, {useContext, useState} from "react";
+import React from "react";
 import ListItem from "@canopee_app/assets/react/components/Widget/ListItem";
 import {WidgetContext} from "@canopee_app/assets/react/provider/Widget/widgetCreateProvider";
 
 export default function ({ loading }) {
-	const widgetContext = useContext(WidgetContext);
-	const [state, setState] = useState({
+	const widgetContext = React.useContext(WidgetContext);
+	const [state, setState] = React.useState({
 		search: '',
 	});
 	

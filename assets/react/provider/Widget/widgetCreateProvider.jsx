@@ -1,10 +1,10 @@
-import React, {createContext, useEffect, useReducer} from "react";
+import React from "react";
 
-export const WidgetContext = createContext({
+export const WidgetContext = React.createContext({
 	widgets: [],
 	controller: null,
 });
-export const WidgetDispatchContext = createContext(null);
+export const WidgetDispatchContext = React.createContext(null);
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -46,12 +46,12 @@ const reducer = (state, action) => {
 }
 
 export function WidgetCreateProvider({ widgets, controller, children }) {
-	const [ws, dispatch] = useReducer(reducer, {
+	const [ws, dispatch] = React.useReducer(reducer, {
 		widgets,
 		controller,
 	});
 	
-	useEffect(() => {
+	React.useEffect(() => {
 		if (controller) {
 			dispatch({ type: 'setController', payload: controller });
 		}
