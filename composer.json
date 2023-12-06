@@ -21,11 +21,7 @@
     "require": {
       "php": ">=8.2",
       "symfony/twig-bundle": "6.3.*",
-      "symfony/ux-autocomplete": "*",
-      "symfony/ux-dropzone": "^2.12",
       "symfony/ux-live-component": "^2.12",
-      "symfony/ux-react": "^2.12",
-      "symfony/ux-toggle-password": "^2.12",
       "symfony/ux-translator": "^2.13",
       "symfony/ux-twig-component": "^2.12"
     },
