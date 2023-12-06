@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as React from "react";
 import { GalaxyContext } from "../provider";
 import ListItem from "./ListItem";

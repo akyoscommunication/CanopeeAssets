@@ -1,3 +1,4 @@
+// @ts-ignore
 import React, {createContext} from "react";
 
 export const GalaxyContext = createContext({

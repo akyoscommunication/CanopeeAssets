@@ -1,5 +1,7 @@
+// @ts-ignore
 import * as React from "react";
 import Galaxy from "./Galaxy";
+// @ts-ignore
 import {createRoot} from "react-dom/client";
 
 class GalaxyElement extends HTMLElement {

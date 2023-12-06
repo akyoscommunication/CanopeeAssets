@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as React from "react";
 
 // type item as ExternalLink
