@@ -34,5 +34,13 @@ class CanopeeAssetsExtension extends Extension implements PrependExtensionInterf
                 ],
             ]);
         }
+
+        if (isset($bundles['WebpackEncoreBundle'])) {
+            $container->prependExtensionConfig('webpack_encore', [
+                'builds' => [
+                    'canopee' => '%kernel.project_dir%/public/bundles/canopeeassets',
+                ],
+            ]);
+        }
     }
 }
