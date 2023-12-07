@@ -1,139 +1,139 @@
 .c-table {
-  @extend %fs-12;
-
-  width: 100%;
-  border-spacing: 0;
-
-  &.c-table--style {
-	&-2 {
-	  thead {
-		tr {
-		  th {
-			&:first-child {
-			  padding-left: 0;
-			}
-
-			&:last-child {
-			  padding-right: 0;
-			}
-		  }
-		}
-	  }
-
-	  tbody {
-		tr {
-		  td {
-			border-top: 1px solid color(grey-100);
-			padding-block: rem(16);
-
-			&:first-child {
-			  padding-left: 0;
-			}
-
-			&:last-child {
-			  padding-right: 0;
-			}
-		  }
-
-		  &:first-child {
-			td {
-			  border-top: 0;
-			}
-		  }
-
-		  &:nth-child(even) {
-			background-color: transparent;
-		  }
-		}
-	  }
-	}
-  }
-
-  &__h {
-	@include flex(row, nowrap, flex-start, center);
-
-	gap: rem(16);
-
-	a {
-	  @include flex(row, nowrap, flex-start, center);
-
-	  gap: rem(10);
-	}
-  }
-
-  &__sort {
-	@include flex(column, nowrap, center, center);
-
-	font-size: rem(5);
-
-	&.asc {
-	  > * {
-		&:first-child {
-		  opacity: .3;
-		}
-
-		&:last-child {
-		  opacity: 1;
-		}
-	  }
-	}
-
-	&.desc {
-	  > * {
-		&:first-child {
-		  opacity: 1;
-		}
-
-		&:last-child {
-		  opacity: .3;
-		}
-	  }
-	}
-  }
-
-  &__wrapper {
-	@include scrollBarStyle;
+	@extend %fs-12;
 
 	width: 100%;
-	overflow-x: scroll;
-	box-shadow: $default-shadow;
-	border: 1px solid color(grey-100);
-	border-radius: rem($br--main);
-  }
+	border-spacing: 0;
 
-  &-filter {
-	padding-inline: rem(24);
-  }
+	&.c-table--style {
+		&-2 {
+			thead {
+				tr {
+					th {
+						&:first-child {
+							padding-left: 0;
+						}
 
-  thead {
-	tr {
-	  th {
-		@extend %fw-600;
+						&:last-child {
+							padding-right: 0;
+						}
+					}
+				}
+			}
 
-		padding-inline: rem(32);
-		padding-block: rem(24);
-		text-transform: uppercase;
-		text-align: left;
-	  }
-	}
-  }
+			tbody {
+				tr {
+					td {
+						border-top: 1px solid color(grey-100);
+						padding-block: rem(16);
 
-  tbody {
-	tr {
-	  &:first-child {
-		td {
-		  border-top: 1px solid color(grey-100);
+						&:first-child {
+							padding-left: 0;
+						}
+
+						&:last-child {
+							padding-right: 0;
+						}
+					}
+
+					&:first-child {
+						td {
+							border-top: 0;
+						}
+					}
+
+					&:nth-child(even) {
+						background-color: transparent;
+					}
+				}
+			}
 		}
-	  }
-
-	  &:nth-child(even) {
-		background-color: color(grey-100, .6);
-	  }
-
-	  td {
-		padding-inline: rem(32);
-		padding-block: rem(6);
-	  }
 	}
-  }
+
+	&__h {
+		@include flex(row, nowrap, flex-start, center);
+
+		gap: rem(16);
+
+		a {
+			@include flex(row, nowrap, flex-start, center);
+
+			gap: rem(10);
+		}
+	}
+
+	&__sort {
+		@include flex(column, nowrap, center, center);
+
+		font-size: rem(5);
+
+		&.asc {
+			> * {
+				&:first-child {
+					opacity: .3;
+				}
+
+				&:last-child {
+					opacity: 1;
+				}
+			}
+		}
+
+		&.desc {
+			> * {
+				&:first-child {
+					opacity: 1;
+				}
+
+				&:last-child {
+					opacity: .3;
+				}
+			}
+		}
+	}
+
+	&__wrapper {
+		@include scrollBarStyle;
+		@extend %br--24;
+
+		width: 100%;
+		overflow-x: scroll;
+		box-shadow: $default-shadow;
+		border: 1px solid color(grey-100);
+	}
+
+	&-filter {
+		padding-inline: rem(24);
+	}
+
+	thead {
+		tr {
+			th {
+				@extend %fw-600;
+
+				padding-inline: rem(32);
+				padding-block: rem(24);
+				text-transform: uppercase;
+				text-align: left;
+			}
+		}
+	}
+
+	tbody {
+		tr {
+			&:first-child {
+				td {
+					border-top: 1px solid color(grey-100);
+				}
+			}
+
+			&:nth-child(even) {
+				background-color: color(grey-100, .6);
+			}
+
+			td {
+				padding-inline: rem(32);
+				padding-block: rem(6);
+			}
+		}
+	}
 }

@@ -1,8 +1,8 @@
 .c-badge {
 	@extend %fs-12;
+	@extend %br--12;
 
 	padding: rem(8) rem(12);
-	border-radius: $br--badge-md;
 	letter-spacing: -0.12px;
 	white-space: nowrap;
 	display: inline-block;
@@ -16,9 +16,9 @@
 		&--size {
 			&-xs {
 				@extend %fw-700;
+				@extend %br--48;
 
 				padding: rem(3.9) rem(7.8);
-				border-radius: $br--badge-xs;
 			}
 		}
 

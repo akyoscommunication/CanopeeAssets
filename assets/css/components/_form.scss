@@ -31,10 +31,11 @@ $fields: '.ts-wrapper.single .ts-control',
 
 			&.c-form-group__input {
 				&--img {
+					@extend %br--8;
+
 					--max-width: 100%;
 
 					padding: rem(16);
-					border-radius: rem($br--filter);
 					background-color: color(primary-500);
 					height: rem(90);
 					overflow: hidden;
@@ -192,6 +193,7 @@ form {
 
 		> label {
 			@extend %fs-12;
+			@extend %br--4;
 
 			position: absolute;
 			top: 0;
@@ -200,7 +202,6 @@ form {
 			padding-inline: rem(3.34);
 			transform: translateY(-50%);
 			color: color(secondary-500);
-			border-radius: rem($br--input);
 			z-index: 2;
 
 			&.required {
@@ -213,11 +214,12 @@ form {
 		}
 
 		#{$fields} {
+			@extend %br--4;
+
 			background-color: transparent;
 			background-image: none;
 			box-shadow: none;
 			font-family: $font-family;
-			border-radius: rem($br--input);
 			border: 1px solid color(grey-500);
 			display: block;
 			width: 100%;
@@ -297,13 +299,14 @@ form {
 					+ .custom-file-label {
 						@include flex(row, nowrap, center, center);
 						@extend %fs-14;
+						@extend %br--4;
 
 						padding: rem($p-input) rem(16);
 						transition: $default-transition;
 						background-color: color(secondary-500);
 						color: color(light);
-						border-top-right-radius: rem($br--input);
-						border-bottom-right-radius: rem($br--input);
+						border-top-left-radius: 0;
+						border-bottom-left-radius: 0;
 						flex: 0 0 auto;
 					}
 

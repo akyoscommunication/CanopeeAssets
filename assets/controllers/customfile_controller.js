@@ -1,5 +1,5 @@
 import {Controller} from '@hotwired/stimulus';
-import {uniqueId} from "@canopee_app/assets/js/utils";
+import {uniqueId} from "./../js/utils";
 
 export default class extends Controller {
 	static targets = ['input', 'preview'];

@@ -5,23 +5,38 @@
 	gap: rem(16);
 
 	&__avatar {
-		overflow: hidden;
 		border-radius: 50%;
 		width: rem(48);
 		height: rem(48);
+		aspect-ratio: 1;
 		background-color: color(primary-500);
+		position: relative;
 
 		> * {
 			@include objectFit(cover);
+
+			position: absolute;
+			inset: 0;
+			border-radius: 50%;
 		}
+	}
+
+	&__job {
+		color: color(grey-300);
+	}
+
+	&__name {
+		margin-bottom: rem(8);
+	}
+
+	&__status {
+		@extend %fs-10;
+
+		text-transform: uppercase;
 	}
 
 	&__content {
 		text-align: right;
-
-		.c-title {
-
-		}
 
 		.c-link {
 			@extend %fs-14;
@@ -29,6 +44,57 @@
 			color: color(secondary-500);
 			margin-top: rem(16);
 			text-decoration: underline;
+		}
+	}
+
+	&.c-profile {
+		&--style-1 {
+			@extend %fs-10;
+			@include flex(column, nowrap, center, center);
+
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+
+			.c-profile {
+				&__avatar {
+					width: 75%;
+					height: auto;
+				}
+
+				&__content {
+					@include flex(column, nowrap, flex-end, flex-start);
+
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					gap: rem(16);
+					text-align: left;
+					background-color: color(light);
+					padding: rem(28) rem(12);
+					transform: translateY(100%);
+					transition: $default-transition;
+					word-wrap: break-word;
+
+					> * {
+						width: 100%;
+					}
+
+					.c-text {
+						line-height: 2;
+					}
+				}
+			}
+
+			&:hover {
+				.c-profile {
+					&__content {
+						transform: translateY(0);
+					}
+				}
+			}
 		}
 	}
 }

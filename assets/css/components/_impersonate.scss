@@ -1,0 +1,24 @@
+.c-impersonate {
+	@extend %br--8;
+
+	z-index: 11;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: color(primary-500);
+	padding: rem(16);
+
+	form {
+		@extend .c-button-group;
+		@include flex(row, nowrap, center, center);
+
+		.ts-dropdown {
+			@extend %br--4;
+
+			top: unset;
+			bottom: 100%;
+			border-top: 1px solid #d0d0d0;
+			border-bottom: 0 none;
+		}
+	}
+}

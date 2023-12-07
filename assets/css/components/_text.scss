@@ -1,0 +1,13 @@
+.c-text {
+	@each $s, $v in $spaces {
+		&.mb-#{$s} {
+			margin-bottom: rem($v);
+		}
+	}
+
+	&--sm {
+		@extend %fs-12;
+
+		line-height: 1;
+	}
+}

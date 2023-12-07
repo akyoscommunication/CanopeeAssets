@@ -6,9 +6,9 @@ $colors: (
 .c-toast {
 	@extend %fs-20;
 	@include flex(row, nowrap, flex-start, center);
+	@extend %br--16;
 
 	padding: rem(28);
-	border-radius: $br--card;
 	gap: rem(10);
 	cursor: pointer;
 

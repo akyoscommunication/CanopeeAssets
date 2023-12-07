@@ -2,6 +2,7 @@
 	&.c-external-link {
 		@include flex(column, nowrap, center, center);
 		@extend %fs-10;
+		@extend %br--12;
 
 		--color: color(primary-500);
 
@@ -10,7 +11,6 @@
 		aspect-ratio: 1;
 		color: color(light);
 		gap: rem(6);
-		border-radius: $br--badge-md;
 		overflow: hidden;
 		text-align: center;
 		max-width: rem(84);

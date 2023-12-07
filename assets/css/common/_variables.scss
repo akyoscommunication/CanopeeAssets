@@ -10,13 +10,17 @@ $pv-main: 16px;
 
 $default-shadow: 1.95055px 3.9011px 9.75275px -2.92583px rgba(40, 42, 73, 0.15);
 
-$br--card: 16px;
-$br--button: 6px;
-$br--main: 24px;
-$br--badge-xs: 46.813px;
-$br--badge-md: 13px;
-$br--input: 3.371px;
-$br--filter: 8px;
+$brs: (
+	'0': 0,
+	'4': 4px,
+	'6': 6px,
+	'8': 8px,
+	'12': 12px,
+	'16': 16px,
+	'24': 24px,
+	'32': 32px,
+	'48': 48px,
+);
 
 $grid-gap: 28px;
 

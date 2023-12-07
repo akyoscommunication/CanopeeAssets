@@ -1,11 +1,11 @@
 .c-tooltip {
 	@extend %fs-10;
+	@extend %br--8;
 	@include flex(row, nowrap, flex-start, center);
 
 	position: fixed;
 	padding: rem(8);
 	background-color: color(light);
-	border-radius: $br--filter;
 	z-index: 1;
 	pointer-events: none;
 	box-shadow: $default-shadow;

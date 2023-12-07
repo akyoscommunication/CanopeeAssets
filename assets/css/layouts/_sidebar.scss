@@ -25,7 +25,8 @@
 		}
 
 		.c-nav-item {
-			border-radius: rem($br--card);
+			@extend %br--16;
+
 			width: 100%;
 			overflow: hidden;
 
@@ -92,11 +93,11 @@
 
 	&__close {
 		@include flex(row, nowrap, flex-start, center);
+		@extend %br--16;
 
 		padding: rem(16) rem(24);
 		margin-top: rem(108);
 		transition: $default-transition;
-		border-radius: rem($br--card);
 
 		&:hover {
 			background-color: color(primary-200);

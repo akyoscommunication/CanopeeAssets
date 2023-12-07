@@ -23,10 +23,12 @@
 				> li {
 					@include flex(row, wrap, center, center);
 					@extend %fw-600;
+					@extend %br--8;
 
 					text-align: center;
 					padding: rem(12.5) rem(24);
-					border-radius: $br--filter $br--filter 0 0;
+					border-bottom-left-radius: 0;
+					border-bottom-right-radius: 0;
 					border: 1px solid color(grey-200);
 					margin-inline: -1px;
 					background: color(light);

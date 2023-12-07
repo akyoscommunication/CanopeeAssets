@@ -1,4 +1,6 @@
 .c-modal {
+	@extend %br--16;
+
 	position: fixed;
 	inset: 0;
 	border: 0;
@@ -7,7 +9,6 @@
 	width: 100%;
 	aspect-ratio: 1;
 	overflow: hidden;
-	border-radius: $br--card;
 	color: color(primary);
 	background: color(light);
 	box-shadow: $default-shadow;

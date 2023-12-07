@@ -47,10 +47,17 @@ $dark: map-get($colors-scheme-light, "dark");
 	&--style {
 		&-default {
 			@extend %fw-700;
+			@extend %br--6;
 
-			border-radius: $br--button;
 			padding: rem(10) rem(16);
 			gap: rem(8);
+		}
+
+		&-large {
+			@extend .c-button--style-default;
+
+			max-width: rem(250);
+			width: 100%;
 		}
 
 		&-underline {

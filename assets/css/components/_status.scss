@@ -1,0 +1,21 @@
+.c-status {
+	--status-color: rgba(var(#{$prefix-color}primary-500), 1);
+
+	position: relative;
+
+	> * {
+		width: 100%;
+	}
+
+	&:after {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 10%;
+		border-radius: 50%;
+		border: 1px solid color(light);
+		width: 20%;
+		aspect-ratio: 1;
+		background-color: var(--status-color);
+	}
+}

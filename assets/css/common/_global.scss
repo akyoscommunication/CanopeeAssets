@@ -44,3 +44,21 @@ a {
     overflow-y: scroll;
     height: 100%;
 }
+
+.u-center-x {
+    margin-inline: auto;
+}
+
+.u-left {
+    margin-inline-end: auto;
+}
+
+.u-right {
+    margin-inline-start: auto;
+}
+
+@each $br, $value in $brs {
+    %br--#{$br} {
+        border-radius: $value;
+    }
+}

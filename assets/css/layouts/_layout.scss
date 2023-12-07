@@ -24,9 +24,10 @@
 }
 
 .l-main {
+	@extend %br--24;
+
 	background-color: color(light);
 	color: color(primary-400);
-	border-radius: $br--main;
 	padding: rem($pv-main) rem($ph-main);
 	position: relative;
 	display: flex;

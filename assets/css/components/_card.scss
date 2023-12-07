@@ -1,7 +1,8 @@
 .c-card {
+	@extend %br--16;
+
 	box-shadow: $default-shadow;
 	padding: rem(24);
-	border-radius: $br--card;
 	border: 1px solid color(grey-100);
 
 	&.c-card {
