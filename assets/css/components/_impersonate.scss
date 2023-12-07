@@ -1,12 +1,14 @@
 .c-impersonate {
+	@include flex(row, nowrap, center, center);
 	@extend %br--8;
 
 	z-index: 11;
 	position: fixed;
-	bottom: 0;
-	left: 0;
-	background-color: color(primary-500);
+	bottom: calc(#{$p-app} + rem(16));
+	left: calc(#{$p-app} + rem(16));
+	background-color: color(primary-200);
 	padding: rem(16);
+	box-shadow: $default-shadow;
 
 	form {
 		@extend .c-button-group;

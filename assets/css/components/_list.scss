@@ -1,0 +1,24 @@
+.c-list {
+	@include undoListStyles;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: rem(8);
+
+	&-item {
+		@include flex(row, nowrap, space-between, center);
+		@extend %br--6;
+
+		padding: rem(14) rem(12);
+		border: 1px solid color(grey-100);
+
+		&__name {
+			@extend %fw-700;
+			@extend %fs-14;
+		}
+
+		&__date {
+			@extend %fs-10;
+		}
+	}
+}

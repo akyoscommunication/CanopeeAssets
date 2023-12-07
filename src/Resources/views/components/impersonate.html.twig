@@ -2,10 +2,12 @@
     {% if app.user and is_granted('ROLE_ALLOWED_TO_SWITCH') %}
         {{ form_start(form) }}
                 {{ form_widget(form) }}
-                <twig:button tag="button" appearance="secondary">Superviser</twig:button>
+                <div class="c-button-group">
+                    <twig:button tag="button" appearance="primary">Superviser</twig:button>
+                    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                        <twig:button tag="a" href="{{ path('app.dashboard.index', {'_switch_user': '_exit'}) }}" appearance="danger">Quitter le compte</twig:button>
+                    {% endif %}
+                </div>
         {{ form_end(form) }}
-    {% endif %}
-    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
-        <twig:button tag="a" href="{{ path('app.dashboard.index', {'_switch_user': '_exit'}) }}">Quitter le compte</twig:button>
     {% endif %}
 </div>

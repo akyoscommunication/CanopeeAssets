@@ -57,6 +57,41 @@ a {
     margin-inline-start: auto;
 }
 
+.u-bg {
+    @each $name, $color in $colors-scheme-light {
+        @if type-of($color) == 'map' {
+            @each $shade, $value in $color {
+                &-#{$name}-#{$shade} {
+                    background-color: color(#{$name}-#{$shade}) !important;
+                }
+            }
+        } @else {
+            &-#{$name} {
+                background-color: color(#{$name});
+            }
+        }
+    }
+
+    &--c {
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+            @extend %fw-700;
+
+            content: "c";
+            position: absolute;
+            top: 100%;
+            left: 15%;
+            transform: translateY(-25%) rotate(45deg);
+            color: color(light);
+            font-size: 400px;
+            opacity: .1;
+            line-height: .5;
+        }
+    }
+}
+
 @each $br, $value in $brs {
     %br--#{$br} {
         border-radius: $value;

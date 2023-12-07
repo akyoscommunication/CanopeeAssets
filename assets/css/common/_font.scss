@@ -45,13 +45,13 @@ $fontSizes : (
 	}
 }
 
-//.fs {
-//	@each $size, $lineHeight in $fontSizes {
-//		&-#{$size} {
-//			@extend %fs-#{$size};
-//		}
-//	}
-//}
+.fs {
+	@each $size, $lineHeight in $fontSizes {
+		&-#{$size} {
+			@extend %fs-#{$size};
+		}
+	}
+}
 
 %ff {
 	&-sora {

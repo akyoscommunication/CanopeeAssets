@@ -16,5 +16,6 @@
 
 	&__text {
 		transition: $default-transition;
+		word-break: break-word;
 	}
 }

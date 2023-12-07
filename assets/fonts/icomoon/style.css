@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ze2dj5');
-  src:  url('fonts/icomoon.eot?ze2dj5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ze2dj5') format('truetype'),
-    url('fonts/icomoon.woff?ze2dj5') format('woff'),
-    url('fonts/icomoon.svg?ze2dj5#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?hnn4ud');
+  src:  url('fonts/icomoon.eot?hnn4ud#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?hnn4ud') format('truetype'),
+    url('fonts/icomoon.woff?hnn4ud') format('woff'),
+    url('fonts/icomoon.svg?hnn4ud#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,63 +25,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icomoon-talk:before {
-  content: "\e937";
-}
-.icomoon-pin:before {
-  content: "\e938";
-}
-.icomoon-phone:before {
-  content: "\e939";
-}
-.icomoon-arobase:before {
-  content: "\e93a";
-}
-.icomoon-comment:before {
-  content: "\e928";
-}
-.icomoon-cutlery:before {
-  content: "\e929";
-}
-.icomoon-transports:before {
-  content: "\e92a";
-}
-.icomoon-contract-sign:before {
-  content: "\e92b";
-}
-.icomoon-briefcase:before {
-  content: "\e92c";
-}
-.icomoon-puzzle:before {
-  content: "\e92d";
-}
-.icomoon-diploma:before {
-  content: "\e92e";
-}
-.icomoon-trophee:before {
-  content: "\e92f";
-}
-.icomoon-planning-event:before {
-  content: "\e930";
-}
-.icomoon-train:before {
-  content: "\e931";
-}
-.icomoon-car:before {
-  content: "\e932";
-}
-.icomoon-walk:before {
-  content: "\e933";
-}
-.icomoon-scooter:before {
-  content: "\e934";
-}
-.icomoon-bus:before {
-  content: "\e935";
-}
-.icomoon-bike:before {
-  content: "\e936";
-}
 .icomoon-times:before {
   content: "\e927";
 }

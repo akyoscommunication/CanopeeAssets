@@ -151,6 +151,18 @@ $dark: map-get($colors-scheme-light, "dark");
 					}
 				}
 			}
+		} @else {
+			&--#{$name} {
+				&.c-button {
+					&--style {
+						&-underline {
+							&:after {
+								background-color: color($name);
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }
