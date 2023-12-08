@@ -2,7 +2,7 @@
 
 namespace Akyos\CanopeeAssets\Twig\Components;
 
-use App\Form\App\ImpersonateType;
+use Akyos\CanopeeAssets\Form\ImpersonateType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\UX\LiveComponent\ComponentWithFormTrait;

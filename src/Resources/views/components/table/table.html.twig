@@ -1,0 +1,27 @@
+<div class="c-table__wrapper l-grid-col--12">
+    <table class="c-table">
+        <thead>
+        <tr>
+            {% set count = 0 %}
+            {% for th in tHeader %}
+                {% set count = count + 1 %}
+                <th {% if th.sort and elements.isSorted(th.sort) %} class="sorted"{% endif %}>
+                    {{ th.sort ? knp_pagination_sortable(elements, th.name|upper, th.sort) : th.name|upper }}
+                </th>
+            {% endfor %}
+            <th>{{ knp_pagination_render(elements, 'theme/Pagination/live_sliding.html.twig') }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for el in elements %}
+            {% include trTemplate with {'el': el} %}
+        {% endfor %}
+
+        {% if elements is empty %}
+            <tr>
+                <td colspan="{{ count + 1 }}">{{ 'no_elements'|trans({}, 'common') }}</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>

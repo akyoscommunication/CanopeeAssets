@@ -1,0 +1,168 @@
+{% use "bootstrap_4_layout.html.twig" %}
+
+{% block form_label -%}
+	{% if label is not same as(false) -%}
+		{%- if compound is defined and compound -%}
+			{%- set element = 'legend' -%}
+			{%- set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' col-form-label')|trim}) -%}
+		{%- else -%}
+			{%- set label_attr = label_attr|merge({for: id}) -%}
+		{%- endif -%}
+		{% if required -%}
+			{% set label_attr = label_attr|merge({class: (label_attr.class|default('') ~ ' required')|trim}) %}
+		{%- endif -%}
+		<{{ element|default('label') }}{% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
+		{{- block('form_label_content') -}}
+		</{{ element|default('label') }}>
+	{%- endif -%}
+{%- endblock form_label %}
+
+{% block form_row -%}
+	{%- if compound is defined and compound -%}
+		{%- set element = 'fieldset' -%}
+	{%- endif -%}
+	{%- set widget_attr = {} -%}
+	{%- if help is not empty -%}
+		{%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
+	{%- endif -%}
+	<{{ element|default('div') }}{% with {attr: row_attr|merge({
+	class: (row_attr.class|default('') ~ ' form-group'~(errors|length > 0 ? ' form-group--has-errors' : '')~(disabled ? ' form-group--is-disabled' : ''))|trim
+})} %}{{ block('attributes') }}{% endwith %}>
+	{{- form_label(form) -}}
+	{{- form_widget(form, widget_attr) -}}
+	{{- form_help(form) -}}
+	{{- form_errors(form) -}}
+	</{{ element|default('div') }}>
+{%- endblock form_row %}
+
+{% block form_errors -%}
+	{%- if errors|length > 0 -%}
+		<ul class="form-group__errors">
+			{%- for error in errors -%}
+				<li>{{ error.message }}</li>
+			{%- endfor -%}
+		</ul>
+	{%- endif %}
+{%- endblock form_errors %}
+
+{%- block form_widget_compound -%}
+	{%- if form is rootform -%}
+		{% set attr = attr|merge({ class: 'l-grid' }) %}
+	{%- endif -%}
+	<div {{ block('widget_container_attributes') }}>
+		{%- if form is rootform -%}
+			{{ form_errors(form) }}
+		{%- endif -%}
+		{{- block('form_rows') -}}
+		{{- form_rest(form) -}}
+	</div>
+{%- endblock form_widget_compound -%}
+
+{% block file_widget -%}
+<div class="c-custom-file__wrapper" {{ stimulus_controller('customfile') }}>
+	<{{ element|default('div') }} class="c-custom-file">
+	{%- set type = type|default('file') -%}
+	{%- set input_lang = 'en' -%}
+	{% if app is defined and app.request is defined %}{%- set input_lang = app.request.locale -%}{%- endif -%}
+	{%- set attr = {lang: input_lang} | merge(attr) -%}
+	{{- block('form_widget_simple') -}}
+	{%- set label_attr = label_attr|merge({ class: (label_attr.class|default('') ~ ' custom-file-label')|trim })|filter((value, key) => key != 'id') -%}
+	<label for="{{ form.vars.id }}" {% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
+		{%- if attr.placeholder is defined and attr.placeholder is not none -%}
+			{{- translation_domain is same as(false) ? attr.placeholder : attr.placeholder|trans({}, translation_domain) -}}
+		{% else %}
+			{{ 'browse'|trans({}, 'common') }}
+		{%- endif -%}
+	</label>
+	</{{ element|default('div') }}>
+	{% if file is defined and file %}
+		<div {{ stimulus_target('customfile', 'preview') }} class="c-custom-file__preview c-form-group__input c-form-group__input--img c-form-group__input--img--cover" data-live-id="{{ file.uniqid }}">
+			{% if file.url %}
+				<img src="{{ file.url }}" alt="{{ file.name }}" data-live-id="{{ id }}">
+			{% endif %}
+		</div>
+	{% endif %}
+	</div>
+{% endblock %}
+
+{% block live_collection_button_delete_widget %}
+	{% set attr = attr|merge({'class': attr.class|default('c-button c-button--secondary c-button--style-nothing c-button--is-only-ico')}) %}
+	{% set translation_domain = false %}
+	{% set label_html = true %}
+	{%- set label -%}
+		<div class="c-button__ico">
+			<i class="icomoon-minus-circle"></i>
+		</div>
+		{% if label %}
+			{{ label|raw }}
+		{% endif %}
+	{%- endset -%}
+	{{ block('button_widget') }}
+{% endblock live_collection_button_delete_widget %}
+
+{% block live_collection_button_add_widget %}
+	{% set attr = attr|merge({'class': attr.class|default('c-button c-button--secondary c-button--style-default')}) %}
+	{% set label_html = true %}
+	{%- set label -%}
+		<div class="c-button__ico">
+			<i class="icomoon-plus-circle"></i>
+		</div>
+		{{ label|trans({}, translation_domain) }}
+	{%- endset -%}
+	{{ block('button_widget') }}
+{% endblock live_collection_button_add_widget %}
+
+{%- block live_collection_entry_row -%}
+	{{ block('form_row') }}
+{%- endblock live_collection_entry_row -%}
+
+{%- block live_collection_entry_widget -%}
+	<div class="l-grid">
+		<div class="l-grid-col--11">
+			{{ block('form_widget') }}
+		</div>
+		{%- if button_delete is defined and not button_delete.rendered -%}
+			<div class="l-grid-col--1 l-grid-col--middle">
+				{{ form_row(button_delete) }}
+			</div>
+		{%- endif -%}
+	</div>
+{%- endblock live_collection_entry_widget -%}
+
+{%- block live_collection_widget -%}
+	{{ block('form_widget') }}
+{%- endblock -%}
+
+{%- block live_collection_row -%}
+	{{ block('form_row') }}
+	{%- if button_add is defined and not button_add.rendered -%}
+		{{ form_row(button_add) }}
+	{%- endif -%}
+{%- endblock -%}
+
+{%- block choice_switch_widget -%}
+	<div {{ block('widget_container_attributes') }}>
+		{%- for child in form %}
+			{{- form_widget(child, {
+				multiple: multiple,
+				valid: valid,
+			}) -}}
+		{% endfor -%}
+	</div>
+{%- endblock -%}
+
+{%- block switch_widget -%}
+	{% set type = 'radio' %}
+	{% if multiple is defined and multiple %}
+		{% set type = 'checkbox' %}
+	{% endif %}
+	<div class="form-switch">
+		<input type="{{ type }}" {{ block('widget_attributes') }} id="{{ id }}" value="{{ value }}"/>
+		<label for="{{ id }}">
+			{%- if label is not same as(false) -%}
+				{{- block('form_label_content') -}}
+			{%- endif -%}
+			{{- form_errors(form) -}}
+		</label>
+	</div>
+{%- endblock -%}
