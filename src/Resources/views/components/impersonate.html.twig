@@ -1,5 +1,5 @@
 <div{{ attributes.defaults({class: 'c-impersonate'}) }}>
-    {% if app.user and is_granted('ROLE_ALLOWED_TO_SWITCH') %}
+    {% if app.user and is_granted('ROLE_ALLOWED_TO_SWITCH') or is_granted('ROLE_PREVIOUS_ADMIN') %}
         {{ form_start(form) }}
                 {{ form_widget(form) }}
                 <div class="c-button-group">
