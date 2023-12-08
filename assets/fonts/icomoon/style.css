@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ze2dj5');
-  src:  url('fonts/icomoon.eot?ze2dj5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ze2dj5') format('truetype'),
-    url('fonts/icomoon.woff?ze2dj5') format('woff'),
-    url('fonts/icomoon.svg?ze2dj5#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?zfz16q');
+  src:  url('fonts/icomoon.eot?zfz16q#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?zfz16q') format('truetype'),
+    url('fonts/icomoon.woff?zfz16q') format('woff'),
+    url('fonts/icomoon.svg?zfz16q#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icomoon-euro-rounded:before {
+  content: "\e93b";
+}
+.icomoon-promotion-percent:before {
+  content: "\e93c";
+}
+.icomoon-unlock:before {
+  content: "\e93d";
+}
 .icomoon-talk:before {
   content: "\e937";
 }

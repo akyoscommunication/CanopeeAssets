@@ -1,0 +1,26 @@
+.c-point {
+	--bg: rgba(var(#{$prefix-color}primary-500), 1);
+
+	background-color: var(--bg);
+	border-radius: 50%;
+	display: inline-block;
+	height: rem(9);
+	width: rem(9);
+	aspect-ratio: 1;
+
+	@each $s, $v in $spaces {
+		&.m {
+			&r {
+				&-#{$s} {
+					margin-right: rem($v);
+				}
+			}
+
+			&l {
+				&-#{$s} {
+					margin-left: rem($v);
+				}
+			}
+		}
+	}
+}

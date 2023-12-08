@@ -5,8 +5,18 @@
 	grid-gap: $grid-gap;
 
 	@each $s, $v in $spaces {
-		&.mb-#{$s} {
-			margin-bottom: rem($v);
+		&.m {
+			&t {
+				&-#{$s} {
+					margin-top: rem($v);
+				}
+			}
+
+			&b {
+				&-#{$s} {
+					margin-bottom: rem($v);
+				}
+			}
 		}
 	}
 
@@ -46,6 +56,20 @@
 
 			&--end-#{$i} {
 				grid-column-end: #{$i};
+			}
+		}
+
+		& .l-grid-row {
+			&--#{$i} {
+				grid-row: span #{$i};
+			}
+
+			&--start-#{$i} {
+				grid-row-start: #{$i};
+			}
+
+			&--end-#{$i} {
+				grid-row-end: #{$i};
 			}
 		}
 	}

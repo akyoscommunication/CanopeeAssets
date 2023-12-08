@@ -1,0 +1,25 @@
+.c-users {
+	@include flex(row, nowrap, center, stretch);
+
+	gap: rem(3);
+
+	> * {
+		width: 46px;
+		height: 46px;
+		border-radius: 50%;
+		overflow: hidden;
+
+		& + * {
+			margin-left: rem(-19);
+			transition: $default-transition;
+		}
+	}
+
+	&:hover {
+		> * {
+			& + * {
+				margin-left: 0;
+			}
+		}
+	}
+}

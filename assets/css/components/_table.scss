@@ -92,13 +92,17 @@
 	}
 
 	&__wrapper {
-		@include scrollBarStyle;
 		@extend %br--24;
 
 		width: 100%;
 		overflow-x: scroll;
 		box-shadow: $default-shadow;
 		border: 1px solid color(grey-100);
+
+		&::-webkit-scrollbar-thumb,
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
 	&-filter {

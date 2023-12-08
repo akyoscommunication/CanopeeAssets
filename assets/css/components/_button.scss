@@ -4,7 +4,6 @@ $dark: map-get($colors-scheme-light, "dark");
 .c-button {
 	@include flex(row, wrap, center, center);
 
-	width: fit-content;
 	cursor: pointer;
 	transition: $default-transition;
 	line-height: 1;
@@ -45,6 +44,26 @@ $dark: map-get($colors-scheme-light, "dark");
 	}
 
 	&--style {
+		&-card {
+			@extend .c-card;
+
+			flex-direction: column;
+			justify-content: center;
+			gap: rem(24);
+
+			.c-button__ico {
+				> * {
+					font-size: 325%;
+				}
+			}
+		}
+
+		&-nothing {
+			background-color: transparent;
+			border: none;
+			color: inherit;
+		}
+
 		&-default {
 			@extend %fw-700;
 			@extend %br--6;
@@ -90,6 +109,13 @@ $dark: map-get($colors-scheme-light, "dark");
 				}
 			}
 		}
+
+		&-rounded {
+			@extend %br--64;
+
+			gap: rem(8);
+			padding: rem(16) rem(24);
+		}
 	}
 
 	@each $name, $color in $colors-scheme-light {
@@ -106,6 +132,16 @@ $dark: map-get($colors-scheme-light, "dark");
 				&--#{$name} {
 					&.c-button {
 						&--style {
+							&-nothing {
+								color: color($v-color);
+
+								&:hover {
+									opacity: .8;
+								}
+							}
+
+							&-card,
+							&-rounded,
 							&-default {
 								background-color: color($v-color);
 								border: 1px solid color($v-color);

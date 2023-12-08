@@ -57,6 +57,10 @@ a {
     margin-inline-start: auto;
 }
 
+.u-shadow {
+    box-shadow: $default-shadow;
+}
+
 .u-bg {
     @each $name, $color in $colors-scheme-light {
         @if type-of($color) == 'map' {

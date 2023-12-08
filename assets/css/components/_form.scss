@@ -108,6 +108,7 @@ form {
 		.form-switch {
 			cursor: pointer;
 
+			input[type="radio"],
 			input[type="checkbox"] {
 				$w: 36px;
 
@@ -152,6 +153,10 @@ form {
 						left: 2px;
 					}
 				}
+
+				+ label {
+					margin-left: calc(#{$w} / 2);
+				}
 			}
 		}
 
@@ -195,14 +200,17 @@ form {
 			@extend %fs-12;
 			@extend %br--4;
 
-			position: absolute;
-			top: 0;
-			left: rem(22);
 			background-color: color(light);
-			padding-inline: rem(3.34);
-			transform: translateY(-50%);
 			color: color(secondary-500);
-			z-index: 2;
+
+			&:not(:has(+ input[type="color"])) {
+				position: absolute;
+				top: 0;
+				left: rem(22);
+				z-index: 2;
+				transform: translateY(-50%);
+				padding-inline: rem(3.34);
+			}
 
 			&.required {
 				&:after {
