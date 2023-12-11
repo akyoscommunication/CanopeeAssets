@@ -93,5 +93,15 @@ a {
             opacity: .1;
             line-height: .5;
         }
+
+        &-1 {
+            &:before {
+                font-size: 600px;
+                transform: translateY(-20%) rotate(-45deg);
+                top: 0;
+                left: 0;
+                transform-origin: top left;
+            }
+        }
     }
 }

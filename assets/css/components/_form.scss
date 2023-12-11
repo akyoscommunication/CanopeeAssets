@@ -1,9 +1,12 @@
 $mb--group: 34px;
 $p-input: 16px;
 
-$fields: '.ts-wrapper.single .ts-control',
+$fields:
+'.ts-wrapper.single .ts-control',
+'.ts-wrapper.multi .ts-control',
 'input[type="text"]',
 'input[type="search"]',
+'input[type="number"]',
 'input[type="date"]',
 'input[type="email"]',
 'input[type="password"]',

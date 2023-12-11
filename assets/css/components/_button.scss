@@ -11,6 +11,12 @@ $dark: map-get($colors-scheme-light, "dark");
 	word-break: break-word;
 	font-size: inherit;
 
+	&.disabled {
+		background-color: color(grey-200) !important;
+		color: color(light) !important;
+		border-color: color(grey-200) !important;
+	}
+
 	&-group {
 		@include flex(row, wrap, flex-start, center);
 
