@@ -95,9 +95,3 @@ a {
         }
     }
 }
-
-@each $br, $value in $brs {
-    %br--#{$br} {
-        border-radius: $value;
-    }
-}

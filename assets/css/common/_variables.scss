@@ -44,3 +44,9 @@ $spaces: (
 	4: 32,
 	5: 64,
 );
+
+@each $br, $value in $brs {
+	%br--#{$br} {
+		border-radius: $value;
+	}
+}
