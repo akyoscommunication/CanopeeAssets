@@ -83,11 +83,46 @@ form {
 }
 
 .form {
-	&-switch,
+	&-group,
+	&-switch {
+		> label {
+			@extend %fs-12;
+			@extend %br--4;
+
+			background-color: color(light);
+			color: color(secondary-500);
+
+			&.required {
+				&:after {
+					content: "*";
+					color: color(danger-500);
+					margin-left: rem(4);
+				}
+			}
+		}
+	}
+
+	&-switch {
+		@include flex(column, nowrap, flex-start, flex-start);
+
+		gap: rem(16);
+	}
+
 	&-group {
 		position: relative;
 		row-gap: rem($mb--group);
 		grid-column: span 12;
+
+		> label {
+			&:not(:has(+ input[type="color"])) {
+				position: absolute;
+				top: 0;
+				left: rem(22);
+				z-index: 2;
+				transform: translateY(-50%);
+				padding-inline: rem(3.34);
+			}
+		}
 
 		textarea {
 			resize: vertical;
@@ -118,6 +153,7 @@ form {
 
 				position: relative;
 				width: 0px;
+				margin-left: calc(#{$w} / 2);
 
 				&:before,
 				&:after {
@@ -198,31 +234,6 @@ form {
 			padding-top: rem(8);
 
 			color: color(danger-500);
-		}
-
-		> label {
-			@extend %fs-12;
-			@extend %br--4;
-
-			background-color: color(light);
-			color: color(secondary-500);
-
-			&:not(:has(+ input[type="color"])) {
-				position: absolute;
-				top: 0;
-				left: rem(22);
-				z-index: 2;
-				transform: translateY(-50%);
-				padding-inline: rem(3.34);
-			}
-
-			&.required {
-				&:after {
-					content: "*";
-					color: color(danger-500);
-					margin-left: rem(4);
-				}
-			}
 		}
 
 		#{$fields} {

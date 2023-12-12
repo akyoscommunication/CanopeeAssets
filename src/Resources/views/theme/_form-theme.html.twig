@@ -157,12 +157,12 @@
 		{% set type = 'checkbox' %}
 	{% endif %}
 	<div class="form-switch">
-		<input type="{{ type }}" {{ block('widget_attributes') }} id="{{ id }}" {% if checked %} checked="checked"{% endif %} value="{{ value }}"/>
 		<label for="{{ id }}">
 			{%- if label is not same as(false) -%}
 				{{- block('form_label_content') -}}
 			{%- endif -%}
 			{{- form_errors(form) -}}
 		</label>
+		<input type="{{ type }}" {{ block('widget_attributes') }} id="{{ id }}" {% if checked %} checked="checked"{% endif %} value="{{ value }}"/>
 	</div>
 {%- endblock -%}
