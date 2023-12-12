@@ -1,8 +1,8 @@
 .c-card {
 	@extend %br--16;
+	@extend .c-card--padding-md;
 
 	box-shadow: $default-shadow;
-	padding: rem(24);
 	border: 1px solid color(grey-100);
 
 	&.c-card {
@@ -12,7 +12,15 @@
 			}
 
 			&-sm {
-				padding: rem(16) rem(24);
+				padding: rem(16) rem(8);
+			}
+
+			&-md {
+				padding: rem(32) rem(24);
+			}
+
+			&-lg {
+				padding: rem(32);
 			}
 		}
 	}

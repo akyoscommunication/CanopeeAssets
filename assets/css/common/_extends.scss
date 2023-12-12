@@ -1,0 +1,28 @@
+%fw {
+	@each $weight in $fontWeights {
+		&-#{$weight} {
+			font-weight: $weight;
+		}
+	}
+}
+
+%fs {
+	@each $size, $lineHeight in $fontSizes {
+		&-#{$size} {
+			font-size: rem($size);
+			line-height: #{$lineHeight+"%"};
+		}
+	}
+}
+
+%ff {
+	&-sora {
+		font-family: 'Sora', sans-serif;
+	}
+}
+
+@each $br, $value in $brs {
+	%br--#{$br} {
+		border-radius: $value;
+	}
+}

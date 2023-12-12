@@ -1,50 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap');
 @import "@canopee_fonts/icomoon/style.css";
 
-$fontWeights : (
-	400,
-	500,
-	600,
-	700,
-);
-
-$fontSizes : (
-	8: 100,
-	10: 100,
-	12: 120,
-	14: 160,
-	16: 160,
-	20: 120,
-	24: 120,
-	32: 120,
-	48: 120,
-);
-
-%fw {
-	@each $weight in $fontWeights {
-		&-#{$weight} {
-			font-weight: $weight;
-		}
-	}
-}
-
-//.fw {
-//	@each $weight in $fontWeights {
-//		&-#{$weight} {
-//			@extend %fw-#{$weight};
-//		}
-//	}
-//}
-
-%fs {
-	@each $size, $lineHeight in $fontSizes {
-		&-#{$size} {
-			font-size: rem($size);
-			line-height: #{$lineHeight+"%"};
-		}
-	}
-}
-
 .fs {
 	@each $size, $lineHeight in $fontSizes {
 		&-#{$size} {
@@ -52,18 +8,6 @@ $fontSizes : (
 		}
 	}
 }
-
-%ff {
-	&-sora {
-		font-family: 'Sora', sans-serif;
-	}
-}
-
-//.ff {
-//	&-poppins {
-//		@extend %ff-sora;
-//	}
-//}
 
 :root {
 	@extend %fs-16;

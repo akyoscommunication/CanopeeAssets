@@ -8,10 +8,19 @@
 		height: 46px;
 		border-radius: 50%;
 		overflow: hidden;
+		background-color: color(secondary-500);
 
 		& + * {
 			margin-left: rem(-19);
 			transition: $default-transition;
+		}
+	}
+
+	&__item {
+		&--remaining {
+			@include flex(row, nowrap, center, center);
+
+			background-color: color(primary-500);
 		}
 	}
 

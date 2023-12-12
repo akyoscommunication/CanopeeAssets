@@ -19,3 +19,33 @@
 		opacity: 1;
 	}
 }
+
+@keyframes fadeOutLeft {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		transform: translateX(-20px);
+	}
+}
+
+@keyframes fadeOutRight {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		transform: translateX(20px);
+	}
+}
+
+.a-fadeOutLeft {
+	animation: fadeOutLeft 0.5s ease-in-out;
+}
+
+.a-fadeOutRight {
+	animation: fadeOutRight 0.5s ease-in-out;
+}
