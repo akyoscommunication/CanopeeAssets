@@ -27,6 +27,7 @@ $fields:
 			letter-spacing: rem(-0.14);
 			margin-bottom: rem(16);
 			display: block;
+			color: color(secondary-500);
 		}
 
 		&__input {
@@ -191,6 +192,12 @@ form {
 
 					&:after {
 						left: 2px;
+					}
+				}
+
+				&[disabled] {
+					&:before {
+						background: color(grey-300);
 					}
 				}
 
