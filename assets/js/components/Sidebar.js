@@ -29,7 +29,9 @@ export default class Sidebar {
 				const target = document.querySelector(el.getAttribute('collapsable'));
 				if (target === null) return;
 				
-				this.collapseSidebar(target)
+				gsap.set(target, {
+					height: 0,
+				})
 			}
 		})
 	}

@@ -1,0 +1,33 @@
+{% set userCanopee = this.collaborator.userCanopee %}
+{% set attrs = {} %}
+{% if this.tag is same as('a') %}
+    {% set attrs = attr|merge({href: path('app.collaborator.show', {id: collaborator.id})}) %}
+{% endif %}
+
+<{{ this.tag }} {{ attributes.defaults(attrs) }}>
+<twig:card class="c-profile c-profile--style-1">
+    <div class="c-profile__avatar c-status">
+        <img src="{{ getFile('users', collaborator.uuid, 'avatarFile') }}" alt="Avatar">
+    </div>
+    <div>
+        <twig:title tag="h4" class="c-profile__name">{{ userCanopee.familyName|upper }} {{ userCanopee.givenName }}</twig:title>
+        {% for role in getRolesWithHighestPosition(userCanopee.moduleRoles) %}
+            <p class="c-profile__job">{{ ('user.roles.'~role['value'])|trans({}, 'user') }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="c-profile__content">
+        <div class="c-profile__status">Présentiel</div>
+        <div>
+            <twig:title tag="h4" class="c-profile__name">{{ userCanopee.familyName|upper }} {{ userCanopee.givenName }}</twig:title>
+            {% for role in getRolesWithHighestPosition(userCanopee.moduleRoles) %}
+                <p class="c-profile__job">{{ ('user.roles.'~role['value'])|trans({}, 'user') }}</p>
+            {% endfor %}
+        </div>
+        <p class="c-text">
+            {{ userCanopee.email }} <br>
+            {{ userCanopee.profesionnalTelephone }}
+        </p>
+    </div>
+</twig:card>
+</{{ this.tag }}>
