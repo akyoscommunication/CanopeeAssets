@@ -6,6 +6,7 @@
 
 	&__ico {
 		transition: $default-transition;
+		min-width: rem(25);
 
 		> * {
 			@include objectFit(contain);

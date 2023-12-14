@@ -107,6 +107,12 @@ form {
 		@include flex(column, nowrap, flex-start, flex-start);
 
 		gap: rem(16);
+
+		&-wrapper {
+			@include flex(column, wrap, flex-start, flex-start);
+
+			gap: rem(8);
+		}
 	}
 
 	&-group {

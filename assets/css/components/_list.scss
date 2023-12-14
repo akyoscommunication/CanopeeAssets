@@ -5,6 +5,17 @@
 	grid-template-columns: 1fr;
 	gap: rem(8);
 
+	&-card {
+		gap: rem(16);
+
+		.c-card {
+			@extend %fs-14;
+			@extend %fw-700;
+
+			padding: rem(8) rem(32);
+		}
+	}
+
 	&-item {
 		@include flex(row, nowrap, space-between, center);
 		@extend %br--6;
