@@ -1,7 +1,7 @@
 {% set userCanopee = this.collaborator.userCanopee %}
 {% set attrs = {} %}
 {% if this.tag is same as('a') %}
-    {% set attrs = attr|merge({href: path('app.collaborator.show', {id: collaborator.id})}) %}
+    {% set attrs = attrs|merge({href: path('app.collaborator.show', {id: collaborator.id})}) %}
 {% endif %}
 
 <{{ this.tag }} {{ attributes.defaults(attrs) }}>
