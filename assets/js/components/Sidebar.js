@@ -24,6 +24,13 @@ export default class Sidebar {
 				target.classList.toggle('is-collapsed');
 				this.collapseSidebar(target)
 			})
+			
+			if (el.classList.contains('is-collapsed')) {
+				const target = document.querySelector(el.getAttribute('collapsable'));
+				if (target === null) return;
+				
+				this.collapseSidebar(target)
+			}
 		})
 	}
 	
