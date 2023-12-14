@@ -79,6 +79,7 @@ a {
     &--c {
         position: relative;
         overflow: hidden;
+        z-index: 0;
 
         &:before {
             @extend %fw-700;
@@ -92,6 +93,7 @@ a {
             font-size: 400px;
             opacity: .1;
             line-height: .5;
+            z-index: -1;
         }
 
         &-1 {
