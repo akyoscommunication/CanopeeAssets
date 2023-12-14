@@ -22,6 +22,10 @@
 
 			background-color: color(primary-500);
 		}
+
+		img {
+			@include objectFit(cover, center, auto, 100%);
+		}
 	}
 
 	&:hover {
