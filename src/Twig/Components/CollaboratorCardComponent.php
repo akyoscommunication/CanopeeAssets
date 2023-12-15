@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\App\Collaborator\Components\elements;
+namespace Akyos\CanopeeAssets\Twig\Components;
 
 use App\Entity\User;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
