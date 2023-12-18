@@ -7,9 +7,9 @@ export default class Modal {
 				
 				if (target) {
 					// move modal to body if not already
-					if (target.parentNode !== document.body) {
-						document.body.appendChild(target);
-					}
+					// if (target.parentNode !== document.body) {
+					// 	document.body.appendChild(target);
+					// }
 					
 					// block scroll
 					document.body.style.overflow = 'hidden';
