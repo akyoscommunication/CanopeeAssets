@@ -47,7 +47,11 @@
 
 {%- block form_widget_compound -%}
 	{%- if form is rootform -%}
-		{% set attr = attr|merge({ class: 'l-grid' }) %}
+		{% set class = 'l-grid' %}
+		{% if attr.class is defined %}
+			{% set class = attr.class ~ ' ' ~ class %}
+		{% endif %}
+		{% set attr = attr|merge({ class: class }) %}
 	{%- endif -%}
 	<div {{ block('widget_container_attributes') }}>
 		{%- if form is rootform -%}
