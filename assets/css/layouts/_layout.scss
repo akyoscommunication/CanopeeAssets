@@ -21,6 +21,11 @@
 	padding: rem($p-app);
 	min-height: 100vh;
 	transition: $default-transition;
+
+	@include breakpoint(md) {
+		display: flex;
+		flex-flow: column nowrap;
+	}
 }
 
 .l-main {
@@ -32,8 +37,17 @@
 	position: relative;
 	display: flex;
 	flex-flow: column nowrap;
+
+	@include breakpoint(md) {
+		height: calc(100vh - #{$p-app * 2} - #{$h-minified-brand-mq});
+		overflow-y: scroll;
+		padding: 0;
+		margin-top: auto;
+	}
 }
 
 .l-content {
-	flex: 1;
+	@include breakpoint(md) {
+		padding: 0 rem($ph-main) rem($pv-main);
+	}
 }

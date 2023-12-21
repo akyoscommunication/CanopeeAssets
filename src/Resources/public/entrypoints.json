@@ -2,15 +2,15 @@
   "entrypoints": {
     "app": {
       "css": [
-        "/bundles/canopeeassets/app.3223fc98.css"
+        "/bundles/canopeeassets/app.3f7c5df5.css"
       ],
       "js": [
-        "/bundles/canopeeassets/app.4dec05fa.js"
+        "/bundles/canopeeassets/app.3330ebd5.js"
       ]
     },
     "galaxy": {
       "js": [
-        "/bundles/canopeeassets/galaxy.e536f818.js"
+        "/bundles/canopeeassets/galaxy.cbf647c4.js"
       ]
     }
   }

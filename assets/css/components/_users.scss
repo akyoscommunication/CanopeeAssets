@@ -27,12 +27,4 @@
 			@include objectFit(cover, center, auto, 100%);
 		}
 	}
-
-	&:hover {
-		> * {
-			& + * {
-				margin-left: 0;
-			}
-		}
-	}
 }

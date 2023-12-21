@@ -3,16 +3,28 @@ export function positioningElement(root, endpoint, left = 50, bottom = 25)
     if (root && endpoint) {
         const rootRect = root.getBoundingClientRect()
 
-        endpoint.style.left = `${rootRect.left - left}px`
+        if (rootRect.left < left) {
+            endpoint.style.left = `${left}px`
+        } else {
+            endpoint.style.left = `${rootRect.left - left}px`
+        }
+
         endpoint.style.top = `${rootRect.bottom + bottom}px`
 
         const endpointRect = endpoint.getBoundingClientRect()
+
         if (endpointRect.right > window.innerWidth) {
             endpoint.style.left = `${window.innerWidth - endpointRect.width - bottom}px`
         }
 
-        if (endpointRect.left < 0) {
+        if (endpoint.offsetLeft < 0) {
             endpoint.style.left = `${rootRect.left - left}px`
+        }
+
+        if (endpoint.offsetWidth > window.innerWidth) {
+            endpoint.style.width = `${window.innerWidth - 2 * left}px`
+        } else {
+            endpoint.style.width = 'auto'
         }
 
         if (endpointRect.bottom > window.innerHeight) {
@@ -39,4 +51,34 @@ export function getStatusIcon(status)
 export function uniqueId()
 {
     return Math.random().toString(36).substr(2, 9);
+}
+
+// set cookie
+export function setCookie(name: string, value: string, days: number)
+{
+    let expires = "";
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
+        expires = "; expires=" + date.toUTCString()
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/"
+}
+
+// get cookie
+export function getCookie(name: string)
+{
+    let nameEQ = name + "="
+    let ca = document.cookie.split(';')
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i]
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length)
+        }
+        if (c.indexOf(nameEQ) === 0) {
+            return c.substring(nameEQ.length, c.length)
+        }
+    }
+
+    return null
 }

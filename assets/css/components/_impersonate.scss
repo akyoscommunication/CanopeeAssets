@@ -1,18 +1,18 @@
 .c-impersonate {
-	@include flex(row, nowrap, center, center);
-	@extend %br--8;
-
-	z-index: 11;
-	position: fixed;
-	bottom: calc(#{$p-app} + rem(16));
-	left: calc(#{$p-app} + rem(16));
-	background-color: color(primary-200);
-	padding: rem(16);
-	box-shadow: $default-shadow;
-
-	form {
+	&__form {
+		@include flex(row, wrap, center, center);
+		@extend %br--8;
 		@extend .c-button-group;
-		@include flex(row, nowrap, center, center);
+
+		z-index: 11;
+		position: fixed;
+		background-color: color(primary-200);
+		padding: rem(16);
+		box-shadow: $default-shadow;
+		transform: translateY(10px);
+		opacity: 0;
+		visibility: hidden;
+		width: max-content;
 
 		.ts-dropdown {
 			@extend %br--4;
@@ -22,5 +22,9 @@
 			border-top: 1px solid #d0d0d0;
 			border-bottom: 0 none;
 		}
+	}
+
+	.c-button {
+		@extend %fs-16;
 	}
 }
