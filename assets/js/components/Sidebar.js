@@ -31,7 +31,7 @@ export default class Sidebar {
 					const scrollTop = e.target.scrollTop;
 					if (scrollTop > 100) {
 						gsap.to(this._header, {
-							y: -this.navbarHeight,
+							y: -this._navbar.offsetHeight,
 						})
 					}
 					else {
@@ -103,9 +103,6 @@ export default class Sidebar {
 			this.app.classList.remove('is-sidebar-closed');
 		}
 		
-		this._mainInnerHeight = this._main.offsetHeight;
-		this._sidebarInnerHeight = this._sidebar.offsetHeight;
-		
 		this.toggleSidebar()
 	}
 	
@@ -113,7 +110,6 @@ export default class Sidebar {
 		this.app.classList.toggle('is-sidebar-closed');
 		
 		const isClosed = this.app.classList.contains('is-sidebar-closed');
-		
 		
 		this._mm.add({
 			isMobile: `(max-width: ${this._mobileBreakpoint - 1}px) and (prefers-reduced-motion: no-preference)`
@@ -123,7 +119,7 @@ export default class Sidebar {
 			if (conditions.isMobile) {
 				if (isClosed) {
 					gsap.to(this._main, {
-						height: this._mainInnerHeight,
+						height: window.innerHeight - 24 - this._sidebar_brandMinified.offsetHeight,
 					});
 					
 					gsap.to(this._sidebar, {
@@ -135,13 +131,17 @@ export default class Sidebar {
 					});
 					
 					gsap.to(this._main, {
-						height: this._mainInnerHeight - (window.innerHeight / 2),
+						height: this._main.offsetHeight - (window.innerHeight / 2),
 					})
 					
 					gsap.to(this._sidebar, {
 						height: "50vh",
 					})
 				}
+			}
+			
+			return () => {
+				this.reset();
 			}
 		})
 		
@@ -179,13 +179,8 @@ export default class Sidebar {
 	}
 	
 	reset() {
-		gsap.set(this._sidebar, {
-			height: 'auto',
-		})
-		
-		gsap.set(this._main, {
-			height: 'auto',
-		})
+		this._sidebar.style.height = 'auto';
+		this._main.style.height = 'auto';
 	}
 	
 	collapseTarget(target) {
