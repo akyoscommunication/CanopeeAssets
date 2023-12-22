@@ -3,6 +3,7 @@ import {setCookie, getCookie} from '@canopee_app/assets/js/utils';
 
 const COOKIE_SIDEBAR = 'sidebar-closed';
 const COOKIE_COLLAPSABLE_PREFIX = 'sidebar-collapsed';
+const COLLAPSABLE_CLASS = 'is-collapsed';
 
 export default class Sidebar {
 	constructor() {
@@ -15,6 +16,7 @@ export default class Sidebar {
 		this._header = document.querySelector('.l-header');
 		this._navbar = this._header.querySelector('.l-header__nav');
 		this.navbarHeight = this._navbar.offsetHeight;
+		this._currentItemCollapsed = [];
 		
 		this._mm = gsap.matchMedia(),
 			this._mobileBreakpoint = 768,
@@ -22,7 +24,7 @@ export default class Sidebar {
 		this._mm.add({
 			isMobile: `(max-width: ${this._mobileBreakpoint - 1}px) and (prefers-reduced-motion: no-preference)`
 		}, (context) => {
-			let { isMobile } = context;
+			let { isMobile } = context.conditions;
 			
 			if (isMobile) {
 				this._main.addEventListener('scroll', (e) => {
@@ -38,9 +40,12 @@ export default class Sidebar {
 						})
 					}
 				});
-			} else {
-				this._main.removeEventListener('scroll', (e) => {});
 			}
+			
+			return () => {
+				this._main.removeEventListener('scroll', (e) => {});
+				this.reset();
+			};
 		})
 		
 		document.querySelectorAll('*[trigger-sidebar]').forEach((el) => {
@@ -71,23 +76,23 @@ export default class Sidebar {
 				
 				e.preventDefault();
 				
-				el.classList.toggle('is-collapsed');
-				target.classList.toggle('is-collapsed');
-				this.collapseSidebar(target)
+				el.classList.toggle(COLLAPSABLE_CLASS);
+				target.classList.toggle(COLLAPSABLE_CLASS);
+				this.collapseTarget(target)
 			})
 			
 			// check cookie
 			const cookieName = COOKIE_COLLAPSABLE_PREFIX + target.getAttribute('id');
 			const isCollapsed = getCookie(cookieName);
 			if (isCollapsed === '1') {
-				el.classList.add('is-collapsed');
-				target.classList.add('is-collapsed');
+				el.classList.add(COLLAPSABLE_CLASS);
+				target.classList.add(COLLAPSABLE_CLASS);
 			} else {
-				el.classList.remove('is-collapsed');
-				target.classList.remove('is-collapsed');
+				el.classList.remove(COLLAPSABLE_CLASS);
+				target.classList.remove(COLLAPSABLE_CLASS);
 			}
 			
-			this.collapseSidebar(target)
+			this.collapseTarget(target)
 		})
 		
 		// check cookie
@@ -109,62 +114,106 @@ export default class Sidebar {
 		
 		const isClosed = this.app.classList.contains('is-sidebar-closed');
 		
+		
 		this._mm.add({
 			isMobile: `(max-width: ${this._mobileBreakpoint - 1}px) and (prefers-reduced-motion: no-preference)`
 		}, (context) => {
-			let { isMobile } = context;
+			let { conditions } = context;
 			
-			if (isMobile) {
-				if (this._mm.isMobile) {
-					if (isClosed) {
-						gsap.to(this._main, {
-							height: this._mainInnerHeight,
-						});
-						
-						gsap.to(this._sidebar, {
-							height: '40px',
-						});
-					} else {
-						gsap.to(this._sidebar, {
-							height: "50vh",
-						});
-						
-						gsap.to(this._main, {
-							height: this._mainInnerHeight - (window.innerHeight / 2),
-						})
-						
-						gsap.to(this._sidebar, {
-							height: "50vh",
-						})
-					}
+			if (conditions.isMobile) {
+				if (isClosed) {
+					gsap.to(this._main, {
+						height: this._mainInnerHeight,
+					});
+					
+					gsap.to(this._sidebar, {
+						height: '40px',
+					});
+				} else {
+					gsap.to(this._sidebar, {
+						height: "50vh",
+					});
+					
+					gsap.to(this._main, {
+						height: this._mainInnerHeight - (window.innerHeight / 2),
+					})
+					
+					gsap.to(this._sidebar, {
+						height: "50vh",
+					})
 				}
 			}
 		})
+		
+		if (isClosed) {
+			this._sidebar.querySelectorAll('*[collapsable]').forEach((el) => {
+				const id = el.getAttribute('collapsable');
+				const target = this._sidebar.querySelector(id);
+				if (target === null) return;
+				
+				const wasCollapsed = el.classList.contains(COLLAPSABLE_CLASS);
+				
+				el.classList.remove(COLLAPSABLE_CLASS);
+				target.classList.remove(COLLAPSABLE_CLASS);
+				
+				this.collapseTarget(target)
+				
+				if (wasCollapsed) {
+					this._currentItemCollapsed.push(id);
+				};
+			});
+		} else {
+			this._currentItemCollapsed.forEach((el) => {
+				const trigger = this._sidebar.querySelector("*[collapsable='" + el + "']");
+				const target = this._sidebar.querySelector(el);
+				if (target === null) return;
+				
+				this.removeItemCollapsed(target.getAttribute('id'));
+				
+				trigger.classList.add(COLLAPSABLE_CLASS);
+				target.classList.add(COLLAPSABLE_CLASS);
+				
+				this.collapseTarget(target)
+			});
+		}
 	}
 	
-	collapseSidebar(target) {
+	reset() {
+		gsap.set(this._sidebar, {
+			height: 'auto',
+		})
+		
+		gsap.set(this._main, {
+			height: 'auto',
+		})
+	}
+	
+	collapseTarget(target) {
 		if (target === null) return;
 		
-		const isCollapsed = target.classList.contains('is-collapsed');
+		const isCollapsed = target.classList.contains(COLLAPSABLE_CLASS);
 		// set cookie
 		const cookieName = COOKIE_COLLAPSABLE_PREFIX + target.getAttribute('id');
 		
 		if (isCollapsed) {
 			setCookie(cookieName, '1', 365);
+			gsap.set(target, {
+				height: 'auto',
+			})
+			this._currentItemCollapsed.push("#"+target.getAttribute('id'))
+		} else {
+			setCookie(cookieName, '0', 365);
 			gsap.to(target, {
 				height: 0,
 				duration: 0.3,
 			})
-		} else {
-			setCookie(cookieName, '0', 365);
-			gsap.set(target, {
-				height: 'auto',
-			})
-			
-			gsap.from(target, {
-				height: 0,
-				duration: 0.3,
-			})
+			this.removeItemCollapsed(target.getAttribute('id'))
 		}
+	}
+	
+	removeItemCollapsed(id) {
+		this._currentItemCollapsed = this._currentItemCollapsed.filter((el) => {
+			return el !== "#"+id;
+		})
 	}
 }

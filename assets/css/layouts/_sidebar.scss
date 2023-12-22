@@ -3,6 +3,12 @@
 	position: sticky;
 	top: 0;
 	align-self: baseline;
+	height: -webkit-fill-available;
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 	@include breakpoint(md) {
 		@include flex(column, nowrap, flex-start, stretch);
