@@ -4,12 +4,12 @@ import { GalaxyContext } from "./provider";
 import Modal from "./ui/Modal";
 import {positioningElement} from "../../utils/index";
 
-export default function Galaxy({ url }) {
+export default function Galaxy({ url, modules }) {
     const [state, setState] = React.useState({
         loading: true,
         error: false,
         isOpen: false,
-        data: null
+        data: modules
     } as any)
 
     const toggleOpen = () => {
@@ -17,6 +17,7 @@ export default function Galaxy({ url }) {
     }
 
     React.useEffect(() => {
+        if (modules) return;
         fetch(url)
             .then(res => res.json())
             .then(data => setState({ ...state, loading: false, data: data['hydra:member'] }))
