@@ -19,6 +19,8 @@ export default class extends Controller {
 	}
 	
 	#addRemainingCount() {
+		if (this.childrens.length <= this.maxValue) return;
+		
 		const remaining = this.childrens.length - this.maxValue;
 		const remainingEl = document.createElement('div');
 		remainingEl.classList.add('c-users__item');
