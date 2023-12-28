@@ -21,7 +21,10 @@ export default class Impersonate {
 			duration: .2,
 		})
 		
-		trigger.addEventListener('click', this.toggleImpersonate.bind(this));
+		trigger.addEventListener('click', (e) => {
+			positioningElement(trigger, form);
+			this.toggleImpersonate(e);
+		});
 		
 		window.addEventListener('resize', () => {
 			positioningElement(trigger, form);

@@ -12,7 +12,13 @@
 		transform: translateY(10px);
 		opacity: 0;
 		visibility: hidden;
-		width: max-content;
+		width: 100%;
+		max-width: 500px;
+
+		.ts-wrapper {
+			max-width: 300px;
+			width: 100%;
+		}
 
 		.ts-dropdown {
 			@extend %br--4;
