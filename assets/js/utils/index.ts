@@ -17,11 +17,11 @@ export function positioningElement(root, endpoint, left = 50, bottom = 25, initi
             endpoint.style.left = `${window.innerWidth - endpointRect.width - bottom}px`
         }
 
-        if (endpoint.offsetLeft < 0) {
-            endpoint.style.left = `${rootRect.left - left}px`
+        if (endpoint.offsetLeft < left) {
+            endpoint.style.left = `${left}px`
         }
 
-        if (endpoint.offsetWidth > window.innerWidth) {
+        if (endpoint.offsetWidth < window.innerWidth) {
             endpoint.style.width = `${window.innerWidth - 2 * left}px`
         } else {
             endpoint.style.width = initialWidth

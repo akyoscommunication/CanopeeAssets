@@ -28,18 +28,18 @@ export default function Galaxy({ url, modules }) {
     React.useEffect(() => {
         const ico = document.querySelector('.c-galaxy__ico') as HTMLElement
         const modal = document.querySelector('.c-galaxy .c-modal') as HTMLElement
-        const initialWidth = modal.offsetWidth
+        const initialWidth = '25.75rem'
 
         if (state.isOpen) {
-            positioningElement(ico, modal, initialWidth)
+            positioningElement(ico, modal, 50, 25, initialWidth)
 
             // check resize
             window.addEventListener('resize', () => {
-                positioningElement(ico, modal, initialWidth)
+                positioningElement(ico, modal, 50, 25, initialWidth)
             })
 
             window.addEventListener('scroll', () => {
-                positioningElement(ico, modal, initialWidth)
+                positioningElement(ico, modal, 50, 25, initialWidth)
             })
         }
     }, [state.isOpen])
