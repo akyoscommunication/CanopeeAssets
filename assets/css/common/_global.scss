@@ -80,6 +80,11 @@ a {
         position: relative;
         overflow: hidden;
 
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+
         &:before {
             @extend %fw-700;
 
