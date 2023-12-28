@@ -1,4 +1,4 @@
-export function positioningElement(root, endpoint, left = 50, bottom = 25)
+export function positioningElement(root, endpoint, left = 50, bottom = 25, initialWidth = 'auto')
 {
     if (root && endpoint) {
         const rootRect = root.getBoundingClientRect()
@@ -24,7 +24,7 @@ export function positioningElement(root, endpoint, left = 50, bottom = 25)
         if (endpoint.offsetWidth > window.innerWidth) {
             endpoint.style.width = `${window.innerWidth - 2 * left}px`
         } else {
-            endpoint.style.width = 'auto'
+            endpoint.style.width = initialWidth
         }
 
         if (endpointRect.bottom > window.innerHeight) {
