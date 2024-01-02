@@ -4,6 +4,13 @@
 
 	box-shadow: $default-shadow;
 	border: 1px solid color(grey-100);
+	position: relative;
+
+	&__config {
+		position: absolute;
+		right: rem(16);
+		top: rem(16);
+	}
 
 	&.c-card {
 		&--padding {

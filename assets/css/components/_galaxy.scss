@@ -3,6 +3,10 @@
 		margin: 0;
 		max-width: rem(412);
 
+		@include breakpoint('md') {
+			height: 50vh;
+		}
+
 		&__header {
 			margin-bottom: rem(32);
 		}
@@ -18,11 +22,15 @@
 
 	ul {
 		@include undoListStyles;
+
+		@include breakpoint('md') {
+			column-gap: 0;
+		}
 	}
 
 	.c-widget-edit {
 		outline: none;
-		
+
 		&__ico {
 			border-radius: 0;
 

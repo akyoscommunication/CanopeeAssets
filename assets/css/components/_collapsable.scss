@@ -2,17 +2,17 @@
 	position: relative;
 
 	.c-collapsable-trigger {
-		@include verticalCenter;
-
 		position: absolute;
 		right: rem(16);
 		transition: $default-transition;
 		font-size: rem(10);
+		top: 50%;
+		transform: translateY(-50%) rotate(-90deg);
 	}
 
 	&.is-collapsed {
 		.c-collapsable-trigger {
-			transform: translateY(-50%) rotate(-90deg);
+			transform: translateY(-50%) rotate(0);
 		}
 	}
 }

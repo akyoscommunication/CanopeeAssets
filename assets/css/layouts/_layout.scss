@@ -20,20 +20,35 @@
 	color: color(light);
 	padding: rem($p-app);
 	min-height: 100vh;
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
 	transition: $default-transition;
+
+	@include breakpoint(md) {
+		display: flex;
+		flex-flow: column nowrap;
+	}
 }
 
 .l-main {
 	@extend %br--24;
+	@include scrollBarStyle();
 
 	background-color: color(light);
 	color: color(primary-400);
-	padding: rem($pv-main) rem($ph-main);
 	position: relative;
 	display: flex;
 	flex-flow: column nowrap;
+	overflow-y: scroll;
+	height: -webkit-fill-available;
+
+	@include breakpoint(md) {
+		height: calc(100vh - #{$p-app * 2} - #{$h-minified-brand-mq});
+		margin-top: auto;
+	}
 }
 
 .l-content {
-	flex: 1;
+	padding: 0 rem($ph-main) rem($pv-main);
 }

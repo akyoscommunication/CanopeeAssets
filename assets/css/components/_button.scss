@@ -15,6 +15,9 @@ $dark: map-get($colors-scheme-light, "dark");
 		background-color: color(grey-200) !important;
 		color: color(light) !important;
 		border-color: color(grey-200) !important;
+		user-select: none;
+		pointer-events: none;
+		cursor: not-allowed;
 	}
 
 	&-group {

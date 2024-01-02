@@ -1,17 +1,22 @@
 .l-header {
 	@include flex(row, wrap, space-between, center);
 
-	padding-block: calc(rem(32) - #{rem($pv-main)}) rem(32);
 	position: sticky;
 	top: 0;
 	background-color: color(light);
 	z-index: 10;
 	margin-bottom: rem(8);
+	padding: rem($ph-main) rem(16);
 
 	&__nav {
 		@include flex(row, wrap, flex-start, center);
 
 		gap: rem(40);
 		font-size: rem(33.33);
+
+		@include breakpoint(md) {
+			order: -1;
+			padding-block: rem(16);
+		}
 	}
 }

@@ -10,12 +10,13 @@ class GalaxyElement extends HTMLElement {
     }
 
     connectedCallback() {
+        const modules = this.getAttribute('modules') || '[]';
         const host = this.getAttribute('host') || "https://127.0.0.1:8000";
         const endpoint = this.getAttribute('endpoint') || 'api/external_links';
         const url = `${host}/${endpoint}`;
 
         const root = createRoot(this);
-        root.render(<Galaxy url={url}/>);
+        root.render(<Galaxy url={url} modules={JSON.parse(modules)}/>);
     }
 
     disconnectedCallback() {}

@@ -8,6 +8,8 @@ $p-app: 12px;
 $ph-main: 20px;
 $pv-main: 16px;
 
+$h-minified-brand-mq: 40px;
+
 $default-shadow: 2px 4px 10px -3px rgba(0, 0, 0, 0.25);;
 
 $brs: (
@@ -28,12 +30,12 @@ $grid-gap: 28px;
 $threshold: 70%;
 
 $breakpoints: (
-	"xs": 0,
-	"sm": 320px,
-	"md": 768px,
-	"lg": 992px,
-	"xl": 1200px,
 	"xxl": 1400px,
+	"xl": 1200px,
+	"lg": 992px,
+	"md": 768px,
+	"sm": 320px,
+	"xs": 0,
 );
 
 $spaces: (

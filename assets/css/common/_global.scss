@@ -79,7 +79,11 @@ a {
     &--c {
         position: relative;
         overflow: hidden;
-        z-index: 0;
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
 
         &:before {
             @extend %fw-700;
@@ -93,7 +97,7 @@ a {
             font-size: 400px;
             opacity: .1;
             line-height: .5;
-            z-index: -1;
+            pointer-events: none;
         }
 
         &-1 {

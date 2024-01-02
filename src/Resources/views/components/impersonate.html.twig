@@ -1,13 +1,14 @@
-<div{{ attributes.defaults({class: 'c-impersonate'}) }}>
-    {% if app.user and is_granted('ROLE_ALLOWED_TO_SWITCH') or is_granted('ROLE_PREVIOUS_ADMIN') %}
-        {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <div class="c-button-group">
-                    <twig:button tag="button" appearance="primary">Superviser</twig:button>
-                    {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
-                        <twig:button tag="a" href="{{ path('app.dashboard.index', {'_switch_user': '_exit'}) }}" appearance="danger">Quitter le compte</twig:button>
-                    {% endif %}
-                </div>
+{% if app.user and is_granted('ROLE_ALLOWED_TO_SWITCH') or is_granted('ROLE_PREVIOUS_ADMIN') %}
+    <div{{ attributes.defaults({class: 'c-impersonate'}) }}>
+        <twig:button :only_ico="true" ico="adjust-circle" btn_style="rounded" appearance="secondary" class="c-impersonate__trigger"/>
+        {{ form_start(form, {attr: {class: "c-impersonate__form"}}) }}
+            {{ form_widget(form) }}
+            <div class="c-button-group">
+                <twig:button tag="button" appearance="primary">Superviser</twig:button>
+                {% if is_granted('ROLE_PREVIOUS_ADMIN') %}
+                    <twig:button tag="a" :only_ico="true" href="{{ path('app.dashboard.index', {'_switch_user': '_exit'}) }}" appearance="danger" ico="times"/>
+                {% endif %}
+            </div>
         {{ form_end(form) }}
-    {% endif %}
-</div>
+    </div>
+{% endif %}

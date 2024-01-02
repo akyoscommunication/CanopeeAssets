@@ -3,6 +3,39 @@
 	position: sticky;
 	top: 0;
 	align-self: baseline;
+	height: -webkit-fill-available;
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	@include breakpoint(md) {
+		@include flex(column, nowrap, flex-start, stretch);
+
+		width: 100%;
+		overflow-y: scroll;
+
+		padding-top: 0;
+		padding-bottom: 0;
+
+		> .l-sidebar__close {
+			font-size: rem(10);
+			padding: 0;
+			position: absolute;
+			margin-top: 0;
+			right: 0;
+			top: calc(#{$h-minified-brand-mq} / 4);
+
+			&:hover {
+				background-color: transparent;
+			}
+
+			.c-ico-text__text {
+				display: none;
+			}
+		}
+	}
 
 	&__brand {
 		margin: 0 auto calc(#{rem(32)} + #{rem($p-app)});
@@ -11,6 +44,16 @@
 
 		&--minified {
 			display: none;
+
+			@include breakpoint(md) {
+				height: rem($h-minified-brand-mq);
+				margin-left: 0;
+				margin-bottom: 0;
+
+				> * {
+					object-position: left !important;
+				}
+			}
 		}
 
 		> * {
@@ -114,23 +157,55 @@
 }
 
 .l-app {
+	@include breakpoint(md) {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+
 	&.is-sidebar-closed {
 		grid-template-columns: min(#{rem(80)}, 100%) 1fr;
 
 		.l-sidebar {
 			padding: rem(32) rem($p-app) rem(32) 0;
 
+			@include breakpoint(md) {
+				padding: 0;
+				flex-direction: row;
+
+				> * {
+					display: none;
+				}
+
+				> .l-sidebar__close,
+				> .l-sidebar__brand--minified {
+					display: block;
+					margin: 0;
+				}
+			}
+
 			&__brand {
 				display: none;
 
 				&--minified {
 					display: block;
+
+					@include breakpoint(md) {
+						padding-bottom: rem($p-app);
+					}
 				}
 			}
 
 			nav {
 				ul {
+					//@include breakpoint(md) {
+					//	@include flex(row, nowrap, flex-start, flex-start);
+					//}
+
 					.c-nav-item {
+						//@include breakpoint(md) {
+						//	@include flex(row, nowrap, flex-start, flex-start);
+						//}
+
 						> .c-nav-item__link {
 							&:has(+ ul) {
 								&::after {

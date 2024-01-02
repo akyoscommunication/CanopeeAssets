@@ -7,7 +7,7 @@ interface Props {
 }
 
 export default function ListItem({item}: Props) {
-    return <a href={item.url} className="c-widget-edit">
+    return <a href={item.url} target="_blank" className="c-widget-edit">
         <div className="c-widget-edit__ico">
             <img src={item.icon} alt={item.name}/>
         </div>

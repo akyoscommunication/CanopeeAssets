@@ -47,7 +47,11 @@
 
 {%- block form_widget_compound -%}
 	{%- if form is rootform -%}
-		{% set attr = attr|merge({ class: 'l-grid' }) %}
+		{% set class = 'l-grid' %}
+		{% if attr.class is defined %}
+			{% set class = attr.class ~ ' ' ~ class %}
+		{% endif %}
+		{% set attr = attr|merge({ class: class }) %}
 	{%- endif -%}
 	<div {{ block('widget_container_attributes') }}>
 		{%- if form is rootform -%}
@@ -158,12 +162,12 @@
 		{% set type = 'checkbox' %}
 	{% endif %}
 	<div class="form-switch">
-		<label for="{{ id }}">
-			{%- if label is not same as(false) -%}
-				{{- block('form_label_content') -}}
-			{%- endif -%}
-			{{- form_errors(form) -}}
-		</label>
+		{%- if label is not same as(false) -%}
+			<label for="{{ id }}">
+					{{- block('form_label_content') -}}
+			</label>
+		{%- endif -%}
 		<input type="{{ type }}" {{ block('widget_attributes') }} id="{{ id }}" {% if checked %} checked="checked"{% endif %} value="{{ value }}"/>
+		{{- form_errors(form) -}}
 	</div>
 {%- endblock -%}

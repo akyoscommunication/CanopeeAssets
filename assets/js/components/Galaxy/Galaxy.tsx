@@ -4,12 +4,12 @@ import { GalaxyContext } from "./provider";
 import Modal from "./ui/Modal";
 import {positioningElement} from "../../utils/index";
 
-export default function Galaxy({ url }) {
+export default function Galaxy({ url, modules }) {
     const [state, setState] = React.useState({
         loading: true,
         error: false,
         isOpen: false,
-        data: null
+        data: modules
     } as any)
 
     const toggleOpen = () => {
@@ -17,6 +17,7 @@ export default function Galaxy({ url }) {
     }
 
     React.useEffect(() => {
+        if (modules) return;
         fetch(url)
             .then(res => res.json())
             .then(data => setState({ ...state, loading: false, data: data['hydra:member'] }))
@@ -27,17 +28,18 @@ export default function Galaxy({ url }) {
     React.useEffect(() => {
         const ico = document.querySelector('.c-galaxy__ico') as HTMLElement
         const modal = document.querySelector('.c-galaxy .c-modal') as HTMLElement
+        const initialWidth = '25.75rem'
 
         if (state.isOpen) {
-            positioningElement(ico, modal)
+            positioningElement(ico, modal, 50, 25, initialWidth)
 
             // check resize
             window.addEventListener('resize', () => {
-                positioningElement(ico, modal)
+                positioningElement(ico, modal, 50, 25, initialWidth)
             })
 
             window.addEventListener('scroll', () => {
-                positioningElement(ico, modal)
+                positioningElement(ico, modal, 50, 25, initialWidth)
             })
         }
     }, [state.isOpen])
