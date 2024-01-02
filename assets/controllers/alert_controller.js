@@ -60,7 +60,7 @@ export default class extends Controller {
 					if (value === inputValidator) {
 						resolve();
 					} else {
-						resolve(trans(ALERT_CONFIRM_INPUT_VALIDATOR_TEXT, {value: inputValidator}))
+						resolve(trans(ALERT_CONFIRM_INPUT_VALIDATOR_TEXT, {value: inputValidator}, 'js.alert'))
 					}
 				})
 			};
