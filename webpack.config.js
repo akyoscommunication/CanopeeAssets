@@ -34,7 +34,8 @@ Encore
     
     .addEntry('app', './assets/app.js')
     .addEntry('galaxy', './assets/js/components/Galaxy/index.tsx')
-    
+    .addEntry('notification-center', './assets/js/components/Notification/index.tsx')
+
     // .enableStimulusBridge('./assets/controllers.json')
 ;
 
