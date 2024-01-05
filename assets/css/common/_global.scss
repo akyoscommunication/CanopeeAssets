@@ -109,5 +109,15 @@ a {
                 transform-origin: top left;
             }
         }
+
+        &-2{
+            &:before {
+                font-size: 600px;
+                transform: rotate(-45deg);
+                top: 40%;
+                left: 40%;
+                transform-origin: top right;
+            }
+        }
     }
 }
