@@ -30,6 +30,10 @@
 	  color: color(grey-400);
 	  font-size: rem(10);
 	}
+
+	&__not-published {
+	  position: absolute;
+	}
   }
 
   &-body {
