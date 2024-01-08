@@ -1,0 +1,11 @@
+<details {{ attributes.defaults({class: "c-accordion"}) }}>
+
+    <summary class="c-accordion__title">
+        {% block header %}{% endblock %}
+    </summary>
+
+    <div class="c-accordion__panel">
+        {% block content %}{% endblock %}
+    </div>
+
+</details>
