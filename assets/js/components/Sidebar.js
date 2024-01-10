@@ -81,6 +81,8 @@ export default class Sidebar {
 				this.collapseTarget(target)
 			}
 
+
+			console.log(target)
 			if (target.classList.contains('.c-collapsable-trigger')) {
 				document.querySelector('.c-collapsable-trigger').addEventListener('click', eventCollapse)
 			} else {
