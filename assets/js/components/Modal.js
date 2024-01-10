@@ -1,10 +1,12 @@
 export default class Modal {
 	constructor() {
 		document.querySelectorAll('*[trigger-modal]').forEach((el) => {
+
+			const target = document.querySelector(el.getAttribute('trigger-modal'));
+
 			el.addEventListener('click', (e) => {
 				e.preventDefault();
-				const target = document.querySelector(el.getAttribute('trigger-modal'));
-				
+
 				if (target) {
 					// move modal to body if not already
 					// if (target.parentNode !== document.body) {
@@ -25,6 +27,11 @@ export default class Modal {
 					});
 				}
 			})
+
+			target.addEventListener('modal:close', (e) => {
+				target.close()
+			})
+
 		});
 	}
 }
