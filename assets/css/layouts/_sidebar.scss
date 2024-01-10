@@ -127,6 +127,12 @@
 					}
 				}
 			}
+
+		  &--submenu {
+			.c-nav-item__link {
+			  padding: rem(8) rem(24) !important;
+			}
+		  }
 		}
 
 		> ul {
