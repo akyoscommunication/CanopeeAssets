@@ -82,7 +82,7 @@ export default class Sidebar {
 				this.collapseTarget(target)
 			}
 
-			if (parent.classList.contains('.c-collapsable-trigger')) {
+			if (parent.querySelector('.c-collapsable-trigger')) {
 				document.querySelector('.c-collapsable-trigger').addEventListener('click', eventCollapse)
 			} else {
 				icon.addEventListener('click', eventCollapse)
