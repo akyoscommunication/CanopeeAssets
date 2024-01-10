@@ -81,8 +81,11 @@ export default class Sidebar {
 				this.collapseTarget(target)
 			}
 
-			// icon.addEventListener('click', eventCollapse)
-			document.querySelector('.c-collapsable-trigger').addEventListener('click', eventCollapse)
+			if (target.classList.contains('.c-collapsable-trigger')) {
+				document.querySelector('.c-collapsable-trigger').addEventListener('click', eventCollapse)
+			} else {
+				icon.addEventListener('click', eventCollapse)
+			}
 
 			// check cookie
 			const cookieName = COOKIE_COLLAPSABLE_PREFIX + target.getAttribute('id');
