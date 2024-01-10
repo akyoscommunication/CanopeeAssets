@@ -66,6 +66,7 @@ export default class Sidebar {
 
 		document.querySelectorAll('*[collapsable]').forEach((el) => {
 			const target = document.querySelector(el.getAttribute('collapsable'));
+			const parent = target.parentNode;
 			const icon = document.createElement('i');
 			icon.classList.add('icomoon-arrow-down', 'c-collapsable-trigger');
 			el.appendChild(icon);
@@ -81,9 +82,7 @@ export default class Sidebar {
 				this.collapseTarget(target)
 			}
 
-
-			console.log(target)
-			if (target.classList.contains('.c-collapsable-trigger')) {
+			if (parent.classList.contains('.c-collapsable-trigger')) {
 				document.querySelector('.c-collapsable-trigger').addEventListener('click', eventCollapse)
 			} else {
 				icon.addEventListener('click', eventCollapse)
