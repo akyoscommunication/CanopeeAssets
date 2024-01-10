@@ -66,7 +66,6 @@ export default class Sidebar {
 
 		document.querySelectorAll('*[collapsable]').forEach((el) => {
 			const target = document.querySelector(el.getAttribute('collapsable'));
-			const parent = target.parentNode;
 			const icon = document.createElement('i');
 			icon.classList.add('icomoon-arrow-down', 'c-collapsable-trigger');
 			el.appendChild(icon);
@@ -82,7 +81,11 @@ export default class Sidebar {
 				this.collapseTarget(target)
 			}
 
-			icon.addEventListener('click', eventCollapse)
+			if (el.getAttribute('href') === '#') {
+				el.addEventListener('click', eventCollapse)
+			} else {
+				icon.addEventListener('click', eventCollapse)
+			}
 
 
 			// check cookie
