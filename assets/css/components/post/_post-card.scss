@@ -32,7 +32,10 @@
 	}
 
 	&__not-published {
+	  @extend %fw-600;
+
 	  position: absolute;
+	  color: color(danger-400);
 	}
   }
 
