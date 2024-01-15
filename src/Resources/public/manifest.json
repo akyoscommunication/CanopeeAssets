@@ -1,10 +1,10 @@
 {
-  "app.css": "/bundles/canopeeassets/app.50acc35e.css",
-  "app.js": "/bundles/canopeeassets/app.d1b9c42d.js",
+  "app.css": "/bundles/canopeeassets/app.870ce49b.css",
+  "app.js": "/bundles/canopeeassets/app.9e9c5ddc.js",
   "galaxy.js": "/bundles/canopeeassets/galaxy.ad248674.js",
   "notification-center.js": "/bundles/canopeeassets/notification-center.4f44ce3a.js",
-  "images/icomoon.svg?f1sj7d": "/bundles/canopeeassets/images/icomoon.3661b7a4.svg",
-  "fonts/icomoon.eot?f1sj7d": "/bundles/canopeeassets/fonts/icomoon.ac4bba6c.eot",
-  "fonts/icomoon.woff?f1sj7d": "/bundles/canopeeassets/fonts/icomoon.6b7636ae.woff",
-  "fonts/icomoon.ttf?f1sj7d": "/bundles/canopeeassets/fonts/icomoon.291a3094.ttf"
+  "images/icomoon.svg?px3mdx": "/bundles/canopeeassets/images/icomoon.ffbb6a7b.svg",
+  "fonts/icomoon.eot?px3mdx": "/bundles/canopeeassets/fonts/icomoon.04ac6c9c.eot",
+  "fonts/icomoon.woff?px3mdx": "/bundles/canopeeassets/fonts/icomoon.66077d3c.woff",
+  "fonts/icomoon.ttf?px3mdx": "/bundles/canopeeassets/fonts/icomoon.16c42565.ttf"
 }

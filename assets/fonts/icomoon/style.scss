@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?f1sj7d');
-  src:  url('fonts/icomoon.eot?f1sj7d#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?f1sj7d') format('truetype'),
-    url('fonts/icomoon.woff?f1sj7d') format('woff'),
-    url('fonts/icomoon.svg?f1sj7d#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?px3mdx');
+  src:  url('fonts/icomoon.eot?px3mdx#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?px3mdx') format('truetype'),
+    url('fonts/icomoon.woff?px3mdx') format('woff'),
+    url('fonts/icomoon.svg?px3mdx#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,213 +25,216 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icomoon-focus-target:before {
-  content: "\e944";
-}
-.icomoon-user-circle:before {
-  content: "\e945";
-}
-.icomoon-adjust-circle:before {
+.icomoon-eye-slash:before {
   content: "\e900";
 }
-.icomoon-arobase:before {
+.icomoon-adjust-circle:before {
   content: "\e901";
 }
-.icomoon-arrow-down:before {
+.icomoon-arobase:before {
   content: "\e902";
 }
-.icomoon-arrow-left:before {
+.icomoon-arrow-down:before {
   content: "\e903";
 }
-.icomoon-arrow-right:before {
+.icomoon-arrow-left:before {
   content: "\e904";
 }
-.icomoon-arrow-up:before {
+.icomoon-arrow-right:before {
   content: "\e905";
 }
-.icomoon-bell:before {
+.icomoon-arrow-up:before {
   content: "\e906";
 }
-.icomoon-bike:before {
+.icomoon-bell:before {
   content: "\e907";
 }
-.icomoon-book-alt:before {
+.icomoon-bike:before {
   content: "\e908";
 }
-.icomoon-briefcase:before {
+.icomoon-book-alt:before {
   content: "\e909";
 }
-.icomoon-bus:before {
+.icomoon-briefcase:before {
   content: "\e90a";
 }
-.icomoon-calendar-alt:before {
+.icomoon-bus:before {
   content: "\e90b";
 }
-.icomoon-car:before {
+.icomoon-calendar-alt:before {
   content: "\e90c";
 }
-.icomoon-chart-down:before {
+.icomoon-car:before {
   content: "\e90d";
 }
-.icomoon-chart-pie-alt:before {
+.icomoon-chart-down:before {
   content: "\e90e";
 }
-.icomoon-check:before {
+.icomoon-chart-pie-alt:before {
   content: "\e90f";
 }
-.icomoon-clock-eight:before {
+.icomoon-check:before {
   content: "\e910";
 }
-.icomoon-clock-five:before {
+.icomoon-clock-eight:before {
   content: "\e911";
 }
-.icomoon-cog:before {
+.icomoon-clock-five:before {
   content: "\e912";
 }
-.icomoon-comment:before {
+.icomoon-cog:before {
   content: "\e913";
 }
-.icomoon-compress-point:before {
+.icomoon-comment:before {
   content: "\e914";
 }
-.icomoon-contract-sign:before {
+.icomoon-compress-point:before {
   content: "\e915";
 }
-.icomoon-create-dashboard:before {
+.icomoon-contract-sign:before {
   content: "\e916";
 }
-.icomoon-cutlery:before {
+.icomoon-create-dashboard:before {
   content: "\e917";
 }
-.icomoon-desktop:before {
+.icomoon-cutlery:before {
   content: "\e918";
 }
-.icomoon-diploma:before {
+.icomoon-desktop:before {
   content: "\e919";
 }
-.icomoon-document-info:before {
+.icomoon-diploma:before {
   content: "\e91a";
 }
-.icomoon-edit-alt:before {
+.icomoon-document-info:before {
   content: "\e91b";
 }
-.icomoon-edit:before {
+.icomoon-edit-alt:before {
   content: "\e91c";
 }
-.icomoon-euro-rounded:before {
+.icomoon-edit:before {
   content: "\e91d";
 }
-.icomoon-exclamation-circle:before {
+.icomoon-euro-rounded:before {
   content: "\e91e";
 }
-.icomoon-exclamation-triangle:before {
+.icomoon-exclamation-circle:before {
   content: "\e91f";
 }
-.icomoon-external-link-alt:before {
+.icomoon-exclamation-triangle:before {
   content: "\e920";
 }
-.icomoon-eye:before {
+.icomoon-external-link-alt:before {
   content: "\e921";
 }
-.icomoon-galaxy:before {
+.icomoon-eye:before {
   content: "\e922";
 }
-.icomoon-grid:before {
+.icomoon-focus-target:before {
   content: "\e923";
 }
-.icomoon-left-arrow-from-left:before {
+.icomoon-galaxy:before {
   content: "\e924";
 }
-.icomoon-left-arrow-to-left:before {
+.icomoon-grid:before {
   content: "\e925";
 }
-.icomoon-minus-circle:before {
+.icomoon-left-arrow-from-left:before {
   content: "\e926";
 }
-.icomoon-notebooks:before {
+.icomoon-left-arrow-to-left:before {
   content: "\e927";
 }
-.icomoon-phone:before {
+.icomoon-minus-circle:before {
   content: "\e928";
 }
-.icomoon-pin:before {
+.icomoon-notebooks:before {
   content: "\e929";
 }
-.icomoon-planning-event:before {
+.icomoon-phone:before {
   content: "\e92a";
 }
-.icomoon-plus-circle:before {
+.icomoon-pin:before {
   content: "\e92b";
 }
-.icomoon-plus:before {
+.icomoon-planning-event:before {
   content: "\e92c";
 }
-.icomoon-pricetag-alt:before {
+.icomoon-plus-circle:before {
   content: "\e92d";
 }
-.icomoon-promotion-percent:before {
+.icomoon-plus:before {
   content: "\e92e";
 }
-.icomoon-puzzle:before {
+.icomoon-pricetag-alt:before {
   content: "\e92f";
 }
-.icomoon-question-circle:before {
+.icomoon-promotion-percent:before {
   content: "\e930";
 }
-.icomoon-scaling-left:before {
+.icomoon-puzzle:before {
   content: "\e931";
 }
-.icomoon-scooter:before {
+.icomoon-question-circle:before {
   content: "\e932";
 }
-.icomoon-spanner:before {
+.icomoon-scaling-left:before {
   content: "\e933";
 }
-.icomoon-stopwatch:before {
+.icomoon-scooter:before {
   content: "\e934";
 }
-.icomoon-talk:before {
+.icomoon-spanner:before {
   content: "\e935";
 }
-.icomoon-target:before {
+.icomoon-stopwatch:before {
   content: "\e936";
 }
-.icomoon-times:before {
+.icomoon-talk:before {
   content: "\e937";
 }
-.icomoon-train:before {
+.icomoon-target:before {
   content: "\e938";
 }
-.icomoon-transports:before {
+.icomoon-times:before {
   content: "\e939";
 }
-.icomoon-trash:before {
+.icomoon-train:before {
   content: "\e93a";
 }
-.icomoon-trophee:before {
+.icomoon-transports:before {
   content: "\e93b";
 }
-.icomoon-trophy:before {
+.icomoon-trash:before {
   content: "\e93c";
 }
-.icomoon-unlock:before {
+.icomoon-trophee:before {
   content: "\e93d";
 }
-.icomoon-upload:before {
+.icomoon-trophy:before {
   content: "\e93e";
 }
-.icomoon-user:before {
+.icomoon-unlock:before {
   content: "\e93f";
 }
-.icomoon-users-alt:before {
+.icomoon-upload:before {
   content: "\e940";
 }
-.icomoon-walk:before {
+.icomoon-user-circle:before {
   content: "\e941";
 }
-.icomoon-window-grid:before {
+.icomoon-user-square:before {
   content: "\e942";
 }
-.icomoon-user-square:before {
+.icomoon-user:before {
   content: "\e943";
+}
+.icomoon-users-alt:before {
+  content: "\e944";
+}
+.icomoon-walk:before {
+  content: "\e945";
+}
+.icomoon-window-grid:before {
+  content: "\e946";
 }
