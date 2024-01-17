@@ -1,0 +1,8 @@
+.c-chart-mission {
+  .c-title {
+	@extend %fs-10;
+
+	color: color(grey-600);
+	margin-bottom: rem(14);
+  }
+}
