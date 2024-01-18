@@ -42,6 +42,10 @@
     padding-top: rem(20);
     max-height: 0;
     transition: max-height 0.2s linear;
-  }
 
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
