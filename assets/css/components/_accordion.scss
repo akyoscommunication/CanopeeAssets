@@ -19,10 +19,12 @@
   &__title {
     @extend %fw-700;
     @extend .icomoon-plus-circle;
+    @include flex(row, nowrap, flex-start, center);
 
     cursor: pointer;
     position: relative;
     padding-right: rem(40);
+    gap: rem(20);
 
     &::before {
       font-family: icomoon;
