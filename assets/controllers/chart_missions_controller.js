@@ -61,7 +61,8 @@ export default class extends Controller {
 							return label;
 						},
 						title: function (context) {
-							return context[0].dataset.label;
+							let arrayString = context[0].dataset.label.split(' - ');
+							return arrayString[1];
 						}
 					}
 				}
