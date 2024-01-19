@@ -1,0 +1,30 @@
+.s-single-post {
+  &__thumbnail {
+	height: rem(317);
+	background-color: color(grey-200);
+	margin-bottom: rem(19);
+
+	img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: contain;
+	}
+  }
+
+  &__date {
+	color: color(grey-400);
+	font-size: rem(10);
+	margin-bottom: rem(36);
+  }
+
+  &__title {
+	margin-bottom: rem(35);
+  }
+
+  &__content {
+	img {
+	  max-width: 100%;
+	  height: auto;
+	}
+  }
+}

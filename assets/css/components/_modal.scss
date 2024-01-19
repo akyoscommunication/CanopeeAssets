@@ -7,11 +7,17 @@
 	padding: rem(32);
 	max-width: rem(508);
 	width: 100%;
-	aspect-ratio: 1;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	color: color(primary);
 	background: color(light);
 	box-shadow: $default-shadow;
+
+	&::-webkit-scrollbar-thumb,
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 	&::backdrop {
 		background: rgba(0, 0, 0, 0.5);

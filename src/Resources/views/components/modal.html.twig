@@ -1,0 +1,15 @@
+<dialog
+        {{ attributes.defaults(
+            {class: "c-modal c-modal--widget"})
+        }}
+>
+
+    <div class="c-modal__header">
+        {% block header %}{% endblock %}
+    </div>
+
+    <div class="c-modal__content">
+        {% block content %}{% endblock %}
+    </div>
+
+</dialog>

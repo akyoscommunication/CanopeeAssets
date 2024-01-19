@@ -109,5 +109,14 @@ a {
                 transform-origin: top left;
             }
         }
+
+        &-2{
+            &:before {
+                font-size: 600px;
+                transform: rotate(-45deg);
+                top: 20%;
+                left: 35%;
+            }
+        }
     }
 }

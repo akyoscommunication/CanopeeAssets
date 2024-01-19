@@ -79,6 +79,21 @@
 					}
 				}
 			}
+
+			&-3 {
+				gap: rem(16);
+
+				> li {
+					@extend %fs-12;
+
+					&:hover,
+					&.active {
+						@extend %fw-700;
+
+						text-decoration: underline;
+					}
+				}
+			}
 		}
 	}
 }

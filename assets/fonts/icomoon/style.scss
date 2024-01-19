@@ -1,0 +1,240 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?px3mdx');
+  src:  url('fonts/icomoon.eot?px3mdx#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?px3mdx') format('truetype'),
+    url('fonts/icomoon.woff?px3mdx') format('woff'),
+    url('fonts/icomoon.svg?px3mdx#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icomoon-"], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-eye-slash:before {
+  content: "\e900";
+}
+.icomoon-adjust-circle:before {
+  content: "\e901";
+}
+.icomoon-arobase:before {
+  content: "\e902";
+}
+.icomoon-arrow-down:before {
+  content: "\e903";
+}
+.icomoon-arrow-left:before {
+  content: "\e904";
+}
+.icomoon-arrow-right:before {
+  content: "\e905";
+}
+.icomoon-arrow-up:before {
+  content: "\e906";
+}
+.icomoon-bell:before {
+  content: "\e907";
+}
+.icomoon-bike:before {
+  content: "\e908";
+}
+.icomoon-book-alt:before {
+  content: "\e909";
+}
+.icomoon-briefcase:before {
+  content: "\e90a";
+}
+.icomoon-bus:before {
+  content: "\e90b";
+}
+.icomoon-calendar-alt:before {
+  content: "\e90c";
+}
+.icomoon-car:before {
+  content: "\e90d";
+}
+.icomoon-chart-down:before {
+  content: "\e90e";
+}
+.icomoon-chart-pie-alt:before {
+  content: "\e90f";
+}
+.icomoon-check:before {
+  content: "\e910";
+}
+.icomoon-clock-eight:before {
+  content: "\e911";
+}
+.icomoon-clock-five:before {
+  content: "\e912";
+}
+.icomoon-cog:before {
+  content: "\e913";
+}
+.icomoon-comment:before {
+  content: "\e914";
+}
+.icomoon-compress-point:before {
+  content: "\e915";
+}
+.icomoon-contract-sign:before {
+  content: "\e916";
+}
+.icomoon-create-dashboard:before {
+  content: "\e917";
+}
+.icomoon-cutlery:before {
+  content: "\e918";
+}
+.icomoon-desktop:before {
+  content: "\e919";
+}
+.icomoon-diploma:before {
+  content: "\e91a";
+}
+.icomoon-document-info:before {
+  content: "\e91b";
+}
+.icomoon-edit-alt:before {
+  content: "\e91c";
+}
+.icomoon-edit:before {
+  content: "\e91d";
+}
+.icomoon-euro-rounded:before {
+  content: "\e91e";
+}
+.icomoon-exclamation-circle:before {
+  content: "\e91f";
+}
+.icomoon-exclamation-triangle:before {
+  content: "\e920";
+}
+.icomoon-external-link-alt:before {
+  content: "\e921";
+}
+.icomoon-eye:before {
+  content: "\e922";
+}
+.icomoon-focus-target:before {
+  content: "\e923";
+}
+.icomoon-galaxy:before {
+  content: "\e924";
+}
+.icomoon-grid:before {
+  content: "\e925";
+}
+.icomoon-left-arrow-from-left:before {
+  content: "\e926";
+}
+.icomoon-left-arrow-to-left:before {
+  content: "\e927";
+}
+.icomoon-minus-circle:before {
+  content: "\e928";
+}
+.icomoon-notebooks:before {
+  content: "\e929";
+}
+.icomoon-phone:before {
+  content: "\e92a";
+}
+.icomoon-pin:before {
+  content: "\e92b";
+}
+.icomoon-planning-event:before {
+  content: "\e92c";
+}
+.icomoon-plus-circle:before {
+  content: "\e92d";
+}
+.icomoon-plus:before {
+  content: "\e92e";
+}
+.icomoon-pricetag-alt:before {
+  content: "\e92f";
+}
+.icomoon-promotion-percent:before {
+  content: "\e930";
+}
+.icomoon-puzzle:before {
+  content: "\e931";
+}
+.icomoon-question-circle:before {
+  content: "\e932";
+}
+.icomoon-scaling-left:before {
+  content: "\e933";
+}
+.icomoon-scooter:before {
+  content: "\e934";
+}
+.icomoon-spanner:before {
+  content: "\e935";
+}
+.icomoon-stopwatch:before {
+  content: "\e936";
+}
+.icomoon-talk:before {
+  content: "\e937";
+}
+.icomoon-target:before {
+  content: "\e938";
+}
+.icomoon-times:before {
+  content: "\e939";
+}
+.icomoon-train:before {
+  content: "\e93a";
+}
+.icomoon-transports:before {
+  content: "\e93b";
+}
+.icomoon-trash:before {
+  content: "\e93c";
+}
+.icomoon-trophee:before {
+  content: "\e93d";
+}
+.icomoon-trophy:before {
+  content: "\e93e";
+}
+.icomoon-unlock:before {
+  content: "\e93f";
+}
+.icomoon-upload:before {
+  content: "\e940";
+}
+.icomoon-user-circle:before {
+  content: "\e941";
+}
+.icomoon-user-square:before {
+  content: "\e942";
+}
+.icomoon-user:before {
+  content: "\e943";
+}
+.icomoon-users-alt:before {
+  content: "\e944";
+}
+.icomoon-walk:before {
+  content: "\e945";
+}
+.icomoon-window-grid:before {
+  content: "\e946";
+}

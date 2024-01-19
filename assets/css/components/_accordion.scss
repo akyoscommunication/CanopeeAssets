@@ -1,0 +1,53 @@
+.c-accordion {
+  @extend %br--4;
+
+  border: 1px solid color(secondary-200);
+  padding: rem(16) rem(35);
+  overflow: hidden;
+
+  &[open] {
+    .c-accordion__title {
+      @extend .icomoon-minus-circle;
+
+    }
+    .c-accordion__panel {
+      max-height: 800px;
+    }
+  }
+
+
+  &__title {
+    @extend %fw-700;
+    @extend .icomoon-plus-circle;
+    @include flex(row, nowrap, flex-start, center);
+
+    cursor: pointer;
+    position: relative;
+    padding-right: rem(40);
+    gap: rem(20);
+
+    &::before {
+      font-family: icomoon;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::marker {
+      content: none;
+    }
+
+  }
+
+  &__panel {
+    padding-top: rem(20);
+    max-height: 0;
+    transition: max-height 0.2s linear;
+
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

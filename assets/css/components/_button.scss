@@ -10,6 +10,7 @@ $dark: map-get($colors-scheme-light, "dark");
 	font-family: $font-family;
 	word-break: break-word;
 	font-size: inherit;
+	outline: none;
 
 	&.disabled {
 		background-color: color(grey-200) !important;

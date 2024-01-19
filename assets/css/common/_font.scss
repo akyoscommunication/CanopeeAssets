@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap');
-@import "@canopee_fonts/icomoon/style.css";
+@import "@canopee_fonts/icomoon/style.scss";
 
 .fs {
 	@each $size, $lineHeight in $fontSizes {
