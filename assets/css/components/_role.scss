@@ -1,0 +1,9 @@
+.c-role {
+  p {
+	@include flex(row, wrap, flex-start, center);
+
+	i {
+	  margin-right: rem(15);
+	}
+  }
+}
