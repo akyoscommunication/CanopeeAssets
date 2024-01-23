@@ -68,6 +68,9 @@ export default class extends Controller {
 							return context[0].dataset.label;
 						}
 					}
+				},
+				legend: {
+					display: false
 				}
 			},
 			scales: {
@@ -91,12 +94,6 @@ export default class extends Controller {
 					borderRadius: 5,
 				}
 			},
-			onClick: function (evt, item) {
-				let datasetIndex = item[0].datasetIndex;
-				let missionId = event.detail.config.data.datasets[datasetIndex].customData;
-
-				return window.location.href = domain + 'missions/' + missionId;
-			}
 		};
 	}
 
