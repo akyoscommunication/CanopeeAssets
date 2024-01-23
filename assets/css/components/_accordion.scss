@@ -8,13 +8,8 @@
   &[open] {
     .c-accordion__title {
       @extend .icomoon-minus-circle;
-
-    }
-    .c-accordion__panel {
-      max-height: 800px;
     }
   }
-
 
   &__title {
     @extend %fw-700;
@@ -35,13 +30,9 @@
     &::marker {
       content: none;
     }
-
   }
 
   &__panel {
     padding-top: rem(20);
-    max-height: 0;
-    transition: max-height 0.2s linear;
   }
-
 }

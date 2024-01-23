@@ -36,7 +36,7 @@ export default function Modal({ isOpen, toggleOpen }) {
             <List/>
         </div>
         <footer className="c-modal__footer">
-            <a href={state.host+"/notifications"} target="_blank" className="c-link">Voir toutes les notifications</a>
+            <a href={state.host+"/notifications"} className="c-link">Voir toutes les notifications</a>
         </footer>
     </dialog>
 }
