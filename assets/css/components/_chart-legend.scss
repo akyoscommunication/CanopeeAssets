@@ -1,0 +1,22 @@
+.c-chart-legend {
+  &-list {
+	@include undoListStyles;
+	@include flex(row, wrap, flex-start, center);
+
+	gap: rem(10);
+	line-height: 1;
+
+	&-item {
+	  @include flex(row, nowrap, flex-start, center);
+
+	  gap: rem(8);
+
+	  &__color {
+		width: rem(40);
+		height: rem(20);
+		border-radius: 5px;
+		background-color: var(--chart-item-color);
+	  }
+	}
+  }
+}

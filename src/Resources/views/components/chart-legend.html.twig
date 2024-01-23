@@ -1,0 +1,16 @@
+<div{{ attributes.defaults({ class: 'c-chart-legend' }) }}>
+	<ul class="c-chart-legend-list">
+		{% for label in labels %}
+			{% if label.redirect is defined %}
+				<a href="{{ path(label.redirect.route, label.redirect.params) }}">
+			{% endif %}
+			<div class="c-chart-legend-list-item">
+				<span class="c-chart-legend-list-item__color" style="--chart-item-color:{{ label.color }}"></span>
+				<div class="c-text">{{ label.name }}</div>
+			</div>
+			{% if label.redirect is defined %}
+				</a>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>
