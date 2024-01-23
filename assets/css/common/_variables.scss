@@ -30,10 +30,12 @@ $grid-gap: 28px;
 $threshold: 70%;
 
 $breakpoints: (
+	"xxxl": 1600px,
 	"xxl": 1400px,
 	"xl": 1200px,
 	"lg": 992px,
 	"md": 768px,
+	"sml": 576px,
 	"sm": 320px,
 	"xs": 0,
 );

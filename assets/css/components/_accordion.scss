@@ -14,10 +14,12 @@
   &__title {
     @extend %fw-700;
     @extend .icomoon-plus-circle;
+    @include flex(row, nowrap, flex-start, center);
 
     cursor: pointer;
     position: relative;
     padding-right: rem(40);
+    gap: rem(20);
 
     &::before {
       font-family: icomoon;
@@ -34,5 +36,11 @@
 
   &__panel {
     padding-top: rem(20);
+    transition: max-height 0.2s linear;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
 }

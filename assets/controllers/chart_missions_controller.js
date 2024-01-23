@@ -15,6 +15,10 @@ export default class extends Controller {
 	}
 
 	_onPreConnect(event) {
+		let target = event.target;
+		let domain = target.getAttribute('domain_endpoint');
+
+		console.log(domain)
 		event.detail.config.options = {
 			plugins: {
 				tooltip: {
@@ -88,17 +92,10 @@ export default class extends Controller {
 				}
 			},
 			onClick: function (evt, item) {
-
-				//Je trouve que ca deg comme facon de faire mais je n'ai pas trouvé mieux
-
 				let datasetIndex = item[0].datasetIndex;
-				let dataIndex = item[0].index;
-				let datasetLabel = evt.chart.data.datasets[datasetIndex].label;
-				let value = evt.chart.data.datasets[datasetIndex].data[dataIndex];
-				let label = evt.chart.data.labels[dataIndex];
-				let arrayString = datasetLabel.split(' - ');
+				let missionId = event.detail.config.data.datasets[datasetIndex].customData;
 
-				return window.location.href = 'http://127.0.0.1:8002/missions/' + arrayString[0];
+				return window.location.href = domain + 'missions/' + missionId;
 			}
 		};
 	}

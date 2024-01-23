@@ -20,4 +20,11 @@
   &__title {
 	margin-bottom: rem(35);
   }
+
+  &__content {
+	img {
+	  max-width: 100%;
+	  height: auto;
+	}
+  }
 }
