@@ -5,6 +5,8 @@
 
 	gap: rem(10);
 	line-height: 1;
+    overflow-y: scroll;
+    max-height: 130px;
 
 	&-item {
 	  @include flex(row, nowrap, flex-start, center);
