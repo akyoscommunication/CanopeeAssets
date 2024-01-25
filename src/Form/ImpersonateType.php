@@ -23,6 +23,7 @@ class ImpersonateType extends AbstractType
                         return $userCanopee->familyName . ' ' . $userCanopee->givenName . ' - (' . $userCanopee->email .')';
                     }
                 },
+                'query_builder' => fn(UserRepository $userRepository) => $userRepository->findAll(),
                 'choice_value' => function (User $entity = null) {
                     return $entity ? $entity->getUuid() : '';
                 },

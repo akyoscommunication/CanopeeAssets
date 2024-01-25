@@ -2,7 +2,7 @@
 	<ul class="c-chart-legend-list">
 		{% for label in labels %}
 			{% if label.redirect is defined %}
-				<a href="{{ path(label.redirect.route, label.redirect.params) }}">
+				<a href="{{ label.redirect.link is defined ? label.redirect.link : path(label.redirect.route, label.redirect.params) }}">
 			{% endif %}
 			<div class="c-chart-legend-list-item">
 				<span class="c-chart-legend-list-item__color" style="--chart-item-color:{{ label.color }}"></span>
