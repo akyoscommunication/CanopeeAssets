@@ -1,5 +1,7 @@
 {% set userCanopee = this.collaborator.userCanopee %}
-{% set attrs = {} %}
+{% set attrs = {
+    'class': 'collaborator-card',
+} %}
 {% if this.tag is same as('a') %}
     {% set attrs = attrs|merge({href: path('app.collaborator.show', {id: collaborator.id})}) %}
 {% endif %}
