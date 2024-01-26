@@ -22,7 +22,7 @@ $fields: '.ts-wrapper.single .ts-control',
 
 	line-height: 1;
 
-	label {
+	label, legend {
 	  @extend %fw-700;
 
 	  letter-spacing: rem(-0.14);
@@ -366,6 +366,45 @@ form {
 		}
 	  }
 	}
+
+	.c-custom-field-checkbox {
+	  legend {
+
+	  }
+
+	  &__inputs {
+		@include flex(row, nowrap, flex-start, center);
+
+		gap: rem(15);
+		margin-top: rem(9);
+
+		.form-check {
+		  @include flex(row, nowrap, center, center);
+		  @extend %fs-14;
+		  @extend %fw-600;
+
+		  position: relative;
+		  margin-right: rem(15);
+
+		  input[type="checkbox"] {
+			-webkit-appearance: none;
+			appearance: none;
+			margin: 0;
+			position: absolute;
+			background-color: color(light);
+			width: rem(45);
+			height: rem(45);
+			border-radius: 50%;
+			box-shadow: $default-shadow;
+
+			&:checked {
+			  background-color: color(secondary-500);
+			}
+		  }
+		}
+	  }
+	}
+
 
 	&:has(+ fieldset.form-group) {
 	  margin-bottom: rem(64);
