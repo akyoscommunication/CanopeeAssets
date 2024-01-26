@@ -369,7 +369,8 @@ form {
 
 	.c-custom-field-checkbox {
 	  legend {
-
+       text-transform: initial;
+		margin-bottom: 0;
 	  }
 
 	  &__inputs {
