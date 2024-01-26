@@ -94,7 +94,7 @@ form {
 .form {
   &-group,
   &-switch {
-	> label {
+	> label, legend {
 	  @extend %fs-12;
 	  @extend %br--4;
 
@@ -128,7 +128,7 @@ form {
 	row-gap: rem($mb--group);
 	grid-column: span 12;
 
-	> label {
+	> label, legend {
 	  &:not(:has(+ input[type="color"])) {
 		position: absolute;
 		top: 0;
@@ -384,15 +384,17 @@ form {
 
 .c-custom-field-checkbox {
   legend {
+	@extend %fw-400;
+
 	text-transform: initial;
-	margin-bottom: 0;
+	left: initial !important;
   }
 
   &__inputs {
 	@include flex(row, nowrap, flex-start, center);
 
 	gap: rem(15);
-	margin-top: rem(9);
+	margin-top: rem(29);
 
 	.form-check {
 	  @include flex(row, nowrap, center, center);
@@ -412,6 +414,8 @@ form {
 		height: rem(45);
 		border-radius: 50%;
 		box-shadow: $default-shadow;
+		cursor: pointer;
+		transition: $default-transition;
 
 		&:checked {
 		  background-color: color(secondary-500);
@@ -429,6 +433,7 @@ fieldset {
   legend {
 	@extend %fs-14;
 	@extend %fw-600;
+
 
 	text-transform: uppercase;
 	margin-bottom: rem(34);
