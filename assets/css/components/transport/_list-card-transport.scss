@@ -1,0 +1,51 @@
+.c-list-card-transport {
+  @extend %fs-14;
+  @extend %fw-600;
+
+  .c-card {
+	padding: rem(10) rem(20);
+  }
+
+  &-header {
+	@extend %fw-700;
+	@include flex(row, nowrap, space-between, center);
+
+	&__transport {
+	  @include flex(row, nowrap, flex-start, center);
+
+	  gap: rem(9);
+
+	  i {
+		@extend %fs-16;
+	  }
+	}
+  }
+
+  .c-list-day {
+	@include flex(row, wrap, space-between, center);
+
+	padding: rem(34) 0 rem(32);
+
+	&__item {
+	  @include flex(row, nowrap, center, center);
+
+	  background-color: color(light);
+	  width: rem(45);
+	  height: rem(45);
+	  border-radius: 50%;
+	  box-shadow: $default-shadow;
+	  transition: $default-transition;
+
+	  &--active {
+		background-color: color(secondary-500);
+		color: color(light);
+	  }
+	}
+  }
+
+  &-footer {
+	@include flex(row, nowrap, flex-end, center);
+
+	gap: rem(12);
+  }
+}

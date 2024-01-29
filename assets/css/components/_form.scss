@@ -61,8 +61,8 @@ $fields: '.ts-wrapper.single .ts-control',
 		}
 	  }
 
-	  &--quill{
-		img{
+	  &--quill {
+		img {
 		  max-width: 100%;
 		  height: auto;
 		}
@@ -419,6 +419,11 @@ form {
 
 		&:checked {
 		  background-color: color(secondary-500);
+		}
+
+		&[disabled] {
+		  background-color: color(grey-100);
+		  cursor: not-allowed;
 		}
 	  }
 	}
