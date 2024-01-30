@@ -31,5 +31,9 @@
 		&__date {
 			@extend %fs-10;
 		}
+
+		&--flex-start {
+			justify-content: flex-start;
+		}
 	}
 }
