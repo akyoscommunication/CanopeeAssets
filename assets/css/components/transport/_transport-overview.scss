@@ -2,12 +2,13 @@
   &__item {
 	margin-top: rem(15);
 
-	&:last-child{
+	&:last-child {
 	  margin-bottom: rem(28);
 	}
   }
 
   .c-list-day {
+	justify-content: flex-start;
 	gap: rem(15);
 	padding: 0;
   }
