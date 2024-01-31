@@ -1,0 +1,14 @@
+.c-transport-overview {
+  &__item {
+	margin-top: rem(15);
+
+	&:last-child{
+	  margin-bottom: rem(28);
+	}
+  }
+
+  .c-list-day {
+	gap: rem(15);
+	padding: 0;
+  }
+}
