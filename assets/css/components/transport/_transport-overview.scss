@@ -1,9 +1,9 @@
 .c-transport-overview {
   &__item {
-	margin-top: rem(15);
+	margin-bottom: rem(15);
 
 	&:last-child {
-	  margin-bottom: rem(28);
+	  margin-bottom: 0;
 	}
   }
 
