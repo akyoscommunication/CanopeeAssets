@@ -1,0 +1,21 @@
+.c-list-day {
+  @include flex(row, wrap, space-between, center);
+
+  padding: rem(34) 0 rem(32);
+
+  &__item {
+	@include flex(row, nowrap, center, center);
+
+	background-color: color(light);
+	width: rem(45);
+	height: rem(45);
+	border-radius: 50%;
+	box-shadow: $default-shadow;
+	transition: $default-transition;
+
+	&--active {
+	  background-color: color(secondary-500);
+	  color: color(light);
+	}
+  }
+}
