@@ -1,10 +1,14 @@
-.c-chart-transport {
-  padding-top: rem(93);
+.c-chart-transportType {
+  .c-card {
+	@include flex(row, wrap, center, center);
 
-  .c-chart-legend {
-	&-list {
+	gap: rem(36);
+
+
+	.c-title {
 	  justify-content: center;
-	  padding-bottom: rem(63);
+	  margin-top: rem(28);
+	  text-transform: uppercase;
 	}
   }
 }
