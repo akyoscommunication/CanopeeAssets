@@ -49,50 +49,65 @@
 	}
 
 	&.c-profile {
-		&--style-1 {
-			@extend %fs-10;
-			@include flex(column, nowrap, center, center);
+		&--style {
+			&-1 {
+				@extend %fs-10;
+				@include flex(column, nowrap, center, center);
 
-			text-align: center;
-			position: relative;
-			overflow: hidden;
+				text-align: center;
+				position: relative;
+				overflow: hidden;
 
-			.c-profile {
-				&__avatar {
-					width: 75%;
-					height: auto;
-				}
-
-				&__content {
-					@include flex(column, nowrap, flex-end, flex-start);
-
-					position: absolute;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					gap: rem(16);
-					text-align: left;
-					background-color: color(light);
-					padding: rem(28) rem(12);
-					transform: translateY(100%);
-					transition: $default-transition;
-					word-wrap: break-word;
-
-					> * {
-						width: 100%;
+				.c-profile {
+					&__avatar {
+						width: 75%;
+						height: auto;
 					}
 
-					.c-text {
-						line-height: 2;
+					&__content {
+						@include flex(column, nowrap, flex-end, flex-start);
+
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						bottom: 0;
+						gap: rem(16);
+						text-align: left;
+						background-color: color(light);
+						padding: rem(28) rem(12);
+						transform: translateY(100%);
+						transition: $default-transition;
+						word-wrap: break-word;
+
+						> * {
+							width: 100%;
+						}
+
+						.c-text {
+							line-height: 2;
+						}
+					}
+				}
+
+				&:hover {
+					.c-profile {
+						&__content {
+							transform: translateY(0);
+						}
 					}
 				}
 			}
 
-			&:hover {
+			&-2 {
 				.c-profile {
+					&__avatar {
+						width: rem(30);
+						height: rem(30);
+					}
+
 					&__content {
-						transform: translateY(0);
+						text-align: left;
 					}
 				}
 			}
