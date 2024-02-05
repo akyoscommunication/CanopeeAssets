@@ -1,14 +1,41 @@
 .c-chart-transportType {
+  padding-top: rem(20);
+
   .c-card {
+	.c-chart-legend {
+	  padding-bottom: rem(64);
+
+	  &-list {
+		justify-content: center;
+	  }
+	}
+
+	.c-title {
+	  @extend %fs-14;
+
+	  justify-content: flex-start;
+	  padding: rem(28) 0 rem(64);
+	  text-transform: uppercase;
+	}
+  }
+
+  &-item {
+	&__chart {
+	  @include flex(column, wrap, flex-end, flex-start);
+	}
+  }
+
+  &-content {
 	@include flex(row, wrap, center, center);
 
 	gap: rem(36);
+  }
 
+  &-button {
+	@include flex(row, wrap, center, center);
 
-	.c-title {
-	  justify-content: center;
-	  margin-top: rem(28);
-	  text-transform: uppercase;
+	.c-button {
+	  width: fit-content;
 	}
   }
 }
