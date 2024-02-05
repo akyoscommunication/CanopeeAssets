@@ -16,6 +16,10 @@
 	  justify-content: flex-start;
 	  padding: rem(28) 0 rem(64);
 	  text-transform: uppercase;
+
+	  &--center{
+		justify-content: center;
+	  }
 	}
   }
 
