@@ -9,7 +9,7 @@
                     {{ th.sort ? knp_pagination_sortable(elements, th.name|upper, th.sort) : th.name|upper }}
                 </th>
             {% endfor %}
-            <th>{{ knp_pagination_render(elements, 'theme/Pagination/live_sliding.html.twig') }}</th>
+            <th>{{ knp_pagination_render(elements, '@CanopeeAssets/theme/Pagination/live_sliding.html.twig') }}</th>
         </tr>
         </thead>
         <tbody>
