@@ -118,7 +118,7 @@ form {
 	gap: rem(16);
 
 	&-wrapper {
-	  @include flex(column, wrap, flex-start, flex-start);
+	  @include flex(row, wrap, flex-start, flex-start);
 
 	  gap: rem(8);
 	}
