@@ -6,7 +6,7 @@
             {% for th in tHeader %}
                 {% set count = count + 1 %}
                 <th {% if th.sort and elements.isSorted(th.sort) %} class="sorted"{% endif %}>
-                    {{ th.sort ? knp_pagination_sortable(elements, th.name|upper, th.sort) : th.name|upper }}
+                    {{ th.sort ? knp_pagination_sortable(elements, th.name|upper, th.sort, {'sort': sort, 'sortDirection': sortDirection}) : th.name|upper }}
                 </th>
             {% endfor %}
             <th>{{ knp_pagination_render(elements, '@CanopeeAssets/theme/Pagination/live_sliding.html.twig') }}</th>
