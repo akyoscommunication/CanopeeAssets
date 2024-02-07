@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Trait;
+namespace Akyos\CanopeeAssets\Trait;
 
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
