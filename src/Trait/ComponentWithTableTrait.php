@@ -1,6 +1,6 @@
 <?php
 
-namespace Akyos\CanopeeAssets\Trait;
+namespace App\Trait;
 
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Service\Attribute\Required;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
+use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
 trait ComponentWithTableTrait
@@ -18,7 +19,15 @@ trait ComponentWithTableTrait
     public ?string $trTemplate = null;
 
     public bool $paginate = true;
-    private int $page = 1;
+
+    #[LiveProp(writable: true)]
+    public int $page = 1;
+
+    #[LiveProp(writable: true)]
+    public ?string $sort = null;
+
+    #[LiveProp(writable: true)]
+    public ?string $sortDirection = null;
 
     public PaginatorInterface $paginator;
     public RequestStack $request;
@@ -47,22 +56,26 @@ trait ComponentWithTableTrait
 
     public function getTable(): false|string
     {
-        return $this->render('@CanopeeAssets/components/table/table.html.twig', array_merge([
+        return $this->render('components/table/table.html.twig', [
             'elements' => $this->getElements(),
             'trTemplate' => $this->trTemplate,
             'tHeader' => $this->getTHeader(),
             'paginate' => $this->paginate,
-        ], $this->getTrTemplateVars()))->getContent();
-    }
-
-    protected function getTrTemplateVars(): array
-    {
-        return [];
+            'sort' => $this->sort,
+            'sortDirection' => $this->sortDirection,
+        ])->getContent();
     }
 
     #[LiveAction]
     public function toPage(#[LiveArg] int $page): void
     {
         $this->page = $page;
+    }
+
+    #[LiveAction]
+    public function sortColumn(#[LiveArg] string $sort, #[LiveArg] string $direction): void
+    {
+        $this->sort = $sort;
+        $this->sortDirection = $direction;
     }
 }
