@@ -56,7 +56,7 @@ trait ComponentWithTableTrait
 
     public function getTable(): false|string
     {
-        return $this->render('components/table/table.html.twig', [
+        return $this->render('@CanopeeAssets/components/table/table.html.twig', [
             'elements' => $this->getElements(),
             'trTemplate' => $this->trTemplate,
             'tHeader' => $this->getTHeader(),
