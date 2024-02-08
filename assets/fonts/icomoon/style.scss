@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ac9lc0');
-  src:  url('fonts/icomoon.eot?ac9lc0#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ac9lc0') format('truetype'),
-    url('fonts/icomoon.woff?ac9lc0') format('woff'),
-    url('fonts/icomoon.svg?ac9lc0#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?5c8n4e');
+  src:  url('fonts/icomoon.eot?5c8n4e#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?5c8n4e') format('truetype'),
+    url('fonts/icomoon.woff?5c8n4e') format('woff'),
+    url('fonts/icomoon.svg?5c8n4e#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icomoon-pin:before {
+  content: "\e92b";
+}
 .icomoon-lock:before {
   content: "\e94d";
 }
@@ -174,9 +177,6 @@
 }
 .icomoon-phone:before {
   content: "\e92a";
-}
-.icomoon-pin:before {
-  content: "\e92b";
 }
 .icomoon-planning-event:before {
   content: "\e92c";

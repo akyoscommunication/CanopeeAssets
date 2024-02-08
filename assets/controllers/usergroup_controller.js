@@ -6,7 +6,7 @@ export default class extends Controller {
 	};
 
 	connect() {
-		this.childrens = this.element.querySelectorAll('.c-profile__avatar');
+		this.childrens = this.element.querySelectorAll('.c-users__item');
 		this.#arrangeChildren()
 		this.#addRemainingCount()
 		this.#hideRemainingChildren()
@@ -23,7 +23,7 @@ export default class extends Controller {
 
 		const remaining = this.childrens.length - this.maxValue;
 		const remainingEl = document.createElement('div');
-		remainingEl.classList.add('c-profile__avatar');
+		remainingEl.classList.add('c-users__item');
 		remainingEl.classList.add('c-users__item--remaining');
 		remainingEl.innerHTML = `+${remaining}`;
 		remainingEl.style.zIndex = 1;
