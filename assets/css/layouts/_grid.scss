@@ -116,3 +116,13 @@
 		}
 	}
 }
+
+*:has(> .l-grid) {
+	container: lgrid / inline-size;
+}
+
+@container lgrid (width < 320px) {
+	.l-grid {
+		column-gap: 0;
+	}
+}
