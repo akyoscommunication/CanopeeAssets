@@ -11,8 +11,8 @@ export type Notification = {
 };
 
 export enum States {
-    Read = 'Lu',
-    Unread = 'Non lu'
+    Read = 'read',
+    Unread = 'unread'
 }
 
 export type Module = {

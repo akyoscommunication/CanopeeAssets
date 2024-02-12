@@ -11,6 +11,6 @@ export default function Filters() {
 
     return <ul className="c-filter c-filter--style-3">
         <li className={"c-filter__item"+(stateContext.filter === "*" ? " active" : "")} onClick={() => filter('*')}>Toutes</li>
-        {Object.keys(States).map((state, index) => <li key={index} className={`c-filters__item ${stateContext.filter === States[state] ? " active" : ""}`} onClick={() => filter(States[state])}>{States[state]}</li>)}
+        {Object.keys(States).map((state, index) => <li key={index} className={`c-filters__item ${stateContext.filter === States[state] ? " active" : ""}`} onClick={() => filter(States[state])}>{States[state] === States.Read ? 'Lu' : 'Non lu'}</li>)}
     </ul>
 }

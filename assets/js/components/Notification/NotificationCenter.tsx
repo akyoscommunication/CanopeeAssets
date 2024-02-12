@@ -8,10 +8,11 @@ import Modal from "./ui/Modal";
 import { positioningElement } from "../../utils/index";
 
 type NotificationCenterProps = {
-    host: string
+    host: string,
+    data: Array<Notification>
 }
 
-export default function NotificationCenter({host} : NotificationCenterProps) {
+export default function NotificationCenter({host, data} : NotificationCenterProps) {
     const [state, dispatch] = React.useReducer(reducer, {
         loading: true,
         data,

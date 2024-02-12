@@ -25,7 +25,7 @@ export default function ListItem({ notification } : ListItemProps) {
     const goTo = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
-        fetch(`/api/notifications/${notification.id}`, {
+        fetch(`/notifications/assets/${notification.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/merge-patch+json',
@@ -43,6 +43,6 @@ export default function ListItem({ notification } : ListItemProps) {
         <div className="c-notification__type">{notification.type}</div>
         <div className="c-notification__time">{timeString()}</div>
         <div className="c-notification__name">{notification.name}</div>
-        <div className="c-badge c-badge--primary-500">{notification.module.name}</div>
+        <div className="c-badge c-badge--primary-500">{notification.module ? notification.module.name : 'Canopee'}</div>
     </a>
 }
