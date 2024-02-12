@@ -36,4 +36,42 @@
 			justify-content: flex-start;
 		}
 	}
+
+	&--style {
+		&-1 {
+			padding-left: rem(32);
+			position: relative;
+
+			&:before {
+				content: '';
+				display: block;
+				width: rem(1);
+				position: absolute;
+				top: rem(23);
+				left: rem(12);
+				bottom: 0;
+				background: color(primary-500);
+				transform: translateX(-50%);
+			}
+
+			> li {
+				position: relative;
+
+				&:before {
+					content: '';
+					display: block;
+					background: radial-gradient(circle, color(primary-100) 50%, color(light) 50%);
+					border: 1px solid color(primary-100);
+					width: rem(12);
+					height: rem(12);
+					border-radius: 50%;
+
+					//align top baseline
+					position: absolute;
+					top: 18px;
+					left: rem(-26);
+				}
+			}
+		}
+	}
 }
