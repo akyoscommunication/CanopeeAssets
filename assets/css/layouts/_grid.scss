@@ -119,6 +119,7 @@
 
 *:has(> .l-grid) {
 	container: lgrid / inline-size;
+	z-index: 1;
 }
 
 @container lgrid (width < 320px) {
