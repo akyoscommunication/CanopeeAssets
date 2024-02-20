@@ -1,0 +1,12 @@
+<div class="c-users">
+    {% for user in collaborators|slice(0, max) %}
+        <div class="c-users__item">
+            <img loading="lazy" src="{{ path('stream_document', {entity: 'App\\Entity\\User', id: user.uuid, fieldName: 'avatarFile'}) }}" alt="Avatar">
+        </div>
+    {% endfor %}
+    {% if collaborators|length > max %}
+        <div class="c-users__item c-users__item--remaining">
+            {{ collaborators|length - max }}
+        </div>
+    {% endif %}
+</div>
