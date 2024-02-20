@@ -6,7 +6,7 @@
     {% endfor %}
     {% if collaborators|length > max %}
         <div class="c-users__item c-users__item--remaining">
-            {{ collaborators|length - max }}
+            + {{ collaborators|length - max }}
         </div>
     {% endif %}
 </div>
