@@ -80,9 +80,9 @@
 	</label>
 	</{{ element|default('div') }}>
 	{% if file is defined and file %}
-		<div {{ stimulus_target('customfile', 'preview') }} class="c-custom-file__preview c-form-group__input c-form-group__input--img" data-live-id="{{ file.uniqid }}">
+		<div {{ stimulus_target('customfile', 'preview') }} class="c-custom-file__preview c-form-group__input c-form-group__input--img" id="file_{{ file.uniqid }}">
 			{% if file.url %}
-				<img src="{{ file.url }}" alt="{{ file.name }}" data-live-id="{{ id }}">
+				<img src="{{ file.url }}" alt="{{ file.name }}" id="file_img_{{ id }}">
 			{% endif %}
 		</div>
 	{% endif %}
