@@ -394,7 +394,6 @@ form {
 	@include flex(row, nowrap, flex-start, center);
 
 	gap: rem(15);
-	margin-top: rem(29);
 
 	.form-check {
 	  @include flex(row, nowrap, center, center);
