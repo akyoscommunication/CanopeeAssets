@@ -128,7 +128,7 @@ form {
 	row-gap: rem($mb--group);
 	grid-column: span 12;
 
-	> label, legend {
+	> label {
 	  &:not(:has(+ input[type="color"])) {
 		position: absolute;
 		top: 0;
