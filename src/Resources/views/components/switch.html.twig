@@ -2,7 +2,7 @@
     {% set id = 'switch_'~random()~object.id %}
     <div class="form-group">
         <div class="form-switch">
-            <input id="{{ id }}" type="checkbox"  {{ attribute(object, property) ? 'checked' }} data-action="live#action" data-action-name="toggle">
+            <input id="{{ id }}" type="checkbox"  {{ attribute(object, property) ? 'checked' }} data-action="live#action" data-live-action-param="toggle">
         </div>
     </div>
 </div>

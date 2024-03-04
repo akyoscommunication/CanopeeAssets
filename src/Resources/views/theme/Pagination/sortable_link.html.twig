@@ -1,5 +1,5 @@
 <div class="c-table__h">
-	<a {% for attr, value in options %}{% if attr != 'href' %} {{ attr }}="{{ value }}"{% endif %}{% endfor %} data-action="live#action" data-action-name="sortColumn(sort={{ key }}, direction={{ options['sortDirection'] == 'asc' ? 'desc' : 'asc' }})">{{ title }}
+	<a {% for attr, value in options %}{% if attr != 'href' %} {{ attr }}="{{ value }}"{% endif %}{% endfor %} data-action="live#action" data-live-sort-param="{{ key }}" data-live-action-param="sortColumn" data-live-direction-param="{{ options['sortDirection'] == 'asc' ? 'desc' : 'asc' }}">{{ title }}
         <span class="c-table__sort {{ options.class }}">
             <i class="icomoon-arrow-up"></i>
             <i class="icomoon-arrow-down"></i>

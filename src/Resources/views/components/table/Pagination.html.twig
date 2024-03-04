@@ -4,7 +4,7 @@
         <div class="c-pagination__content">
             {% if previous is defined %}
                 <span class="previous">
-                    <a rel="prev" data-action="live#action" data-action-name="toPage(page={{ previous }})"><i class="icomoon-arrow-left"></i></a>
+                    <a rel="prev" data-action="live#action" data-live-page-param="{{ previous }}" data-live-action-param="toPage"><i class="icomoon-arrow-left"></i></a>
                 </span>
             {% endif %}
             <div class="c-pagination-page">
@@ -12,7 +12,7 @@
                     {% for page in pagesInRange %}
                         {% if page != current %}
                             <span class="page">
-                                <a data-action="click->live#action" data-action-name="toPage(page={{ page }})">{{ page }}</a>
+                                <a data-action="click->live#action" data-live-page-param="{{ page }}" data-live-action-param="toPage">{{ page }}</a>
                             </span>
                         {% else %}
                             <span class="current">{{ page }}</span>
@@ -24,7 +24,7 @@
             </div>
             {% if next is defined %}
                 <span class="next">
-                    <a rel="next" data-action="live#action" data-action-name="toPage(page={{ next }})"><i class="icomoon-arrow-right"></i></a>
+                    <a rel="next" data-action="live#action" data-live-page-param="{{ next }}" data-live-action-param="toPage"><i class="icomoon-arrow-right"></i></a>
                 </span>
             {% endif %}
         </div>
