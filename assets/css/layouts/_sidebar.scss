@@ -157,6 +157,19 @@
 	margin-top: initial;
   }
 
+  &__copyright {
+	@extend %fs-10;
+
+	display: block;
+	padding: rem(16) rem(24);
+	position: absolute;
+	bottom: 0;
+
+	a{
+	  text-decoration: underline;
+	}
+  }
+
   .c-ico-text {
 	justify-content: flex-start;
 
