@@ -1,260 +1,264 @@
 .l-sidebar {
-	padding: rem(32) rem(30) rem(32) calc(#{rem(30)} - #{rem($p-app)});
-	position: sticky;
-	top: 0;
-	align-self: baseline;
-	height: -webkit-fill-available;
+  padding: rem(32) rem(30) rem(32) calc(#{rem(30)} - #{rem($p-app)});
+  position: sticky;
+  top: 0;
+  align-self: baseline;
+  height: -webkit-fill-available;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+	display: none;
+  }
+
+  @include breakpoint(md) {
+	@include flex(column, nowrap, flex-start, stretch);
+
+	width: 100%;
 	overflow-y: scroll;
 
-	&::-webkit-scrollbar {
+	padding-top: 0;
+	padding-bottom: 0;
+
+	> .l-sidebar__close {
+	  font-size: rem(10);
+	  padding: 0;
+	  position: absolute;
+	  margin-top: 0;
+	  right: 0;
+	  top: calc(#{$h-minified-brand-mq} / 4);
+
+	  &:hover {
+		background-color: transparent;
+	  }
+
+	  .c-ico-text__text {
 		display: none;
+	  }
 	}
+  }
 
-	@include breakpoint(md) {
-		@include flex(column, nowrap, flex-start, stretch);
+  &__brand {
+	margin: 0 auto calc(#{rem(32)} + #{rem($p-app)});
+	max-width: rem(150);
+	width: 100%;
 
-		width: 100%;
-		overflow-y: scroll;
+	&--minified {
+	  display: none;
 
-		padding-top: 0;
-		padding-bottom: 0;
-
-		> .l-sidebar__close {
-			font-size: rem(10);
-			padding: 0;
-			position: absolute;
-			margin-top: 0;
-			right: 0;
-			top: calc(#{$h-minified-brand-mq} / 4);
-
-			&:hover {
-				background-color: transparent;
-			}
-
-			.c-ico-text__text {
-				display: none;
-			}
-		}
-	}
-
-	&__brand {
-		margin: 0 auto calc(#{rem(32)} + #{rem($p-app)});
-		max-width: rem(150);
-		width: 100%;
-
-		&--minified {
-			display: none;
-
-			@include breakpoint(md) {
-				height: rem($h-minified-brand-mq);
-				margin-left: 0;
-				margin-bottom: 0;
-
-				> * {
-					object-position: left !important;
-				}
-			}
-		}
+	  @include breakpoint(md) {
+		height: rem($h-minified-brand-mq);
+		margin-left: 0;
+		margin-bottom: 0;
 
 		> * {
-			@include objectFit(contain);
+		  object-position: left !important;
 		}
+	  }
 	}
 
-	nav {
-		ul {
-			@include undoListStyles;
-			@include flex(column, nowrap, flex-start, flex-start);
-		}
+	> * {
+	  @include objectFit(contain);
+	}
+  }
 
-		.c-nav-item {
-			@extend %br--16;
+  nav {
+	ul {
+	  @include undoListStyles;
+	  @include flex(column, nowrap, flex-start, flex-start);
+	}
 
-			width: 100%;
-			overflow: hidden;
+	.c-nav-item {
+	  @extend %br--16;
 
-			> .c-nav-item__link {
-				display: block;
-				padding: rem(16) rem(24);
-				overflow: hidden;
-				position: relative;
+	  width: 100%;
+	  overflow: hidden;
 
-				&:has(+ ul) {
-					&::after {
-						content: '';
-						position: absolute;
-						display: block;
-						width: 33%;
-						height: 1px;
-						bottom: 0;
-						z-index: 1;
-						background-color: color(primary-100);
-						left: 50%;
-						transform: translate(-50%, 50%) scaleX(0);
-						transform-origin: center;
-						transition: $default-transition;
-					}
-				}
+	  > .c-nav-item__link {
+		display: block;
+		padding: rem(16) rem(24);
+		overflow: hidden;
+		position: relative;
 
-				&.active {
-					@extend %fw-700;
-				}
-
-				&.active,
-				&:hover {
-					background-color: color(primary-200);
-				}
-			}
-
-			&:hover,
-			&.active {
-				background-color: color(primary-300);
-			}
-
-			&.disabled {
-				opacity: .6;
-				cursor: not-allowed;
-			}
-
-			> ul {
-				gap: rem(8);
-
-				> .c-nav-item {
-					font-size: 87.5%;
-
-					> .c-nav-item__link {
-						padding: rem(16) rem(32);
-					}
-				}
-			}
-
-		  &--submenu {
-			.c-nav-item__link {
-			  padding: rem(8) rem(24) !important;
-			}
+		&:has(+ ul) {
+		  &::after {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 33%;
+			height: 1px;
+			bottom: 0;
+			z-index: 1;
+			background-color: color(primary-100);
+			left: 50%;
+			transform: translate(-50%, 50%) scaleX(0);
+			transform-origin: center;
+			transition: $default-transition;
 		  }
 		}
 
-		> ul {
-			gap: rem(32);
+		&.active {
+		  @extend %fw-700;
 		}
-	}
 
-	&__close {
-		@include flex(row, nowrap, flex-start, center);
-		@extend %br--16;
-
-		padding: rem(16) rem(24);
-		margin-top: rem(108);
-		transition: $default-transition;
-
+		&.active,
 		&:hover {
-			background-color: color(primary-200);
+		  background-color: color(primary-200);
 		}
+	  }
+
+	  &:hover,
+	  &.active {
+		background-color: color(primary-300);
+	  }
+
+	  &.disabled {
+		opacity: .6;
+		cursor: not-allowed;
+	  }
+
+	  > ul {
+		gap: rem(8);
+
+		> .c-nav-item {
+		  font-size: 87.5%;
+
+		  > .c-nav-item__link {
+			padding: rem(16) rem(32);
+		  }
+		}
+	  }
+
+	  &--submenu {
+		.c-nav-item__link {
+		  padding: rem(8) rem(24) !important;
+		}
+	  }
 	}
 
-	.c-ico-text {
-		justify-content: flex-start;
-
-		&__text {
-			min-width: rem(120);
-		}
+	> ul {
+	  gap: rem(32);
 	}
+  }
+
+  &__close, &__privacy {
+	@include flex(row, nowrap, flex-start, center);
+	@extend %br--16;
+
+	padding: rem(16) rem(24);
+	margin-top: rem(108);
+	transition: $default-transition;
+
+	&:hover {
+	  background-color: color(primary-200);
+	}
+  }
+
+  &__privacy {
+	margin-top: initial;
+  }
+
+  .c-ico-text {
+	justify-content: flex-start;
+
+	&__text {
+	  min-width: rem(120);
+	}
+  }
 }
 
 .l-app {
-	@include breakpoint(md) {
-		display: flex;
-		flex-flow: column nowrap;
-	}
+  @include breakpoint(md) {
+	display: flex;
+	flex-flow: column nowrap;
+  }
 
-	&.is-sidebar-closed {
-		grid-template-columns: min(#{rem(80)}, 100%) 1fr;
+  &.is-sidebar-closed {
+	grid-template-columns: min(#{rem(80)}, 100%) 1fr;
 
-		.l-sidebar {
-			padding: rem(32) rem($p-app) rem(32) 0;
+	.l-sidebar {
+	  padding: rem(32) rem($p-app) rem(32) 0;
 
-			@include breakpoint(md) {
-				padding: 0;
-				flex-direction: row;
+	  @include breakpoint(md) {
+		padding: 0;
+		flex-direction: row;
 
-				> * {
-					display: none;
-				}
-
-				> .l-sidebar__close,
-				> .l-sidebar__brand--minified {
-					display: block;
-					margin: 0;
-				}
-			}
-
-			&__brand {
-				display: none;
-
-				&--minified {
-					display: block;
-
-					@include breakpoint(md) {
-						padding-bottom: rem($p-app);
-					}
-				}
-			}
-
-			nav {
-				ul {
-					//@include breakpoint(md) {
-					//	@include flex(row, nowrap, flex-start, flex-start);
-					//}
-
-					.c-nav-item {
-						//@include breakpoint(md) {
-						//	@include flex(row, nowrap, flex-start, flex-start);
-						//}
-
-						> .c-nav-item__link {
-							&:has(+ ul) {
-								&::after {
-									transform: translate(-50%, 50%) scaleX(1);
-								}
-							}
-
-						  .c-collapsable-trigger{
-							  display: none;
-						  }
-						}
-
-						> ul {
-							padding-inline: 0;
-
-							> .c-nav-item {
-								font-size: 87.5%;
-
-								> .c-nav-item__link {
-									padding: rem(16) rem(24);
-								}
-							}
-						}
-					}
-				}
-			}
-
-			.c-ico-text {
-				&__text {
-					// TODO: we have to display none to make auto icon centered
-					// display: none;
-
-					opacity: 0;
-				}
-			}
-
-			&__close {
-				.c-ico-text {
-					&__ico {
-						transform: rotate(180deg);
-					}
-				}
-			}
+		> * {
+		  display: none;
 		}
+
+		> .l-sidebar__close,
+		> .l-sidebar__brand--minified {
+		  display: block;
+		  margin: 0;
+		}
+	  }
+
+	  &__brand {
+		display: none;
+
+		&--minified {
+		  display: block;
+
+		  @include breakpoint(md) {
+			padding-bottom: rem($p-app);
+		  }
+		}
+	  }
+
+	  nav {
+		ul {
+		  //@include breakpoint(md) {
+		  //	@include flex(row, nowrap, flex-start, flex-start);
+		  //}
+
+		  .c-nav-item {
+			//@include breakpoint(md) {
+			//	@include flex(row, nowrap, flex-start, flex-start);
+			//}
+
+			> .c-nav-item__link {
+			  &:has(+ ul) {
+				&::after {
+				  transform: translate(-50%, 50%) scaleX(1);
+				}
+			  }
+
+			  .c-collapsable-trigger {
+				display: none;
+			  }
+			}
+
+			> ul {
+			  padding-inline: 0;
+
+			  > .c-nav-item {
+				font-size: 87.5%;
+
+				> .c-nav-item__link {
+				  padding: rem(16) rem(24);
+				}
+			  }
+			}
+		  }
+		}
+	  }
+
+	  .c-ico-text {
+		&__text {
+		  // TODO: we have to display none to make auto icon centered
+		  // display: none;
+
+		  opacity: 0;
+		}
+	  }
+
+	  &__close {
+		.c-ico-text {
+		  &__ico {
+			transform: rotate(180deg);
+		  }
+		}
+	  }
 	}
+  }
 }
