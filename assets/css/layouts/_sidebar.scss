@@ -160,7 +160,7 @@
   &__copyright {
 	@extend %fs-10;
 
-	display: block;
+	display: block !important;
 	padding: rem(16) rem(24);
 	position: absolute;
 	bottom: 0;
