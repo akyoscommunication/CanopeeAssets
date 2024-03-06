@@ -164,6 +164,7 @@
 	padding: rem(16) rem(24);
 	position: absolute;
 	bottom: 0;
+	transition: $default-transition;
 
 	a{
 	  text-decoration: underline;
