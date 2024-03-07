@@ -258,10 +258,13 @@ form {
 	}
 
 	&__info {
+	  position: absolute;
+	  top: rem(-25);
+	  right: 0;
+	  left: 0;
+	  text-align: right;
+
 	  > i {
-		position: absolute;
-		top: rem(-20);
-		right: 0;
 		cursor: pointer;
 	  }
 
@@ -279,9 +282,13 @@ form {
 		transition: $default-transition;
 		opacity: 0;
 		pointer-events: none;
+		transform: translateY(23px);
+		text-align: left;
 		z-index: 9;
+	  }
 
-		&.show {
+	  &:hover {
+		> span {
 		  opacity: 1;
 		  pointer-events: initial;
 		}
