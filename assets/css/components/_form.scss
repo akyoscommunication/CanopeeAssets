@@ -257,6 +257,38 @@ form {
 	  color: color(danger-500);
 	}
 
+	&__info {
+	  > i {
+		position: absolute;
+		top: rem(-20);
+		right: 0;
+		cursor: pointer;
+	  }
+
+	  > span {
+		@extend %fs-12;
+		@extend %br--8;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		padding: rem(16);
+		background: color(light);
+		box-shadow: $default-shadow;
+		transition: $default-transition;
+		opacity: 0;
+		pointer-events: none;
+		z-index: 9;
+
+		&.show {
+		  opacity: 1;
+		  pointer-events: initial;
+		}
+	  }
+	}
+
+
 	#{$fields} {
 	  @extend %br--4;
 
