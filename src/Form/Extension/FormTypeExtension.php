@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form\Extension;
+namespace Akyos\CanopeeAssets\Form\Extension;
 
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
