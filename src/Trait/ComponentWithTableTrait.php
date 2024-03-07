@@ -18,6 +18,8 @@ trait ComponentWithTableTrait
 
     public ?string $trTemplate = null;
 
+    public ?string $tableTemplate = '@CanopeeAssets/components/table/table.html.twig';
+
     public bool $paginate = true;
 
     #[LiveProp(writable: true)]
@@ -56,7 +58,7 @@ trait ComponentWithTableTrait
 
     public function getTable(): false|string
     {
-        return $this->render('@CanopeeAssets/components/table/table.html.twig', array_merge([
+        return $this->render($this->tableTemplate, array_merge([
             'elements' => $this->getElements(),
             'trTemplate' => $this->trTemplate,
             'tHeader' => $this->getTHeader(),
