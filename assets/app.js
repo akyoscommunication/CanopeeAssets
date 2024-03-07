@@ -12,7 +12,12 @@ window.addEventListener('DOMContentLoaded', () => {
 	new Sidebar();
 	new Modal();
 	new Impersonate();
-	new HelpInfo();
+
+	// C'est pas ouf, voir pour init HelpInfo au changement live sur une page (exemple: bouton editer qui affiche le from et fonc les helpInfo ne sont pas init)
+	window.addEventListener('click', () => {
+		new HelpInfo();
+	})
+
 	FlashMessages.register();
 	Tooltip.register();
 });
