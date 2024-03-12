@@ -4,12 +4,13 @@ import { GalaxyContext } from "./provider";
 import Modal from "./ui/Modal";
 import {positioningElement} from "../../utils/index";
 
-export default function Galaxy({ url, modules }) {
+export default function Galaxy({ url, modules, domains }) {
     const [state, setState] = React.useState({
         loading: true,
         error: false,
         isOpen: false,
-        data: modules
+        data: modules,
+        domains: domains
     } as any)
 
     const toggleOpen = () => {
