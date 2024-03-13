@@ -43,7 +43,7 @@ export default class extends Controller {
 
 		let callback = (result) => {
 			if (result.isConfirmed) {
-				const action = target.dataset.actionName;
+				const action = target.dataset.liveActionParam;
 				if(action) {
 					let directives = parseDirectives(action);
 					for (let directive of directives) {
@@ -80,10 +80,8 @@ function parseDirectives(content) {
 		return directives;
 	}
 	let currentActionName = '';
-	let currentArgumentName = '';
 	let currentArgumentValue = '';
 	let currentArguments = [];
-	let currentNamedArguments = {};
 	let currentModifiers = [];
 	let state = 'action';
 	const getLastActionName = function () {
@@ -99,52 +97,30 @@ function parseDirectives(content) {
 		directives.push({
 			action: currentActionName,
 			args: currentArguments,
-			named: currentNamedArguments,
 			modifiers: currentModifiers,
 			getString: () => {
 				return content;
 			}
 		});
 		currentActionName = '';
-		currentArgumentName = '';
 		currentArgumentValue = '';
 		currentArguments = [];
-		currentNamedArguments = {};
 		currentModifiers = [];
 		state = 'action';
 	};
 	const pushArgument = function () {
-		const mixedArgTypesError = () => {
-			throw new Error(`Normal and named arguments cannot be mixed inside "${currentActionName}()"`);
-		};
-		if (currentArgumentName) {
-			if (currentArguments.length > 0) {
-				mixedArgTypesError();
-			}
-			currentNamedArguments[currentArgumentName.trim()] = currentArgumentValue;
-		}
-		else {
-			if (Object.keys(currentNamedArguments).length > 0) {
-				mixedArgTypesError();
-			}
-			currentArguments.push(currentArgumentValue.trim());
-		}
-		currentArgumentName = '';
+		currentArguments.push(currentArgumentValue.trim());
 		currentArgumentValue = '';
 	};
 	const pushModifier = function () {
 		if (currentArguments.length > 1) {
 			throw new Error(`The modifier "${currentActionName}()" does not support multiple arguments.`);
 		}
-		if (Object.keys(currentNamedArguments).length > 0) {
-			throw new Error(`The modifier "${currentActionName}()" does not support named arguments.`);
-		}
 		currentModifiers.push({
 			name: currentActionName,
 			value: currentArguments.length > 0 ? currentArguments[0] : null,
 		});
 		currentActionName = '';
-		currentArgumentName = '';
 		currentArguments = [];
 		state = 'action';
 	};
@@ -176,11 +152,6 @@ function parseDirectives(content) {
 				}
 				if (char === ',') {
 					pushArgument();
-					break;
-				}
-				if (char === '=') {
-					currentArgumentName = currentArgumentValue;
-					currentArgumentValue = '';
 					break;
 				}
 				currentArgumentValue += char;
