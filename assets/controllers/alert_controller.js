@@ -22,7 +22,7 @@ export default class extends Controller {
 	confirm(e) {
 		const target = e.currentTarget;
 		e.preventDefault();
-		
+
 		const inputValidator = target.dataset.inputValidator;
 
 		const mixin = Swal.mixin({
@@ -43,12 +43,11 @@ export default class extends Controller {
 
 		let callback = (result) => {
 			if (result.isConfirmed) {
-				const action = target.dataset.actionName;
+				const action = e.params.action;
 				if(action) {
-					let directives = parseDirectives(action);
-					for (let directive of directives) {
-						this.component.action(directive.action, directive.named);
-					}
+					let params = e.params
+					delete params.action;
+					this.component.action(action, params);
 				}
 			}
 		};
@@ -72,140 +71,4 @@ export default class extends Controller {
 			swal.then(callback);
 		}
 	}
-}
-
-function parseDirectives(content) {
-	const directives = [];
-	if (!content) {
-		return directives;
-	}
-	let currentActionName = '';
-	let currentArgumentName = '';
-	let currentArgumentValue = '';
-	let currentArguments = [];
-	let currentNamedArguments = {};
-	let currentModifiers = [];
-	let state = 'action';
-	const getLastActionName = function () {
-		if (currentActionName) {
-			return currentActionName;
-		}
-		if (directives.length === 0) {
-			throw new Error('Could not find any directives');
-		}
-		return directives[directives.length - 1].action;
-	};
-	const pushInstruction = function () {
-		directives.push({
-			action: currentActionName,
-			args: currentArguments,
-			named: currentNamedArguments,
-			modifiers: currentModifiers,
-			getString: () => {
-				return content;
-			}
-		});
-		currentActionName = '';
-		currentArgumentName = '';
-		currentArgumentValue = '';
-		currentArguments = [];
-		currentNamedArguments = {};
-		currentModifiers = [];
-		state = 'action';
-	};
-	const pushArgument = function () {
-		const mixedArgTypesError = () => {
-			throw new Error(`Normal and named arguments cannot be mixed inside "${currentActionName}()"`);
-		};
-		if (currentArgumentName) {
-			if (currentArguments.length > 0) {
-				mixedArgTypesError();
-			}
-			currentNamedArguments[currentArgumentName.trim()] = currentArgumentValue;
-		}
-		else {
-			if (Object.keys(currentNamedArguments).length > 0) {
-				mixedArgTypesError();
-			}
-			currentArguments.push(currentArgumentValue.trim());
-		}
-		currentArgumentName = '';
-		currentArgumentValue = '';
-	};
-	const pushModifier = function () {
-		if (currentArguments.length > 1) {
-			throw new Error(`The modifier "${currentActionName}()" does not support multiple arguments.`);
-		}
-		if (Object.keys(currentNamedArguments).length > 0) {
-			throw new Error(`The modifier "${currentActionName}()" does not support named arguments.`);
-		}
-		currentModifiers.push({
-			name: currentActionName,
-			value: currentArguments.length > 0 ? currentArguments[0] : null,
-		});
-		currentActionName = '';
-		currentArgumentName = '';
-		currentArguments = [];
-		state = 'action';
-	};
-	for (let i = 0; i < content.length; i++) {
-		const char = content[i];
-		switch (state) {
-			case 'action':
-				if (char === '(') {
-					state = 'arguments';
-					break;
-				}
-				if (char === ' ') {
-					if (currentActionName) {
-						pushInstruction();
-					}
-					break;
-				}
-				if (char === '|') {
-					pushModifier();
-					break;
-				}
-				currentActionName += char;
-				break;
-			case 'arguments':
-				if (char === ')') {
-					pushArgument();
-					state = 'after_arguments';
-					break;
-				}
-				if (char === ',') {
-					pushArgument();
-					break;
-				}
-				if (char === '=') {
-					currentArgumentName = currentArgumentValue;
-					currentArgumentValue = '';
-					break;
-				}
-				currentArgumentValue += char;
-				break;
-			case 'after_arguments':
-				if (char === '|') {
-					pushModifier();
-					break;
-				}
-				if (char !== ' ') {
-					throw new Error(`Missing space after ${getLastActionName()}()`);
-				}
-				pushInstruction();
-				break;
-		}
-	}
-	switch (state) {
-		case 'action':
-		case 'after_arguments':
-			if (currentActionName) {
-				pushInstruction();
-			}
-			break;
-		default:
-			throw new Error(`Did you forget to add a closing ")" after "${currentActionName}"?`);
-	}
-	return directives;
 }
