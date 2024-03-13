@@ -6,4 +6,5 @@ export const GalaxyContext = createContext({
     error: false as boolean,
     isOpen: false as boolean,
     data: [] as ExternalLink[] | [],
+    domains: [] as string[] | []
 });

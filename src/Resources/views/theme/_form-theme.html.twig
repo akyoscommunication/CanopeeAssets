@@ -29,6 +29,14 @@
 	class: (row_attr.class|default('') ~ ' form-group'~(errors|length > 0 ? ' form-group--has-errors' : '')~(disabled ? ' form-group--is-disabled' : ''))|trim
 })} %}{{ block('attributes') }}{% endwith %}>
 	{{- form_label(form) -}}
+	{% if help_info %}
+		<div class="form-group__info">
+			<i class="icomoon-exclamation-circle" data-help-btn="{{ id }}"></i>
+			<span data-help-content="{{ id }}">
+			{{ help_info }}
+			</span>
+		</div>
+	{% endif %}
 	{{- form_widget(form, widget_attr) -}}
 	{{- form_help(form) -}}
 	{{- form_errors(form) -}}
