@@ -22,8 +22,10 @@ export default class extends Controller {
 				img.src = e.target.result;
 				img.alt = target.files[0].name;
 				
-				this.previewTarget.innerHTML = '';
-				this.previewTarget.appendChild(img);
+				if(this.hasPreviewTarget) {
+					this.previewTarget.innerHTML = '';
+					this.previewTarget.appendChild(img);
+				}
 			}
 			
 			reader.readAsDataURL(target.files[0]);
