@@ -35,7 +35,7 @@ export default function ListItem({ notification } : ListItemProps) {
             })
         }).then(() => {
             dispatch({ type: ActionTypes.MarkAsRead, payload: notification.id })
-            window.open(notification.target, '_blank');
+            window.open(notification.target,'_self');
         })
     }
 

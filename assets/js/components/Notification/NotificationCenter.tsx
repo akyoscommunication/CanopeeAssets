@@ -51,7 +51,7 @@ export default function NotificationCenter({host, data} : NotificationCenterProp
                 <div className="c-notification-center__ico" onClick={toggleOpen}>
                     <i className="icomoon-bell"></i>
                 </div>
-                { unRead && <div className="c-badge c-badge--size-xs c-badge--danger-500">{unRead}</div> }
+                { unRead > 0 && <div className="c-badge c-badge--size-xs c-badge--danger-500">{unRead}</div> }
                 <Modal toggleOpen={toggleOpen} isOpen={state.isOpen}/>
             </div>
         </NotificationDispatcherContext.Provider>
