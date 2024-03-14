@@ -22,14 +22,9 @@ export default function NotificationCenter({host, data} : NotificationCenterProp
         filter: '*',
     })
 
-    const toggleOpen = () => dispatch({ type: ActionTypes.ToggleOpen })
+    const unRead = state.data.filter((notification: any) => notification.state === 'unread').length
 
-    React.useEffect(() => {
-        // fetch('/api/notifications')
-        //     .then(res => res.json())
-        //     .then(data => setState({ ...state, loading: false, data: data['hydra:member'] }))
-        //     .catch(error => setState({ ...state, loading: false, error }))
-    }, [])
+    const toggleOpen = () => dispatch({ type: ActionTypes.ToggleOpen })
 
     React.useEffect(() => {
         const ico = document.querySelector('.c-notification-center__ico') as HTMLElement
@@ -56,6 +51,7 @@ export default function NotificationCenter({host, data} : NotificationCenterProp
                 <div className="c-notification-center__ico" onClick={toggleOpen}>
                     <i className="icomoon-bell"></i>
                 </div>
+                { unRead && <div className="c-badge c-badge--size-xs c-badge--danger-500">{unRead}</div> }
                 <Modal toggleOpen={toggleOpen} isOpen={state.isOpen}/>
             </div>
         </NotificationDispatcherContext.Provider>

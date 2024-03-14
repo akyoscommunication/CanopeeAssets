@@ -1,76 +1,100 @@
-.c-badge {
+.c-notification {
 	@extend %fs-12;
-	@extend %br--12;
 
-	padding: rem(8) rem(12);
-	letter-spacing: -0.12px;
-	//white-space: nowrap;
-	display: inline-block;
-	line-height: 1;
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	align-items: center;
+	justify-content: space-between;
+	gap: rem(8);
+	outline: none;
 
-	a {
-		text-decoration: underline;
+	&__type {
+		@extend %fs-10;
+
+		text-transform: uppercase;
 	}
 
-	&.c-badge {
-		&--size {
-			&-xs {
-				@extend %fw-700;
-				@extend %br--48;
-
-				padding: rem(3.9) rem(7.8);
-			}
-		}
-
-		&--contrast {
-			@each $name, $color in $colors-scheme-light {
-				$v-color: "light";
-				$v-dark: "dark";
-
-				@if type-of($color) == 'map' {
-					@if map-has-key($color, 200) {
-						$v-color: #{$name}-200;
-					}
-
-					@if map-has-key($color, 700) {
-						$v-dark: #{$name}-700;
-					}
-
-					&.c-badge--#{$name} {
-						background-color: color($v-color);
-						color: color($v-dark);
-					}
-				}
-			}
-		}
+	&__name {
+		@extend %fw-700;
 	}
 
-	@each $name, $color in $colors-scheme-light {
-		@if type-of($color) == 'map' {
-			@each $color-name, $color-value in $color {
-				$n: "#{$name}-#{$color-name}";
-				&--#{$n} {
-					background-color: color($n);
+	&__time {
+		color: color(grey-300);
+		text-align: right;
+	}
 
-					$constrast: contrast-color($color-value, $dark, $light);
+	&__module {
 
-					@if #{$constrast} == "#000000" {
-						color: color(dark);
-					} @else {
-						color: color(light);
+	}
+
+	&-center {
+		position: relative;
+		&__ico {
+
+		}
+		> .c-badge{
+			@include flex(row, nowrap, center, center);
+
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(50%, -50%);
+			width: rem(16);
+			height: rem(16);
+			padding: 0;
+		}
+		.c-modal {
+			&--notification {
+				margin: 0;
+				max-width: rem(412px);
+				aspect-ratio: initial;
+
+				.c-link {
+					@extend %fs-12;
+
+					color: color(secondary-500);
+					text-decoration: underline;
+					outline: none;
+				}
+
+				.c-modal {
+					&__header {
+						position: sticky;
+						background: color(light);
+						top: 0;
+						padding-bottom: rem(16);
+					}
+
+					&__footer {
+						padding-top: rem(16);
+					}
+
+					&__content {
+						@include scrollBarStyle;
+
+						overflow-y: scroll;
+						overflow-x: hidden;
+						padding-right: rem(12);
+						height: 100%;
+						max-height: rem(300);
 					}
 				}
-			}
-		} @else {
-			&--#{$name} {
-				background-color: color($name);
 
-				$constrast: contrast-color($color, $dark, $light);
+				.c-notifications {
+					@include undoListStyles;
 
-				@if #{$constrast} == "#000000" {
-					color: color(dark);
-				} @else {
-					color: color(light);
+					> li {
+						padding-block: rem(16);
+						border-bottom: 1px solid color(grey-200);
+
+						&:first-child {
+							padding-top: 0;
+						}
+
+						&:last-child {
+							border-bottom: none;
+						}
+					}
 				}
 			}
 		}

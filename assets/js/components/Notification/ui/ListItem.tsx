@@ -39,7 +39,7 @@ export default function ListItem({ notification } : ListItemProps) {
         })
     }
 
-    return <a className="c-notification" href={notification.target} target="_blank" onClick={goTo}>
+    return <a className="c-notification" href={notification.target} onClick={goTo}>
         <div className="c-notification__type">{notification.type}</div>
         <div className="c-notification__time">{timeString()}</div>
         <div className="c-notification__name">{notification.name}</div>
