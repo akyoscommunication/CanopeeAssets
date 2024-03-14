@@ -28,6 +28,8 @@ class FlashMessagesElement extends HTMLElement {
 
 export class FlashMessages {
     static register() {
-        customElements.define('flash-messages', FlashMessagesElement);
+        if(!customElements.get('flash-messages')) {
+            customElements.define('flash-messages', FlashMessagesElement);
+        }
     }
 }
