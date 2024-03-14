@@ -2,7 +2,7 @@
   "entrypoints": {
     "app": {
       "css": [
-        "/bundles/canopeeassets/app.b83e93db.css"
+        "/bundles/canopeeassets/app.9beb89be.css"
       ],
       "js": [
         "/bundles/canopeeassets/app.6ee1acad.js"
@@ -15,7 +15,7 @@
     },
     "notification-center": {
       "js": [
-        "/bundles/canopeeassets/notification-center.e4aeccb3.js"
+        "/bundles/canopeeassets/notification-center.ae726b65.js"
       ]
     }
   }
