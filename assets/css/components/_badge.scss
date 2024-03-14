@@ -1,100 +1,76 @@
-.c-notification {
+.c-badge {
 	@extend %fs-12;
+	@extend %br--12;
 
-	display: grid;
-	grid-template-columns: repeat(2, auto);
-	align-items: center;
-	justify-content: space-between;
-	gap: rem(8);
-	outline: none;
+	padding: rem(8) rem(12);
+	letter-spacing: -0.12px;
+	//white-space: nowrap;
+	display: inline-block;
+	line-height: 1;
 
-	&__type {
-		@extend %fs-10;
-
-		text-transform: uppercase;
+	a {
+		text-decoration: underline;
 	}
 
-	&__name {
-		@extend %fw-700;
-	}
+	&.c-badge {
+		&--size {
+			&-xs {
+				@extend %fw-700;
+				@extend %br--48;
 
-	&__time {
-		color: color(grey-300);
-		text-align: right;
-	}
-
-	&__module {
-
-	}
-
-	&-center {
-		position: relative;
-		&__ico {
-
+				padding: rem(3.9) rem(7.8);
+			}
 		}
-		> .c-badge{
-			@include flex(row, nowrap, center, center);
 
-			position: absolute;
-			top: 0;
-			right: 0;
-			transform: translate(50%, -50%);
-			width: rem(16);
-			height: rem(16);
-			padding: 0;
-		}
-		.c-modal {
-			&--notification {
-				margin: 0;
-				max-width: rem(412px);
-				aspect-ratio: initial;
+		&--contrast {
+			@each $name, $color in $colors-scheme-light {
+				$v-color: "light";
+				$v-dark: "dark";
 
-				.c-link {
-					@extend %fs-12;
-
-					color: color(secondary-500);
-					text-decoration: underline;
-					outline: none;
-				}
-
-				.c-modal {
-					&__header {
-						position: sticky;
-						background: color(light);
-						top: 0;
-						padding-bottom: rem(16);
+				@if type-of($color) == 'map' {
+					@if map-has-key($color, 200) {
+						$v-color: #{$name}-200;
 					}
 
-					&__footer {
-						padding-top: rem(16);
+					@if map-has-key($color, 700) {
+						$v-dark: #{$name}-700;
 					}
 
-					&__content {
-						@include scrollBarStyle;
-
-						overflow-y: scroll;
-						overflow-x: hidden;
-						padding-right: rem(12);
-						height: 100%;
-						max-height: rem(300);
+					&.c-badge--#{$name} {
+						background-color: color($v-color);
+						color: color($v-dark);
 					}
 				}
+			}
+		}
+	}
 
-				.c-notifications {
-					@include undoListStyles;
+	@each $name, $color in $colors-scheme-light {
+		@if type-of($color) == 'map' {
+			@each $color-name, $color-value in $color {
+				$n: "#{$name}-#{$color-name}";
+				&--#{$n} {
+					background-color: color($n);
 
-					> li {
-						padding-block: rem(16);
-						border-bottom: 1px solid color(grey-200);
+					$constrast: contrast-color($color-value, $dark, $light);
 
-						&:first-child {
-							padding-top: 0;
-						}
-
-						&:last-child {
-							border-bottom: none;
-						}
+					@if #{$constrast} == "#000000" {
+						color: color(dark);
+					} @else {
+						color: color(light);
 					}
+				}
+			}
+		} @else {
+			&--#{$name} {
+				background-color: color($name);
+
+				$constrast: contrast-color($color, $dark, $light);
+
+				@if #{$constrast} == "#000000" {
+					color: color(dark);
+				} @else {
+					color: color(light);
 				}
 			}
 		}
