@@ -419,6 +419,10 @@ form {
 			right: rem($p-input);
 			color: inherit;
 		}
+
+		&:has(.ts-wrapper):has(> .l-grid) {
+			z-index: 10;
+		}
 	}
 }
 
