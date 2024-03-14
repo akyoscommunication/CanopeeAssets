@@ -76,7 +76,7 @@
 	{%- set type = type|default('file') -%}
 	{%- set input_lang = 'en' -%}
 	{% if app is defined and app.request is defined %}{%- set input_lang = app.request.locale -%}{%- endif -%}
-	{%- set attr = {lang: input_lang} | merge(attr) -%}
+	{%- set attr = {lang: input_lang, 'data-customfile-target': 'input'} | merge(attr) -%}
 	{{- block('form_widget_simple') -}}
 	{%- set label_attr = label_attr|merge({ class: (label_attr.class|default('') ~ ' custom-file-label')|trim })|filter((value, key) => key != 'id') -%}
 	<label for="{{ form.vars.id }}" {% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}>
