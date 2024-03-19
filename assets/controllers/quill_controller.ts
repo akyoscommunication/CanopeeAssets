@@ -20,7 +20,20 @@ export default class extends Controller {
 			})
 		}
 
-		this.quill = new Quill(this.editorTarget, this.optionsValue);
+		let optionsValue = {...this.optionsValue, modules: {
+				keyboard: {
+					bindings: {
+						tab: {
+							key: 9,
+							handler: function (range, context) {
+								return true;
+							},
+						},
+					}
+				}
+			}};
+
+		this.quill = new Quill(this.editorTarget, optionsValue);
 
 		if (this.optionsValue.data) {
 			this.quill.root.innerHTML = this.optionsValue.data;
