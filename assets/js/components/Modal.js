@@ -10,6 +10,7 @@ export default class Modal {
 	init() {
 		document.querySelectorAll('*[trigger-modal]').forEach((el) => {
 			const target = document.querySelector(el.getAttribute('trigger-modal'));
+			const close = target.querySelector('*[close-modal]');
 
 			el.addEventListener('click', (e) => {
 				e.preventDefault();
@@ -25,6 +26,10 @@ export default class Modal {
 
 					target.showModal();
 
+					close.addEventListener('click', (e) => {
+						target.close();
+						document.body.style.overflow = 'auto';
+					});
 					target.addEventListener('click', (e) => {
 						if (e.target === target) {
 							target.close();
