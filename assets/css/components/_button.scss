@@ -11,6 +11,7 @@ $dark: map-get($colors-scheme-light, "dark");
 	word-break: break-word;
 	font-size: inherit;
 	outline: none;
+	text-align: center;
 
 	&.disabled {
 		background-color: color(grey-200) !important;
