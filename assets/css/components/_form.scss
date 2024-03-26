@@ -213,6 +213,12 @@ form {
 					&:before {
 						background: color(danger-700);
 					}
+
+					&:checked {
+						&:before {
+							background: color(success-700);
+						}
+					}
 				}
 
 				+ label {
