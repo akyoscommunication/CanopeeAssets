@@ -22,7 +22,7 @@ class CustomFileType extends AbstractType
         parent::buildView($view, $form, $options);
         $parentClass = $form->getParent()->getData();
 
-        if ($parentClass?->getId() && $options['show_preview']) {
+        if ($parentClass && is_object($parentClass) && $parentClass->getId() && $options['show_preview']) {
             $value = $form->getData();
             $path = $this->uploaderExtensionRuntime->asset($parentClass, $options['fake_upload_path']);
             $view->vars['file'] = [
