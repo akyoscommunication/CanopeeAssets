@@ -7,10 +7,7 @@
     {% endif %}
     {% if uxIco %}
         <div class="c-button__ico">
-            <twig:UX:Icon
-                    name="{{ uxIco }}"
-                    {% if uxIcoClasses is not null %}class="{{ uxIcoClasses }}"{% endif %}
-            />
+            <twig:UX:Icon name="{{ uxIco }}" class="{{ uxIcoClasses ?? 'ico--ux--default' }}"/>
         </div>
     {% endif %}
 {% endblock %}

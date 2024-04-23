@@ -13,6 +13,12 @@
 
 			font-size: 150%;
 		}
+
+		&--ux {
+			.ico--ux--default {
+				width: rem(20);
+			}
+		}
 	}
 
 	&__text {

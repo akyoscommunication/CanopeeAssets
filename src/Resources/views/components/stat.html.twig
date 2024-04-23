@@ -6,10 +6,7 @@
     {% endif %}
     {% if uxIco %}
         <div class="c-stat__icon">
-            <twig:UX:Icon
-                    name="{{ uxIco }}"
-                    {% if uxIcoClasses is not null %}class="{{ uxIcoClasses }}"{% endif %}
-            />
+            <twig:UX:Icon name="{{ uxIco }}" class="{{ uxIcoClasses ?? 'ico--ux--default' }}"/>
         </div>
     {% endif %}
     <div class="c-stat__content">

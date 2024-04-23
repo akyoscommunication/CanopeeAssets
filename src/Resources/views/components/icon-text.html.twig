@@ -3,10 +3,9 @@
         <span class="c-ico-text__ico"><i class="icomoon-{{ ico }}"></i></span>
     {% endif %}
     {% if uxIco %}
-        <twig:UX:Icon
-                name="{{ uxIco }}"
-                {% if uxIcoClasses is not null %}class="{{ uxIcoClasses }}"{% endif %}
-        />
+        <span class="c-ico-text__ico c-ico-text__ico--ux">
+                <twig:UX:Icon name="{{ uxIco }}" class="{{ uxIcoClasses ?? 'ico--ux--default' }}"/>
+        </span>
     {% endif %}
     {% if not icoOnly %}
         <div class="c-ico-text__text">{% block content %}{% endblock %}</div>
