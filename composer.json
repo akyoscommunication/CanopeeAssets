@@ -23,7 +23,8 @@
       "symfony/twig-bundle": ">=6.3",
       "symfony/ux-live-component": "^2.12",
       "symfony/ux-translator": "^2.13",
-      "symfony/ux-twig-component": "^2.12"
+      "symfony/ux-twig-component": "^2.12",
+      "symfony/ux-icons": "^2"
     },
     "autoload": {
         "psr-4": { "Akyos\\CanopeeAssets\\": "src/" },

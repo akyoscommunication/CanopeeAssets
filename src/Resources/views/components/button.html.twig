@@ -1,10 +1,18 @@
 <{{ tag }}{{ attributes.defaults({ class: 'c-button c-button--'~appearance~(' c-button--style-'~btn_style)~(only_ico ? ' c-button--is-only-ico' : '') }) }}>
-    {% block ico %}
-        {% if ico %}
-            <div class="c-button__ico">
-                <i class="icomoon-{{ ico }}"></i>
-            </div>
-        {% endif %}
-    {% endblock %}
+{% block ico %}
+    {% if ico %}
+        <div class="c-button__ico">
+            <i class="icomoon-{{ ico }}"></i>
+        </div>
+    {% endif %}
+    {% if uxIco %}
+        <div class="c-button__ico">
+            <twig:UX:Icon
+                    name="{{ uxIco }}"
+                    {% if uxIcoClasses is not null %}class="{{ uxIcoClasses }}"{% endif %}
+            />
+        </div>
+    {% endif %}
+{% endblock %}
     {% block content %}{% endblock %}
 </{{ tag }}>

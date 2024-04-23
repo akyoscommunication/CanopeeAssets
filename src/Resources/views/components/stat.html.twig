@@ -4,9 +4,19 @@
             <i class="icomoon-{{ ico }}"></i>
         </div>
     {% endif %}
+    {% if uxIco %}
+        <div class="c-stat__icon">
+            <twig:UX:Icon
+                    name="{{ uxIco }}"
+                    {% if uxIcoClasses is not null %}class="{{ uxIcoClasses }}"{% endif %}
+            />
+        </div>
+    {% endif %}
     <div class="c-stat__content">
         {% block content %}
-            <div class="c-stat__value">{{ value|raw }}{% if increasedValue %}<span class="c-badge c-badge--contrast c-badge--size-xs{{ ' c-badge--'~(isIncreased ? 'success' : 'danger') }}">{{ isIncreased ? '+ ' : '- ' }}{{ increasedValue|raw }}</span>{% endif %}</div>
+            <div class="c-stat__value">{{ value|raw }}{% if increasedValue %}<span
+                    class="c-badge c-badge--contrast c-badge--size-xs{{ ' c-badge--'~(isIncreased ? 'success' : 'danger') }}">{{ isIncreased ? '+ ' : '- ' }}{{ increasedValue|raw }}</span>{% endif %}
+            </div>
             {% if title %}
                 <div class="c-stat__title">{{ title|raw }}</div>
             {% endif %}

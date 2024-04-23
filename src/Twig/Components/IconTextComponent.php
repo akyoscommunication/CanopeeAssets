@@ -8,6 +8,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 final class IconTextComponent
 {
     public ?string $ico = null;
+    public ?string $uxIco = null;
+    public ?string $uxIcoClasses = null;
 
     public bool $icoOnly = false;
 }

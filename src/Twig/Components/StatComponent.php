@@ -9,6 +9,9 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 final class StatComponent
 {
     public ?string $ico = null;
+    public ?string $uxIco = null;
+    public ?string $uxIcoClasses = null;
+
     public ?string $value = null;
     public ?string $title = null;
     public ?bool $isIncreased = null;
