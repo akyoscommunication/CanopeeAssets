@@ -2,7 +2,7 @@
 /vendor/
 
 yarn.lock
-.DS_Store
-.idea
+.DS_Store/
+.idea/
 .vscode
 composer.lock

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/canopee_assets.iml" filepath="$PROJECT_DIR$/.idea/canopee_assets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CanopeeAssets.iml" filepath="$PROJECT_DIR$/.idea/CanopeeAssets.iml" />
     </modules>
   </component>
 </project>
