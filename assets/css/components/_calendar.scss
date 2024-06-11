@@ -1,0 +1,49 @@
+.c-calendar {
+	&__header {
+		@include flex(column, wrap, center, center);
+
+		margin-bottom: rem(20);
+	}
+
+	&__form {
+		@include flex(row, nowrap, center, center);
+
+		gap: rem(8);
+	}
+
+	&__filter {
+		@include flex(row, wrap, center, center);
+
+		gap: rem(8);
+	}
+
+	&__nav {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		align-items: baseline;
+	}
+
+	&__navdate {
+		@include flex(row, nowrap, center, baseline);
+
+		gap: rem(8);
+		grid-column-start: 2;
+	}
+
+	&__date {
+		@extend %fs-20;
+		@include flex(column, nowrap, center, center);
+	}
+
+	&__time {
+		@extend %fs-16;
+		@extend %fw-600;
+
+		color: color(grey-300);
+	}
+
+	&__add {
+		grid-column-start: 3;
+		justify-self: end;
+	}
+}

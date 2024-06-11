@@ -118,5 +118,14 @@ a {
                 left: 35%;
             }
         }
+
+        &-3{
+            &:before {
+                font-size: 500px;
+                transform: rotate(45deg);
+                top: 10%;
+                left: -60%;
+            }
+        }
     }
 }

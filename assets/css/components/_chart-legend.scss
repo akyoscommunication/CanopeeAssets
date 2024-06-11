@@ -2,6 +2,7 @@
   &-list {
 	@include undoListStyles;
 	@include flex(row, wrap, flex-start, center);
+	@include scrollBarStyle();
 
 	gap: rem(10);
 	line-height: 1;
