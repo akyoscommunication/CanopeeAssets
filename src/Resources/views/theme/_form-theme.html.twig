@@ -31,7 +31,7 @@
 	{{- form_label(form) -}}
 	{% if help_info %}
 		<div class="form-group__info">
-			<i class="icomoon-exclamation-circle" data-help-btn="{{ id }}"></i>
+			<twig:ux:icon name="exclamation-circle" data-help-btn="{{ id }}"/>
 			<span data-help-content="{{ id }}">
 			{{ help_info }}
 			</span>
@@ -103,7 +103,7 @@
 	{% set label_html = true %}
 	{%- set label -%}
 		<div class="c-button__ico">
-			<i class="icomoon-minus-circle"></i>
+			<twig:ux:icon name="minus-circle"/>
 		</div>
 		{% if label %}
 			{{ label|raw }}
@@ -117,7 +117,7 @@
 	{% set label_html = true %}
 	{%- set label -%}
 		<div class="c-button__ico">
-			<i class="icomoon-plus-circle"></i>
+			<twig:ux:icon name="plus-circle"/>
 		</div>
 		{{ label|trans({}, translation_domain) }}
 	{%- endset -%}

@@ -6,14 +6,19 @@
   overflow: hidden;
 
   &[open] {
-    .c-accordion__title {
-      @extend .icomoon-minus-circle;
+    .c-accordion {
+      &__opened {
+        display: flex;
+      }
+
+      &__closed {
+          display: none;
+      }
     }
   }
 
   &__title {
     @extend %fw-700;
-    @extend .icomoon-plus-circle;
     @include flex(row, nowrap, flex-start, center);
 
     cursor: pointer;
@@ -21,12 +26,25 @@
     padding-right: rem(40);
     gap: rem(20);
 
-    &::before {
-      font-family: icomoon;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
+    .c-accordion {
+      &__opened,
+      &__closed {
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        max-width: rem(15);
+      }
+
+      &__opened {
+        display: none;
+      }
+
+      &__closed {
+        display: flex;
+      }
     }
 
     &::marker {

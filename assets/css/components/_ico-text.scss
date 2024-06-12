@@ -1,8 +1,36 @@
 .c-ico-text {
-	@include flex(row, nowrap, flex-start, center);
-
 	gap: rem(16);
 	line-height: 1;
+
+	&--direction {
+		&-h {
+			@include flex(row, nowrap, center, center);
+		}
+
+		&-v {
+			@include flex(column, nowrap, center, center);
+
+			text-align: center;
+		}
+	}
+
+	&--appearance {
+		&-1 {
+		}
+
+		&-2 {
+			.c-ico-text {
+				&__ico {
+					@extend %fs-20;
+
+					padding: rem(15);
+					max-width: rem(60);
+					aspect-ratio: 1;
+					border-radius: 50%;
+				}
+			}
+		}
+	}
 
 	&__ico {
 		transition: $default-transition;
@@ -11,13 +39,7 @@
 		> * {
 			@include objectFit(contain);
 
-			font-size: 150%;
-		}
-
-		&--ux {
-			.ico--ux--default {
-				width: rem(20);
-			}
+			transform: scale(.8);
 		}
 	}
 

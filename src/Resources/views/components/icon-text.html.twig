@@ -1,11 +1,26 @@
-<div{{ attributes.defaults({ class: 'c-ico-text' }) }}>
+{% set classes = cva({
+    base: 'c-ico-text',
+    variants: {
+        direction: {
+            v: 'c-ico-text--direction-v',
+            h: 'c-ico-text--direction-h',
+        },
+        appearance: {
+            1: 'c-ico-text--appearance-1',
+            2: 'c-ico-text--appearance-2',
+        },
+        icoOnly: {
+            true: 'c-ico-text--ico-only',
+            false: '',
+        }
+    }
+}) %}
+
+<div{{ attributes.defaults({class: classes.apply({direction, appearance, icoOnly})}) }}>
     {% if ico %}
-        <span class="c-ico-text__ico"><i class="icomoon-{{ ico }}"></i></span>
-    {% endif %}
-    {% if uxIco %}
-        <span class="c-ico-text__ico c-ico-text__ico--ux">
-                <twig:UX:Icon name="{{ uxIco }}" class="{{ uxIcoClasses ?? 'ico--ux--default' }}"/>
-        </span>
+        <div class="c-ico-text__ico">
+            <twig:ux:icon :name="ico"/>
+        </div>
     {% endif %}
     {% if not icoOnly %}
         <div class="c-ico-text__text">{% block content %}{% endblock %}</div>

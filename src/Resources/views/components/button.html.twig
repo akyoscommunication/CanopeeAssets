@@ -2,12 +2,7 @@
 {% block ico %}
     {% if ico %}
         <div class="c-button__ico">
-            <i class="icomoon-{{ ico }}"></i>
-        </div>
-    {% endif %}
-    {% if uxIco %}
-        <div class="c-button__ico">
-            <twig:UX:Icon name="{{ uxIco }}" class="{{ uxIcoClasses ?? 'ico--ux--default' }}"/>
+            <twig:ux:icon :name="ico" />
         </div>
     {% endif %}
 {% endblock %}

@@ -1,12 +1,7 @@
 <div{{ attributes.defaults({ class: 'c-stat' }) }}>
     {% if ico %}
         <div class="c-stat__icon">
-            <i class="icomoon-{{ ico }}"></i>
-        </div>
-    {% endif %}
-    {% if uxIco %}
-        <div class="c-stat__icon">
-            <twig:UX:Icon name="{{ uxIco }}" class="{{ uxIcoClasses ?? 'ico--ux--default' }}"/>
+            <twig:ux:icon :name="ico"/>
         </div>
     {% endif %}
     <div class="c-stat__content">

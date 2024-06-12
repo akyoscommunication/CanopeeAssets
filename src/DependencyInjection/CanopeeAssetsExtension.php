@@ -42,5 +42,24 @@ class CanopeeAssetsExtension extends Extension implements PrependExtensionInterf
                 ],
             ]);
         }
+
+        if (isset($bundles['UXIconsBundle'])) {
+            $container->prependExtensionConfig('ux_icons', [
+                'default_icon_attributes' => [
+                    'class' => 'c-icon',
+                    'aria-hidden' => 'true',
+                    'fill' => 'currentColor',
+                ],
+            ]);
+        }
+
+        if (isset($bundles['KnpPaginatorBundle'])) {
+            $container->prependExtensionConfig('knp_paginator', [
+                'template' => [
+                    'pagination' => '@CanopeeAssets/theme/Pagination/sliding.html.twig',
+                    'sortable' => '@CanopeeAssets/theme/Pagination/sortable_link.html.twig',
+                ],
+            ]);
+        }
     }
 }

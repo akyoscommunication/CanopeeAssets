@@ -32,7 +32,7 @@ $dark: map-get($colors-scheme-light, "dark");
 		> * {
 			@include objectFit(contain);
 
-			font-size: 150%;
+			max-width: 80%;
 		}
 	}
 

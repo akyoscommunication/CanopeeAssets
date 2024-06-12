@@ -66,8 +66,19 @@ export default class Sidebar {
 
 		document.querySelectorAll('*[collapsable]').forEach((el) => {
 			const target = document.querySelector(el.getAttribute('collapsable'));
-			const icon = document.createElement('i');
-			icon.classList.add('icomoon-arrow-down', 'c-collapsable-trigger');
+			const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+			icon.setAttribute('viewBox', '0 0 44 32');
+			icon.setAttribute('width', '44');
+			icon.setAttribute('height', '32');
+			icon.setAttribute('fill', 'currentColor');
+			icon.setAttribute('aria-hidden', 'true');
+			icon.setAttribute('version', '1.1');
+			icon.classList.add('c-icon', 'c-collapsable-trigger');
+			
+			const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+			path.setAttribute('d', 'M3.157 3.093c-1.556 0.424-2.741 1.666-3.075 3.223l-0.005 0.028c-0.049 0.239-0.077 0.514-0.077 0.795 0 0.848 0.255 1.636 0.693 2.291l-0.009-0.015c0.155 0.234 4.309 4.438 9.529 9.65 7.932 7.916 9.324 9.274 9.717 9.479 0.565 0.304 1.237 0.483 1.95 0.483 0.741 0 1.437-0.193 2.041-0.531l-0.021 0.011c0.485-0.255 1.408-1.145 9.834-9.474 6.369-6.298 9.399-9.341 9.608-9.658 0.413-0.626 0.66-1.394 0.66-2.219 0-0.296-0.032-0.585-0.092-0.863l0.005 0.027c-0.413-1.91-2.077-3.324-4.076-3.348h-0.003c-0.669 0-1.195 0.125-1.864 0.439-0.652 0.313 0.092-0.393-8.998 8.559l-7.092 6.975-7.64-7.636c-7.489-7.477-7.656-7.636-8.221-7.899-0.544-0.276-1.186-0.438-1.866-0.438-0.354 0-0.697 0.044-1.025 0.126l0.029-0.006z');
+			icon.appendChild(path);
+			
 			el.appendChild(icon);
 
 			const eventCollapse = (e) => {

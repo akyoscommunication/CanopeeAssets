@@ -1,0 +1,9 @@
+.c-icon {
+	@include objectFit(contain);
+
+	@each $s, $v in $spaces {
+		&.mr-#{$s} {
+			margin-right: rem($v);
+		}
+	}
+}

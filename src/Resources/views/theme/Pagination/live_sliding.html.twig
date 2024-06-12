@@ -4,7 +4,9 @@
 		<div class="c-pagination__content">
 			{% if previous is defined %}
 				<span class="previous">
-                    <a rel="prev" data-action="live#action" data-live-page-param="{{ previous }}" data-live-action-param="toPage"><i class="icomoon-arrow-left"></i></a>
+                    <a rel="prev" data-action="live#action" data-live-page-param="{{ previous }}" data-live-action-param="toPage">
+            			<twig:ux:icon name="arrow-left" />
+					</a>
                 </span>
 			{% endif %}
 
@@ -26,7 +28,9 @@
 
 			{% if next is defined %}
 				<span class="next">
-                    <a rel="next" data-action="live#action" data-live-page-param="{{ next }}" data-live-action-param="toPage"><i class="icomoon-arrow-right"></i></a>
+                    <a rel="next" data-action="live#action" data-live-page-param="{{ next }}" data-live-action-param="toPage">
+						<twig:ux:icon name="arrow-right" />
+					</a>
                 </span>
 			{% endif %}
 		</div>

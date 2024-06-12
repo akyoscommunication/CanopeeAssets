@@ -64,7 +64,9 @@
 	&__sort {
 		@include flex(column, nowrap, center, center);
 
-		font-size: rem(5);
+		> * {
+			width: rem(8);
+		}
 
 		&.asc {
 			> * {

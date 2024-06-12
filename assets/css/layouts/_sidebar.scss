@@ -25,7 +25,7 @@
 	  position: absolute;
 	  margin-top: 0;
 	  right: 0;
-	  top: calc(#{$h-minified-brand-mq} / 4);
+	  top: calc(#{$h-minified-brand-mq} / 4 - #{rem(10)});
 
 	  &:hover {
 		background-color: transparent;
@@ -279,6 +279,7 @@
 
 	  &__copyright {
 		opacity: 0;
+		  display: none !important;
 	  }
 
 	  &__close {

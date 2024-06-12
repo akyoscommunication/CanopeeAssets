@@ -2,6 +2,12 @@
 
     <summary class="c-accordion__title">
         {% block header %}{% endblock %}
+        <div class="c-accordion__opened">
+            <twig:ux:icon name="minus-circle"/>
+        </div>
+        <div class="c-accordion__closed">
+            <twig:ux:icon name="plus-circle"/>
+        </div>
     </summary>
 
     <div class="c-accordion__panel">

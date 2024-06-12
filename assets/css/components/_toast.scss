@@ -28,7 +28,7 @@ $colors: (
 		> * {
 			@include objectFit(contain);
 
-			font-size: 170%;
+			width: rem(28);
 		}
 	}
 

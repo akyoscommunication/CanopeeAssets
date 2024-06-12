@@ -1,8 +1,12 @@
+{% set sortDirection = 'asc' %}
+{% if key is same as(options.sort) and options.sortDirection is same as('asc') %}
+    {% set sortDirection = 'desc' %}
+{% endif %}
 <div class="c-table__h">
-	<a {% for attr, value in options %}{% if attr != 'href' %} {{ attr }}="{{ value }}"{% endif %}{% endfor %} data-action="live#action" data-live-sort-param="{{ key }}" data-live-action-param="sortColumn" data-live-direction-param="{{ options['sortDirection'] == 'asc' ? 'desc' : 'asc' }}">{{ title }}
-        <span class="c-table__sort {{ options.class }}">
-            <i class="icomoon-arrow-up"></i>
-            <i class="icomoon-arrow-down"></i>
+	<a data-action="live#action" data-live-sort-param="{{ key }}" data-live-action-param="sortColumn" data-live-direction-param="{{ sortDirection }}">{{ title }}
+        <span class="c-table__sort {{ options.class }} {{ sortDirection }}">
+            <twig:ux:icon name="arrow-up" />
+            <twig:ux:icon name="arrow-down" />
         </span>
 	</a>
 </div>
