@@ -270,8 +270,9 @@ form {
 			left: 0;
 			text-align: right;
 
-			> i {
+			> .c-icon {
 				cursor: pointer;
+				max-width: rem(16);
 
 				&:hover {
 					~ span {

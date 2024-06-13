@@ -15,7 +15,12 @@
 	}
 
 	&__name {
+		@include flex(row, nowrap, flex-start, center);
 		@extend %fw-700;
+
+		.c-icon {
+			max-width: rem(12);
+		}
 	}
 
 	&__time {
@@ -29,10 +34,35 @@
 
 	&-center {
 		position: relative;
-		&__ico {
 
+		&--animation {
+			&-0 {
+				.c-notification-center__ico {
+					animation: leftToRight 5s ease-in-out forwards infinite;
+					transform-origin: top center;
+				}
+			}
+
+			&-1 {
+				.c-notification-center__ico {
+					animation: amazing 5s ease-in-out forwards;
+					transform-origin: top center;
+				}
+			}
 		}
-		>.c-badge{
+
+		&__ico {
+			animation-play-state: paused !important;
+			cursor: pointer;
+		}
+
+		&--unread {
+			.c-notification-center__ico {
+				animation-play-state: running !important;
+			}
+		}
+
+		> .c-badge{
 			@include flex(row, nowrap, center, center);
 
 			position: absolute;
@@ -43,6 +73,7 @@
 			height: rem(16);
 			padding: 0;
 		}
+
 		.c-modal {
 			&--notification {
 				margin: 0;
@@ -100,3 +131,55 @@
 		}
 	}
 }
+
+@keyframes leftToRight {
+	40% {
+		transform: rotate(0);
+	}
+	46% {
+		transform: rotate(25deg);
+	}
+	54% {
+		transform: rotate(-25deg);
+	}
+	60% {
+		transform: rotate(0);
+	}
+}
+
+@keyframes amazing {
+	0% {
+		transform: rotate(0);
+	}
+	10% {
+		transform: rotate(10deg);
+	}
+	20% {
+		transform: rotate(-10deg);
+	}
+	30% {
+		transform: rotate(60deg);
+	}
+	40% {
+		transform: rotate(-60deg);
+	}
+	50% {
+		transform: rotate(420deg);
+	}
+	60% {
+		transform: rotate(300deg);
+	}
+	70% {
+		transform: rotate(370deg);
+	}
+	80% {
+		transform: rotate(350deg);
+	}
+	90% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+

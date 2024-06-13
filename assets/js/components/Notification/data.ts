@@ -21,4 +21,5 @@ export const data: Notification[] = Array.from({length: 5}, (v, k) => k + 4).map
     // randomly generate a createdAt as string
     createdAt: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString(),
     target: 'https://www.google.com',
+    actionNeeded: Math.random() > 0.5,
 }))

@@ -8,6 +8,7 @@ export type Notification = {
     createdAt: string;
     target: string;
     state: States;
+    actionNeeded: boolean;
 };
 
 export enum States {

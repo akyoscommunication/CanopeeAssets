@@ -99,9 +99,7 @@ $dark: map-get($colors-scheme-light, "dark");
 			height: min-content;
 
 			.c-button__ico {
-				> * {
-					font-size: 100%;
-				}
+				max-width: rem(20);
 			}
 
 			&:after {
