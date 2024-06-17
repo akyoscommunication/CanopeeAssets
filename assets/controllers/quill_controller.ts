@@ -38,7 +38,6 @@ export default class extends Controller {
 		});
 
 		window.addEventListener('js:refresh', () => {
-			console.log('js:refresh')
 			this.quill.setText('');
 		})
 
