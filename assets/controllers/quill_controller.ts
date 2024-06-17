@@ -37,6 +37,11 @@ export default class extends Controller {
 			}, 500);
 		});
 
+		window.addEventListener('js:refresh', () => {
+			console.log('js:refresh')
+			this.quill.setText('');
+		})
+
 		this.dispatchEvent('connect', {quill: this.quill});
 	}
 
