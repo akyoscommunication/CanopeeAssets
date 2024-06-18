@@ -23,6 +23,10 @@
 		padding: rem(14) rem(12);
 		border: 1px solid color(grey-100);
 
+		.c-icon {
+			max-width: rem(16);
+		}
+
 		&__name {
 			@extend %fw-700;
 			@extend %fs-14;

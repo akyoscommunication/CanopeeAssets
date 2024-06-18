@@ -12,4 +12,5 @@ final class IconTextComponent
     public string $direction = 'h';
     public string $appearance = '1';
     public string $color = 'primary-400';
+    public string $icoClasses = '';
 }

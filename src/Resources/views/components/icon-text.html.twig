@@ -18,7 +18,7 @@
 
 <div{{ attributes.defaults({class: classes.apply({direction, appearance, icoOnly})}) }}>
     {% if ico %}
-        <div class="c-ico-text__ico">
+        <div class="c-ico-text__ico {{ icoClasses }}">
             <twig:ux:icon :name="ico"/>
         </div>
     {% endif %}

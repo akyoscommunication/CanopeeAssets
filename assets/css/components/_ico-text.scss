@@ -4,11 +4,11 @@
 
 	&--direction {
 		&-h {
-			@include flex(row, nowrap, center, center);
+			@include flex(row, nowrap, flex-start, center);
 		}
 
 		&-v {
-			@include flex(column, nowrap, center, center);
+			@include flex(column, nowrap, center, flex-start);
 
 			text-align: center;
 		}

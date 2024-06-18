@@ -5,6 +5,10 @@
   padding: rem(16) rem(35);
   overflow: hidden;
 
+  .c-icon {
+    max-width: rem(15);
+  }
+
   &[open] {
     .c-accordion {
       &__opened {
