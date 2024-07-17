@@ -1,4 +1,6 @@
-<div{{ attributes }}>
+{% set attrs = attrs|merge(stimulus_controller('switch').toArray()) %}
+
+<div {{ attributes.defaults(attrs) }}>
     {% set id = 'switch_'~random()~object.id %}
     <div class="form-group">
         <div class="form-switch">
