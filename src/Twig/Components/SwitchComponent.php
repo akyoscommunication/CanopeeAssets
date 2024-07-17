@@ -22,6 +22,9 @@ final class SwitchComponent
     #[LiveProp]
     public string $property;
 
+    #[LiveProp]
+    public ?string $setter = null;
+
     public function __construct(
         private readonly EntityManagerInterface $entityManager,
     ) {
@@ -32,7 +35,7 @@ final class SwitchComponent
     {
         $this->object = $this->entityManager->getRepository($this->objectClass)->find($this->object);
 
-        $this->object->{'set'.$this->property}(!$this->object->{'is'.ucfirst($this->property)}());
+        $this->object->{($this->setter ?? 'set'.$this->property)}(!$this->object->{'is'.ucfirst($this->property)}());
         $this->entityManager->getRepository($this->objectClass)->add($this->object, true);
     }
 
