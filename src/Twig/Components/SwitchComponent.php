@@ -6,12 +6,14 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
+use Symfony\UX\LiveComponent\ComponentToolsTrait;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 
 #[AsLiveComponent(name: 'switch', template: '@CanopeeAssets/components/switch.html.twig')]
 final class SwitchComponent
 {
     use DefaultActionTrait;
+    use ComponentToolsTrait;
 
     #[LiveProp(dehydrateWith: 'dehydrateObject')]
     public mixed $object;
@@ -37,6 +39,8 @@ final class SwitchComponent
 
         $this->object->{($this->setter ?? 'set'.$this->property)}(!$this->object->{'is'.ucfirst($this->property)}());
         $this->entityManager->getRepository($this->objectClass)->add($this->object, true);
+
+        $this->emitUp('toggle_switch', ['object' => $this->object->getId(), 'property' => $this->property]);
     }
 
     public function dehydrateObject(mixed $object): mixed
