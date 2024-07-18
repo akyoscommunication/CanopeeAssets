@@ -2,7 +2,19 @@
     {% set id = 'switch_'~random()~object.id %}
     <div class="form-group">
         <div class="form-switch">
-            <input id="{{ id }}" type="checkbox"  {{ attribute(object, property) ? 'checked' }} data-action="live#action" data-live-action-param="toggle">
+            <input
+                    id="{{ id }}"
+                    type="checkbox"
+                    {% if objectToSet is defined %}
+                        {% if attribute(object,property) is not null %}
+                            {{ objectToSet.id == attribute(object,property).id ? 'active' }}
+                        {% endif %}
+                    {% else %}
+                        {{ attribute(object, property) ? 'active' }}
+                    {% endif %}
+                    data-action="live#action"
+                    data-live-action-param="toggle"
+            >
         </div>
     </div>
 </div>
