@@ -5,7 +5,7 @@
             <input
                     id="{{ id }}"
                     type="checkbox"
-                    {% if objectToSet is defined %}
+                    {% if objectToSet is defined and objectToSet is not null %}
                         {% if attribute(object,property) is not null %}
                             {{ objectToSet.id == attribute(object,property).id ? 'active' }}
                         {% endif %}
