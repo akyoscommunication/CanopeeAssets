@@ -43,8 +43,19 @@ final class SwitchComponent
     {
         $this->object = $this->entityManager->getRepository($this->objectClass)->find($this->object);
 
+        // on veut changer la valeur d'une propriété d'un objet
         if($this->objectToSet) {
-            $value = $this->objectToSet;
+            // si la propriété est déjà définie
+            if($this->object->{'get'.ucfirst($this->property)}()) {
+                // si la valeur de la propriété est égale à l'objet à définir
+                if ($this->object->{'get' . ucfirst($this->property)}()->getId() === $this->objectToSet->getId()) {
+                    $value = null;
+                } else {
+                    $value = $this->objectToSet;
+                }
+            } else {
+                $value = $this->objectToSet;
+            }
         } else {
             $value = !$this->object->{'is' . ucfirst($this->property)}();
         }
