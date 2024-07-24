@@ -214,7 +214,7 @@ form {
 						background: color(danger-700);
 					}
 
-					&:checked {
+					&[active] {
 						&:before {
 							background: color(success-700);
 						}
@@ -467,7 +467,7 @@ form {
 				cursor: pointer;
 				transition: $default-transition;
 
-				&:checked {
+				&[active] {
 					background-color: color(secondary-500);
 				}
 
