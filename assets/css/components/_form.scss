@@ -199,7 +199,7 @@ form {
 					left: calc(-1 * (#{$w} / 2 - 3px));
 				}
 
-				&[active] {
+				&[active], &:checked {
 					&:before {
 						background: color(success-300);
 					}
