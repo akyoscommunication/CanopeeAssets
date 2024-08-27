@@ -466,7 +466,7 @@ form {
 				cursor: pointer;
 				transition: $default-transition;
 
-				&[active] {
+				&[active], &:checked {
 					background-color: color(secondary-500);
 				}
 
