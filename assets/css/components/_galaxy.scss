@@ -1,52 +1,56 @@
 .c-galaxy {
-	.c-modal {
-		margin: 0;
-		max-width: rem(500);
+  .c-modal {
+    margin: 0;
+    max-width: rem(500);
 
-		@include breakpoint('md') {
-			height: 50vh;
-		}
+    @include breakpoint('md') {
+      height: 50vh;
+    }
 
-		&__header {
-			margin-bottom: rem(32);
-		}
+    &__header {
+      margin-bottom: rem(32);
+    }
 
-		&__content {
-			padding-right: 0;
-		}
-	}
+    &__content {
+      padding-right: 0;
+    }
+  }
 
-	&__ico {
-		@extend %fs-24;
+  &__ico {
+    @extend %fs-24;
 
-		color: color(grey-400);
-		cursor: pointer;
-		line-height: 1;
-	}
+    color: color(grey-400);
+    cursor: pointer;
+    line-height: 1;
+  }
 
-	ul {
-		@include undoListStyles;
+  ul {
+    @include undoListStyles;
 
-		@include breakpoint('md') {
-			column-gap: 0;
-		}
-	}
+    @include breakpoint('md') {
+      column-gap: 0;
+    }
+  }
 
-	.c-widget-edit {
-		outline: none;
+  .c-widget-edit {
+    outline: none;
 
-		.c-title {
-			justify-content: center;
-			text-align: center;
-		}
+    .c-title {
+      justify-content: center;
+      text-align: center;
 
-		&__ico {
-			border-radius: 0;
-			padding: rem(20);
+      &--h3 {
+        font-size: rem(14);
+      }
+    }
 
-			> * {
-				@include objectFit(contain);
-			}
-		}
-	}
+    &__ico {
+      border-radius: 0;
+      padding: rem(20);
+
+      > * {
+        @include objectFit(contain);
+      }
+    }
+  }
 }
