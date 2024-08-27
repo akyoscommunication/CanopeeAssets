@@ -1,7 +1,7 @@
 .c-galaxy {
 	.c-modal {
 		margin: 0;
-		max-width: rem(412);
+		max-width: rem(500);
 
 		@include breakpoint('md') {
 			height: 50vh;
@@ -9,6 +9,10 @@
 
 		&__header {
 			margin-bottom: rem(32);
+		}
+
+		&__content {
+			padding-right: 0;
 		}
 	}
 
@@ -31,8 +35,14 @@
 	.c-widget-edit {
 		outline: none;
 
+		.c-title {
+			justify-content: center;
+			text-align: center;
+		}
+
 		&__ico {
 			border-radius: 0;
+			padding: rem(20);
 
 			> * {
 				@include objectFit(contain);
