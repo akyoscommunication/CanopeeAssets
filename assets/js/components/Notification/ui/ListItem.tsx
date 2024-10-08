@@ -22,6 +22,10 @@ export default function ListItem({ notification } : ListItemProps) {
         return `Il y a ${minutes} min`;
     }
 
+    React.useEffect(() => {
+      console.log(notification)
+    })
+
     const goTo = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 

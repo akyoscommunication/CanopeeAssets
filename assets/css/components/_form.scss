@@ -42,7 +42,6 @@ $fields: '.ts-wrapper.single .ts-control',
 
 					padding: rem(16);
 					background-color: color(primary-500);
-					height: rem(90);
 					overflow: hidden;
 					max-width: var(--max-width);
 					width: 100%;
@@ -199,7 +198,7 @@ form {
 					left: calc(-1 * (#{$w} / 2 - 3px));
 				}
 
-				&:checked {
+				&[active], &:checked {
 					&:before {
 						background: color(success-300);
 					}
@@ -214,7 +213,7 @@ form {
 						background: color(danger-700);
 					}
 
-					&:checked {
+					&[active] {
 						&:before {
 							background: color(success-700);
 						}
@@ -467,7 +466,7 @@ form {
 				cursor: pointer;
 				transition: $default-transition;
 
-				&:checked {
+				&[active], &:checked {
 					background-color: color(secondary-500);
 				}
 
