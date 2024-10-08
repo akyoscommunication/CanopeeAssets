@@ -164,6 +164,18 @@
 	</div>
 {%- endblock -%}
 
+{%- block entity_switch_widget -%}
+	{% set attr = attr|merge({class: 'form-switch-wrapper'}) %}
+	<div {{ block('widget_container_attributes') }}>
+		{%- for child in form %}
+			{{- form_widget(child, {
+				multiple: multiple,
+				valid: valid,
+			}) -}}
+		{% endfor -%}
+	</div>
+{%- endblock -%}
+
 {%- block switch_widget -%}
 	{% set type = 'radio' %}
 	{% if multiple is defined and multiple %}
