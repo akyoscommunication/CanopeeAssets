@@ -1,5 +1,5 @@
 <a href="{{ app.request.server.get('CANOPEE_HOST') ?? app.request.server.get('HOST') }}">
-	{% if app.user and currentUserAccessRight() %}
+	{% if class_exists('Akyos\\CanopeeSDK\\CanopeeSDK') and app.user and currentUserAccessRight() %}
 		<img loading="lazy" src="{{ path('stream_document', {entity: 'App\\Entity\\Customer', id: currentUserAccessRight().customer.canopeeId, fieldName: 'imageLogo'}) }}" alt="logo" class="logo">
 	{% else %}
 		<svg xmlns="http://www.w3.org/2000/svg" width="153" height="39" viewBox="0 0 153 39" fill="none">
