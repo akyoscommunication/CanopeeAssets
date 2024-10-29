@@ -3,7 +3,7 @@
 	@extend %br--8;
 	@include flex(row, nowrap, flex-start, center);
 
-	position: fixed;
+	position: absolute;
 	padding: rem(8);
 	background-color: color(light);
 	z-index: 1;
