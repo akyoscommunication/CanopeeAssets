@@ -38,7 +38,7 @@ export default class Tooltip {
         tooltip.innerHTML = tooltip.innerHTML.replace(/%(\w+)%/g, (match, key) => {
             switch (key) {
                 case 'ico':
-                    return getStatusIcon('info'); // Replace with the actual value
+                    return data[key] || getStatusIcon('info'); // Replace with the actual value
                 default:
                     return data[key] || match; // Use the data or keep the placeholder
             }
