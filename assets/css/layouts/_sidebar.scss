@@ -124,9 +124,13 @@
       }
 
       &.disabled {
-        opacity: .6;
         cursor: not-allowed;
         overflow: visible;
+        > a {
+          @extend %br--16;
+
+          opacity: .6;
+        }
       }
 
       > ul {
