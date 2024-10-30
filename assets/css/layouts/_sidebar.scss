@@ -7,288 +7,289 @@
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-	display: none;
+    display: none;
   }
 
   @include breakpoint(md) {
-	@include flex(column, nowrap, flex-start, stretch);
+    @include flex(column, nowrap, flex-start, stretch);
 
-	width: 100%;
-	overflow-y: scroll;
+    width: 100%;
+    overflow-y: scroll;
 
-	padding-top: 0;
-	padding-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 
-	> .l-sidebar__close {
-	  font-size: rem(10);
-	  padding: 0;
-	  position: absolute;
-	  margin-top: 0;
-	  right: 0;
-	  top: calc(#{$h-minified-brand-mq} / 4 - #{rem(10)});
+    > .l-sidebar__close {
+      font-size: rem(10);
+      padding: 0;
+      position: absolute;
+      margin-top: 0;
+      right: 0;
+      top: calc(#{$h-minified-brand-mq} / 4 - #{rem(10)});
 
-	  &:hover {
-		background-color: transparent;
-	  }
+      &:hover {
+        background-color: transparent;
+      }
 
-	  .c-ico-text__text {
-		display: none;
-	  }
-	}
+      .c-ico-text__text {
+        display: none;
+      }
+    }
 
-	> .l-sidebar__copyright {
-	  position: initial;
-	}
+    > .l-sidebar__copyright {
+      position: initial;
+    }
   }
 
   &__brand {
-	margin: 0 auto calc(#{rem(32)} + #{rem($p-app)});
-	max-width: rem(150);
-	width: 100%;
+    margin: 0 auto calc(#{rem(32)} + #{rem($p-app)});
+    max-width: rem(150);
+    width: 100%;
 
-	  > a {
-		  width: 100%;
+    > a {
+      width: 100%;
 
-		  img {
-			  width: 100%;
-		  }
-	  }
+      img {
+        width: 100%;
+      }
+    }
 
-	&--minified {
-	  display: none;
+    &--minified {
+      display: none;
 
-	  @include breakpoint(md) {
-		height: rem($h-minified-brand-mq);
-		margin-left: 0;
-		margin-bottom: 0;
+      @include breakpoint(md) {
+        height: rem($h-minified-brand-mq);
+        margin-left: 0;
+        margin-bottom: 0;
 
-		> * {
-		  object-position: left !important;
-		}
-	  }
-	}
+        > * {
+          object-position: left !important;
+        }
+      }
+    }
 
-	> * {
-	  @include objectFit(contain);
-	}
+    > * {
+      @include objectFit(contain);
+    }
   }
 
   nav {
-	ul {
-	  @include undoListStyles;
-	  @include flex(column, nowrap, flex-start, flex-start);
-	}
+    ul {
+      @include undoListStyles;
+      @include flex(column, nowrap, flex-start, flex-start);
+    }
 
-	.c-nav-item {
-	  @extend %br--16;
+    .c-nav-item {
+      @extend %br--16;
 
-	  width: 100%;
-	  overflow: hidden;
+      width: 100%;
+      overflow: hidden;
 
-	  > .c-nav-item__link {
-		display: block;
-		padding: rem(16) rem(24);
-		overflow: hidden;
-		position: relative;
+      > .c-nav-item__link {
+        display: block;
+        padding: rem(16) rem(24);
+        overflow: hidden;
+        position: relative;
 
-		&:has(+ ul) {
-		  &::after {
-			content: '';
-			position: absolute;
-			display: block;
-			width: 33%;
-			height: 1px;
-			bottom: 0;
-			z-index: 1;
-			background-color: color(primary-100);
-			left: 50%;
-			transform: translate(-50%, 50%) scaleX(0);
-			transform-origin: center;
-			transition: $default-transition;
-		  }
-		}
+        &:has(+ ul) {
+          &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 33%;
+            height: 1px;
+            bottom: 0;
+            z-index: 1;
+            background-color: color(primary-100);
+            left: 50%;
+            transform: translate(-50%, 50%) scaleX(0);
+            transform-origin: center;
+            transition: $default-transition;
+          }
+        }
 
-		&.active {
-		  @extend %fw-700;
-		}
+        &.active {
+          @extend %fw-700;
+        }
 
-		&.active,
-		&:hover {
-		  background-color: color(primary-200);
-		}
-	  }
+        &.active,
+        &:hover {
+          background-color: color(primary-200);
+        }
+      }
 
-	  &:hover,
-	  &.active {
-		background-color: color(primary-300);
-	  }
+      &:hover,
+      &.active {
+        background-color: color(primary-300);
+      }
 
-	  &.disabled {
-		opacity: .6;
-		cursor: not-allowed;
-	  }
+      &.disabled {
+        opacity: .6;
+        cursor: not-allowed;
+        overflow: visible;
+      }
 
-	  > ul {
-		gap: rem(8);
+      > ul {
+        gap: rem(8);
 
-		> .c-nav-item {
-		  font-size: 87.5%;
+        > .c-nav-item {
+          font-size: 87.5%;
 
-		  > .c-nav-item__link {
-			padding: rem(16) rem(32);
-		  }
-		}
-	  }
+          > .c-nav-item__link {
+            padding: rem(16) rem(32);
+          }
+        }
+      }
 
-	  &--submenu {
-		.c-nav-item__link {
-		  padding: rem(8) rem(24) !important;
-		}
-	  }
-	}
+      &--submenu {
+        .c-nav-item__link {
+          padding: rem(8) rem(24) !important;
+        }
+      }
+    }
 
-	> ul {
-	  gap: rem(32);
-	}
+    > ul {
+      gap: rem(32);
+    }
   }
 
   &__close, &__privacy {
-	@include flex(row, nowrap, flex-start, center);
-	@extend %br--16;
+    @include flex(row, nowrap, flex-start, center);
+    @extend %br--16;
 
-	padding: rem(16) rem(24);
-	margin-top: rem(108);
-	transition: $default-transition;
+    padding: rem(16) rem(24);
+    margin-top: rem(108);
+    transition: $default-transition;
 
-	&:hover {
-	  background-color: color(primary-200);
-	}
+    &:hover {
+      background-color: color(primary-200);
+    }
   }
 
   &__privacy {
-	margin-top: initial;
+    margin-top: initial;
   }
 
   &__copyright {
-	@extend %fs-10;
+    @extend %fs-10;
 
-	display: block !important;
-	padding: rem(16) rem(24);
-	transition: $default-transition;
-	margin-top: rem(20);
+    display: block !important;
+    padding: rem(16) rem(24);
+    transition: $default-transition;
+    margin-top: rem(20);
 
-	a{
-	  text-decoration: underline;
-	}
+    a {
+      text-decoration: underline;
+    }
   }
 
   .c-ico-text {
-	justify-content: flex-start;
+    justify-content: flex-start;
 
-	&__text {
-	  min-width: rem(120);
-	}
+    &__text {
+      min-width: rem(120);
+    }
   }
 }
 
 .l-app {
   @include breakpoint(md) {
-	display: flex;
-	flex-flow: column nowrap;
+    display: flex;
+    flex-flow: column nowrap;
   }
 
   &.is-sidebar-closed {
-	grid-template-columns: min(#{rem(80)}, 100%) 1fr;
+    grid-template-columns: min(#{rem(80)}, 100%) 1fr;
 
-	.l-sidebar {
-	  padding: rem(32) rem($p-app) rem(32) 0;
+    .l-sidebar {
+      padding: rem(32) rem($p-app) rem(32) 0;
 
-	  @include breakpoint(md) {
-		padding: 0;
-		flex-direction: row;
+      @include breakpoint(md) {
+        padding: 0;
+        flex-direction: row;
 
-		> * {
-		  display: none;
-		}
+        > * {
+          display: none;
+        }
 
-		> .l-sidebar__close,
-		> .l-sidebar__brand--minified {
-		  display: block;
-		  margin: 0;
-		}
-	  }
+        > .l-sidebar__close,
+        > .l-sidebar__brand--minified {
+          display: block;
+          margin: 0;
+        }
+      }
 
-	  &__brand {
-		display: none;
+      &__brand {
+        display: none;
 
-		&--minified {
-		  display: block;
+        &--minified {
+          display: block;
 
-		  @include breakpoint(md) {
-			padding-bottom: rem($p-app);
-		  }
-		}
-	  }
+          @include breakpoint(md) {
+            padding-bottom: rem($p-app);
+          }
+        }
+      }
 
-	  nav {
-		ul {
-		  //@include breakpoint(md) {
-		  //	@include flex(row, nowrap, flex-start, flex-start);
-		  //}
+      nav {
+        ul {
+          //@include breakpoint(md) {
+          //	@include flex(row, nowrap, flex-start, flex-start);
+          //}
 
-		  .c-nav-item {
-			//@include breakpoint(md) {
-			//	@include flex(row, nowrap, flex-start, flex-start);
-			//}
+          .c-nav-item {
+            //@include breakpoint(md) {
+            //	@include flex(row, nowrap, flex-start, flex-start);
+            //}
 
-			> .c-nav-item__link {
-			  &:has(+ ul) {
-				&::after {
-				  transform: translate(-50%, 50%) scaleX(1);
-				}
-			  }
+            > .c-nav-item__link {
+              &:has(+ ul) {
+                &::after {
+                  transform: translate(-50%, 50%) scaleX(1);
+                }
+              }
 
-			  .c-collapsable-trigger {
-				display: none;
-			  }
-			}
+              .c-collapsable-trigger {
+                display: none;
+              }
+            }
 
-			> ul {
-			  padding-inline: 0;
+            > ul {
+              padding-inline: 0;
 
-			  > .c-nav-item {
-				font-size: 87.5%;
+              > .c-nav-item {
+                font-size: 87.5%;
 
-				> .c-nav-item__link {
-				  padding: rem(16) rem(24);
-				}
-			  }
-			}
-		  }
-		}
-	  }
+                > .c-nav-item__link {
+                  padding: rem(16) rem(24);
+                }
+              }
+            }
+          }
+        }
+      }
 
-	  .c-ico-text {
-		&__text {
-		  // TODO: we have to display none to make auto icon centered
-		  // display: none;
+      .c-ico-text {
+        &__text {
+          // TODO: we have to display none to make auto icon centered
+          // display: none;
 
-		  opacity: 0;
-		}
-	  }
+          opacity: 0;
+        }
+      }
 
-	  &__copyright {
-		opacity: 0;
-		  display: none !important;
-	  }
+      &__copyright {
+        opacity: 0;
+        display: none !important;
+      }
 
-	  &__close {
-		.c-ico-text {
-		  &__ico {
-			transform: rotate(180deg);
-		  }
-		}
-	  }
-	}
+      &__close {
+        .c-ico-text {
+          &__ico {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
   }
 }
