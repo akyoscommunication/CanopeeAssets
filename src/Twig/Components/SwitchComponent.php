@@ -41,7 +41,7 @@ final class SwitchComponent
     #[LiveAction]
     public function toggle(): void
     {
-        $this->object = $this->entityManager->getRepository($this->objectClass)->find($this->object);
+        $this->object = $this->entityManager->getRepository($this->objectClass)->findById($this->object->getId())->getQuery()->getOneOrNullResult();
 
         // on veut changer la valeur d'une propriété d'un objet
         if($this->objectToSet) {
@@ -72,11 +72,15 @@ final class SwitchComponent
 
     public function hydrateObject(mixed $object): mixed
     {
-        return $this->entityManager->getRepository($this->objectClass)->find($object);
+        return $this->entityManager->getRepository($this->objectClass)->findById($object)->getQuery()->getOneOrNullResult();
     }
 
     public function hydrateObjectToSet(mixed $object): mixed
     {
-        return $this->entityManager->getRepository($this->objectToSetClass)->find($object);
+        if($this->objectToSetClass) {
+            return $this->entityManager->getRepository($this->objectToSetClass)->findById($object)->getQuery()->getOneOrNullResult();
+        } else {
+            return null;
+        }
     }
 }
