@@ -7,6 +7,7 @@ export default class Tooltip {
     private _tooltip: HTMLElement | null;
     // @ts-ignore
     private _tl: GSAPTimeline | null;
+    private _el: HTMLElement | null;
 
     static register() {
         document.querySelectorAll('[tooltip]').forEach((el) => {
@@ -17,6 +18,7 @@ export default class Tooltip {
     constructor(el) {
         this._tooltip = null;
         this._tl = null;
+        this._el = null;
 
         el.addEventListener('mouseenter', this.showTooltip);
         el.addEventListener('mouseleave', this.hideTooltip);
@@ -38,33 +40,25 @@ export default class Tooltip {
         tooltip.innerHTML = tooltip.innerHTML.replace(/%(\w+)%/g, (match, key) => {
             switch (key) {
                 case 'ico':
-                    return getStatusIcon('info'); // Replace with the actual value
+                    return data[key] || getStatusIcon('info'); // Replace with the actual value
                 default:
                     return data[key] || match; // Use the data or keep the placeholder
             }
         });
         this._tooltip = tooltip;
+        this._el = el;
 
-        document.body.appendChild(this._tooltip);
-        positioningElement(el, this._tooltip, 0, 16)
+        el.appendChild(this._tooltip);
 
         this._tl = gsap.timeline({paused: true});
         this._tl.fromTo(this._tooltip, {opacity: 0, y: 10}, {opacity: 1, y: 0, duration: .2})
-
-        window.addEventListener('resize', () => {
-            positioningElement(el, this._tooltip, 0, 16)
-        })
-
-        window.addEventListener('scroll', () => {
-            positioningElement(el, this._tooltip, 0, 16)
-        })
 
         this._tl.play();
     }
     hideTooltip() {
         if (this._tooltip) {
             this._tl.reverse().then(() => {
-                document.body.removeChild(this._tooltip);
+                this._el.removeChild(this._tooltip);
             });
         }
     }

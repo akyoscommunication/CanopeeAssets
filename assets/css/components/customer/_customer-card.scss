@@ -18,4 +18,10 @@
     color: color(primary-200);
     margin-top: rem(16);
   }
+
+  &__modules {
+    display: flex;
+    justify-content: center;
+  }
+
 }
