@@ -25,7 +25,7 @@ class ImpersonateType extends AbstractType
                 },
                 'query_builder' => fn(UserRepository $userRepository) => $userRepository->findAll(),
                 'choice_value' => function (User $entity = null) {
-                    return $entity ? $entity->getUuid() : '';
+                    return $entity ? $entity->getId() : '';
                 },
                 'constraints' => [
                     new NotBlank(),
