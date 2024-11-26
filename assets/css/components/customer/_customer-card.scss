@@ -20,8 +20,7 @@
   }
 
   &__modules {
-    display: flex;
-    justify-content: center;
+    @include flex(row, nowrap, center, center);
+    gap: rem(16);
   }
-
 }

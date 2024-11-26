@@ -2,20 +2,20 @@
   "entrypoints": {
     "app": {
       "css": [
-        "/bundles/canopeeassets/app.ecd54d98.css"
+        "/bundles/canopeeassets/app.29bf7fa0.css"
       ],
       "js": [
-        "/bundles/canopeeassets/app.90868453.js"
+        "/bundles/canopeeassets/app.cae1b40d.js"
       ]
     },
     "galaxy": {
       "js": [
-        "/bundles/canopeeassets/galaxy.68f8c6de.js"
+        "/bundles/canopeeassets/galaxy.07f708c9.js"
       ]
     },
     "notification-center": {
       "js": [
-        "/bundles/canopeeassets/notification-center.481ef804.js"
+        "/bundles/canopeeassets/notification-center.2daa659f.js"
       ]
     }
   }
