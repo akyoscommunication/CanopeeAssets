@@ -21,7 +21,7 @@ export default function Modal({ isOpen, toggleOpen }) {
         })
     }, []);
 
-    return <dialog className="c-modal c-modal--widget" ref={modalRef}>
+    return <dialog className="c-modal c-modal--galaxy" ref={modalRef}>
         <div className="c-modal__content">
             <header className="c-modal__header">
                 <h2 className="c-title c-title--h2">Galaxie</h2>
