@@ -16,12 +16,32 @@
     }
   }
 
+  &:hover {
+    .c-galaxy__ico {
+      background-color: color(primary-500);
+      color: white;
+
+      > * {
+        transform: scale(.75);
+      }
+    }
+  }
+
   &__ico {
     @extend %fs-24;
 
     color: color(grey-400);
     cursor: pointer;
     line-height: 1;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    padding: rem(8);
+    width: rem(48);
+    height: rem(48);
+
+    > * {
+      transition: transform 0.3s ease;
+    }
   }
 
   ul {
