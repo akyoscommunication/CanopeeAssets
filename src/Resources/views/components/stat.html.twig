@@ -7,7 +7,7 @@
     <div class="c-stat__content">
         {% block content %}
             <div class="c-stat__value">{{ value|raw }}{% if increasedValue %}<span
-                    class="c-badge c-badge--contrast c-badge--size-xs{{ ' c-badge--'~(isIncreased ? 'success' : 'danger') }}">{{ isIncreased ? '+ ' : '- ' }}{{ increasedValue|raw }}</span>{% endif %}
+                    class="c-badge c-badge--contrast c-badge--size-xs{{ ' c-badge--'~(isIncreased ? 'success' : 'danger') }}">{{ isIncreased ? '+ ' : '' }}{{ increasedValue|raw }}</span>{% endif %}
             </div>
             {% if title %}
                 <div class="c-stat__title">{{ title|raw }}</div>
