@@ -52,7 +52,14 @@
     }
   }
 
-  .c-widget-edit {
+  &__section {
+    > .c-title {
+      font-size: rem(10);
+      color: color(grey-400);
+    }
+  }
+
+  .c-galaxy-item {
     outline: none;
 
     .c-title {

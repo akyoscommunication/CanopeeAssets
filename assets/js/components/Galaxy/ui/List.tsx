@@ -10,10 +10,8 @@ export default function List() {
 
     return <div className="c-modal__body">
         {customers.map((customer, index) => {
-            return <div key={index} className="c-widget">
-                <div className="c-widget__header">
-                    <h3 className="c-title c-title--h3">{customer}</h3>
-                </div>
+            return <div key={index} className="c-galaxy__section">
+                <h3 className="c-title c-title--h3">{customer}</h3>
                 <ul className="l-grid l-grid--4 l-grid--2:lg l-grid--1:md">
                     {data[customer].map((item, index) => <li key={index}><ListItem item={item}/></li>)}
                 </ul>

@@ -18,8 +18,8 @@ export default function ListItem({item}: Props) {
         }
     });
 
-    return <a href={item.url} target={isBlank} className="c-widget-edit">
-        <div className="c-widget-edit__ico">
+    return <a href={item.url} target={isBlank} className="c-galaxy-item">
+        <div className="c-galaxy-item__ico">
             <img src={item.icon} alt={item.name}/>
         </div>
         <div className="c-title c-title--h3">{item.name}</div>
