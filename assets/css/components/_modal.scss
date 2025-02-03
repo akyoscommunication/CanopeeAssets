@@ -30,6 +30,8 @@
 
 	&.c-modal {
 		&--widget {
+			max-width: 80vw;
+
 			.c-modal {
 				&__header {
 					position: sticky;
