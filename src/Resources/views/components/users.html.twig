@@ -1,12 +1,12 @@
 <div class="c-users">
-    {% for user in collaborators|slice(0, max) %}
+    {% for userAccessRight in userAccessRights|slice(0, max) %}
         <div class="c-users__item">
-            <img loading="lazy" src="{{ path('stream_document', {entity: 'App\\Entity\\User', id: user.id, fieldName: 'avatarFile'}) }}" alt="Avatar">
+            <img loading="lazy" src="{{ path('stream_document', {entity: 'App\\Entity\\User', id: userAccessRight.user.id, fieldName: 'avatarFile'}) }}" alt="Avatar">
         </div>
     {% endfor %}
-    {% if collaborators|length > max %}
+    {% if userAccessRights|length > max %}
         <div class="c-users__item c-users__item--remaining">
-            + {{ collaborators|length - max }}
+            + {{ userAccessRights|length - max }}
         </div>
     {% endif %}
 </div>

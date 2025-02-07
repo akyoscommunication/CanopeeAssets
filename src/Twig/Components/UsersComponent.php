@@ -7,7 +7,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('users', template: '@CanopeeAssets/components/users.html.twig')]
 final class UsersComponent
 {
-    public array $collaborators = [];
+    public array $userAccessRights = [];
 
     public int $max = 7;
 }

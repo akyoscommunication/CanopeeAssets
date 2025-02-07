@@ -9,7 +9,7 @@
 <{{ this.tag }} {{ attributes.defaults(attrs) }}>
 <twig:card class="c-profile c-profile--style-1">
     <div class="c-profile__avatar c-status">
-        <img loading="lazy" src="{{ path('stream_document', {entity: 'App\\Entity\\User', id: userAccessRight.id, fieldName: 'avatarFile'}) }}" alt="Avatar">
+        <img loading="lazy" src="{{ path('stream_document', {entity: 'App\\Entity\\User', id: userAccessRight.user.id, fieldName: 'avatarFile'}) }}" alt="Avatar">
     </div>
     <div>
         <twig:title tag="h4" class="c-profile__name">{{ userCanopee.familyName|upper }} {{ userCanopee.givenName }}</twig:title>
