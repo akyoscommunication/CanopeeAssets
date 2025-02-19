@@ -23,7 +23,7 @@ export default function ListItem({ notification } : ListItemProps) {
     }
 
     React.useEffect(() => {
-      console.log(notification)
+      // console.log(notification)
     })
 
     const goTo = (e: { preventDefault: () => void; }) => {

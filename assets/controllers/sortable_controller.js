@@ -17,8 +17,6 @@ export default class extends Controller {
 		this.isSortable = false;
 		this.sortables = [];
 		
-		console.log('initialize sortable');
-		
 		window.addEventListener('sortable:toggle-sortable', () => this.toggleSortable());
 	}
 	
@@ -49,7 +47,6 @@ export default class extends Controller {
 	}
 	
 	toggleSortable() {
-		console.log('toggle sortable');
 		this.isSortable = !this.isSortable;
 		if (this.isSortable) {
 			this.initializeSortable();
