@@ -16,13 +16,20 @@
     }
 }) %}
 
+{% set textContent = block('content') %}
+
 <div{{ attributes.defaults({class: classes.apply({direction, appearance, icoOnly})}) }}>
     {% if ico %}
-        <div class="c-ico-text__ico {{ icoClasses }}">
-            <twig:ux:icon :name="ico"/>
+        <div class="c-ico-text__ico {{ icoClasses }}" data-controller="icon">
+            <twig:ux:icon
+                    data-icon-target="icon"
+                    :name="ico"
+                    title="{{ not icoOnly ? textContent|striptags|trim }}"
+                    aria-label="{{ not icoOnly ? textContent|striptags|trim }}"
+            />
         </div>
     {% endif %}
     {% if not icoOnly %}
-        <div class="c-ico-text__text">{% block content %}{% endblock %}</div>
+        <div class="c-ico-text__text">{{ textContent|raw }}</div>
     {% endif %}
 </div>
