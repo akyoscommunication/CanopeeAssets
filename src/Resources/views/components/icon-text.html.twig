@@ -16,7 +16,11 @@
     }
 }) %}
 
-{% set textContent = block('content') %}
+{% if block('content') is defined %}
+    {% set textContent = block('content') %}
+{% else %}
+    {% set textContent = null %}
+{% endif %}
 
 <div{{ attributes.defaults({class: classes.apply({direction, appearance, icoOnly})}) }}>
     {% if ico %}
