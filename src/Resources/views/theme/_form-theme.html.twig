@@ -187,7 +187,7 @@
 					{{- block('form_label_content') -}}
 			</label>
 		{%- endif -%}
-		<input type="{{ type }}" {{ block('widget_attributes') }} id="{{ id }}" {% if checked %} checked="checked"{% endif %}/>
+		<input type="{{ type }}" value="{{ value }}" {{ block('widget_attributes') }} id="{{ id }}" {% if checked %} checked="checked"{% endif %}/>
 		{{- form_errors(form) -}}
 	</div>
 {%- endblock -%}
