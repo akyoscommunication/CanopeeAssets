@@ -80,4 +80,49 @@
       }
     }
   }
+
+  .c-tabs {
+    &--galaxy {
+      margin-bottom: rem(24);
+
+      .c-tabs__list {
+        @include undoListStyles;
+        @include flex(row, wrap, flex-start, center);
+        gap: rem(12);
+      }
+
+      .c-tabs__item {
+        .c-tabs__button {
+          @extend %fs-12;
+          @extend %br--12;
+          @extend %fw-600;
+
+          padding: rem(8) rem(12);
+          letter-spacing: rem(-0.12);
+          white-space: nowrap;
+          display: inline-block;
+          line-height: 1;
+          background-color: color(grey-200);
+          color: color(grey-700);
+          border: none;
+          cursor: pointer;
+          transition: $default-transition;
+
+          &:hover {
+            background-color: color(primary-200);
+            color: color(primary-700);
+          }
+        }
+
+        &:hover,
+        &.active {
+          .c-tabs__button {
+            background-color: color(primary-500);
+            color: color(light);
+            @extend %fw-700;
+          }
+        }
+      }
+    }
+  }
 }

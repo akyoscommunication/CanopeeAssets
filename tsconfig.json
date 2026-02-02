@@ -3,7 +3,9 @@
   "compilerOptions": {
     "target": "es6",
     "jsx": "react",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "types": []
   },
   "include": ["assets/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"]

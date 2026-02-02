@@ -4,18 +4,17 @@ import { GalaxyContext } from "../provider";
 import ListItem from "./ListItem";
 
 export default function List() {
-    const { data } = React.useContext(GalaxyContext);
+    const { data, activeCustomer } = React.useContext(GalaxyContext);
 
-    const customers = Object.keys(data);
+    if (!activeCustomer || !data[activeCustomer]) {
+        return <div className="c-modal__body"></div>
+    }
 
     return <div className="c-modal__body">
-        {customers.map((customer, index) => {
-            return <div key={index} className="c-galaxy__section">
-                <h3 className="c-title c-title--h3">{customer}</h3>
-                <ul className="l-grid l-grid--4 l-grid--2:lg l-grid--1:md">
-                    {data[customer].map((item, index) => <li key={index}><ListItem item={item}/></li>)}
-                </ul>
-            </div>
-        })}
+        <div className="c-galaxy__section">
+            <ul className="l-grid l-grid--4 l-grid--2:lg l-grid--1:md">
+                {data[activeCustomer].map((item, index) => <li key={index}><ListItem item={item}/></li>)}
+            </ul>
+        </div>
     </div>
 }

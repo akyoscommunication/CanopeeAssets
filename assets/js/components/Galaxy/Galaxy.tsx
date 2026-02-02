@@ -10,8 +10,20 @@ export default function Galaxy({ url, modules, domains }) {
         error: false,
         isOpen: false,
         data: modules,
-        domains: domains
+        domains: domains,
+        activeCustomer: null
     } as any)
+
+    const setActiveCustomer = (customer: string) => {
+        setState((s: any) => ({ ...s, activeCustomer: customer }))
+    }
+
+    React.useEffect(() => {
+        if (modules && Object.keys(modules).length > 0) {
+            const firstCustomer = Object.keys(modules)[0]
+            setState((s: any) => ({ ...s, activeCustomer: firstCustomer }))
+        }
+    }, [modules])
 
     const toggleOpen = () => {
         setState(s => ({ ...s, isOpen: !s.isOpen }))
@@ -21,7 +33,11 @@ export default function Galaxy({ url, modules, domains }) {
         if (modules) return;
         fetch(url)
             .then(res => res.json())
-            .then(data => setState({ ...state, loading: false, data: data['hydra:member'] }))
+            .then(data => {
+                const fetchedData = data['hydra:member']
+                const firstCustomer = Object.keys(fetchedData)[0]
+                setState({ ...state, loading: false, data: fetchedData, activeCustomer: firstCustomer })
+            })
             .catch(error => setState({ ...state, loading: false, error }))
     }, [])
 
@@ -45,7 +61,7 @@ export default function Galaxy({ url, modules, domains }) {
         }
     }, [state.isOpen])
 
-    return <GalaxyContext.Provider value={state}>
+    return <GalaxyContext.Provider value={{ ...state, setActiveCustomer }}>
         <div className="c-galaxy">
             <div className="c-galaxy__ico" onClick={toggleOpen}>
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" className="c-icon" fill="currentColor">

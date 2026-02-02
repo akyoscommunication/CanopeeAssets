@@ -6,5 +6,7 @@ export const GalaxyContext = createContext({
     error: false as boolean,
     isOpen: false as boolean,
     data: [] as ExternalLink[] | [],
-    domains: [] as string[] | []
+    domains: [] as string[] | [],
+    activeCustomer: null as string | null,
+    setActiveCustomer: (customer: string) => {}
 });

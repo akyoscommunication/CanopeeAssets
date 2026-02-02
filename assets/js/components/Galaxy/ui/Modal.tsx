@@ -1,6 +1,7 @@
 // @ts-ignore
 import * as React from "react";
 import List from "./List";
+import Tabs from "./Tabs";
 
 export default function Modal({ isOpen, toggleOpen }) {
     const modalRef = React.useRef(null)
@@ -26,6 +27,7 @@ export default function Modal({ isOpen, toggleOpen }) {
             <header className="c-modal__header">
                 <h2 className="c-title c-title--h2">Galaxie</h2>
             </header>
+            <Tabs />
             <List />
         </div>
     </dialog>
