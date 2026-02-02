@@ -6,7 +6,7 @@ import {createRoot} from "react-dom/client";
 
 class GalaxyElement extends HTMLElement {
     static observedAttributes() {
-        return ['endpoint', 'host']
+        return ['endpoint', 'host', 'customer']
     }
 
     connectedCallback() {
@@ -15,10 +15,11 @@ class GalaxyElement extends HTMLElement {
         const endpoint = this.getAttribute('endpoint') || 'api/external_links';
         const url = `${host}/${endpoint}`;
         const domains = this.getAttribute('domains') || '[]';
+        const customer = this.getAttribute('customer') || null;
 
 
         const root = createRoot(this);
-        root.render(<Galaxy url={url} domains={JSON.parse(domains)} modules={JSON.parse(modules)}/>);
+        root.render(<Galaxy url={url} domains={JSON.parse(domains)} modules={JSON.parse(modules)} defaultCustomer={customer}/>);
     }
 
     disconnectedCallback() {}

@@ -4,7 +4,7 @@ import { GalaxyContext } from "./provider";
 import Modal from "./ui/Modal";
 import {positioningElement} from "../../utils/index";
 
-export default function Galaxy({ url, modules, domains }) {
+export default function Galaxy({ url, modules, domains, defaultCustomer }) {
     const [state, setState] = React.useState({
         loading: true,
         error: false,
@@ -20,10 +20,10 @@ export default function Galaxy({ url, modules, domains }) {
 
     React.useEffect(() => {
         if (modules && Object.keys(modules).length > 0) {
-            const firstCustomer = Object.keys(modules)[0]
-            setState((s: any) => ({ ...s, activeCustomer: firstCustomer }))
+            const customer = defaultCustomer && modules[defaultCustomer] ? defaultCustomer : Object.keys(modules)[0]
+            setState((s: any) => ({ ...s, activeCustomer: customer }))
         }
-    }, [modules])
+    }, [modules, defaultCustomer])
 
     const toggleOpen = () => {
         setState(s => ({ ...s, isOpen: !s.isOpen }))
@@ -35,11 +35,11 @@ export default function Galaxy({ url, modules, domains }) {
             .then(res => res.json())
             .then(data => {
                 const fetchedData = data['hydra:member']
-                const firstCustomer = Object.keys(fetchedData)[0]
-                setState({ ...state, loading: false, data: fetchedData, activeCustomer: firstCustomer })
+                const customer = defaultCustomer && fetchedData[defaultCustomer] ? defaultCustomer : Object.keys(fetchedData)[0]
+                setState({ ...state, loading: false, data: fetchedData, activeCustomer: customer })
             })
             .catch(error => setState({ ...state, loading: false, error }))
-    }, [])
+    }, [defaultCustomer])
 
     // put the modal near the c-galaxy__ico
     React.useEffect(() => {
