@@ -20,7 +20,7 @@ export default class extends Controller {
 
 
 	confirm(e) {
-		const target = e.currentTarget;
+		const target = e.target.closest('[data-alert-action-param]') || e.currentTarget;
 		e.preventDefault();
 
 		const inputValidator = target.dataset.inputValidator;
@@ -33,21 +33,22 @@ export default class extends Controller {
 			buttonsStyling: false,
 		})
 
+		const messageId = (m) => (m && typeof m === 'object' && m.id) ? m.id : m;
 		let config = {
-			title: target.dataset.title ?? "trans(ALERT_CONFIRM_TITLE, {}, 'js.alert')",
-			html: target.dataset.text ?? trans(ALERT_CONFIRM_TEXT, {}, 'js.alert'),
+			title: target.dataset.title ?? trans(messageId(ALERT_CONFIRM_TITLE), {}, 'js.alert'),
+			html: target.dataset.text ?? trans(messageId(ALERT_CONFIRM_TEXT), {}, 'js.alert'),
 			showDenyButton: true,
-			denyButtonText: trans(ALERT_CONFIRM_DENY_BUTTON_TEXT, {}, 'js.alert'),
-			confirmButtonText: trans(ALERT_CONFIRM_BUTTON_TEXT, {}, 'js.alert'),
+			denyButtonText: trans(messageId(ALERT_CONFIRM_DENY_BUTTON_TEXT), {}, 'js.alert'),
+			confirmButtonText: trans(messageId(ALERT_CONFIRM_BUTTON_TEXT), {}, 'js.alert'),
 		};
 
 		let callback = (result) => {
 			if (result.isConfirmed) {
 				const action = e.params.action;
-				if(action) {
-					let params = e.params
+				if (action) {
+					const params = { ...e.params };
 					delete params.action;
-					this.component.action(action, params);
+					this.component.action({ params: { action, ...params } });
 				}
 			}
 		};
@@ -59,7 +60,7 @@ export default class extends Controller {
 					if (value === inputValidator) {
 						resolve();
 					} else {
-						resolve(trans(ALERT_CONFIRM_INPUT_VALIDATOR_TEXT, {value: inputValidator}, 'js.alert'))
+						resolve(trans(messageId(ALERT_CONFIRM_INPUT_VALIDATOR_TEXT), {value: inputValidator}, 'js.alert'))
 					}
 				})
 			};
