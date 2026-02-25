@@ -22,7 +22,7 @@
       "php": ">=8.2",
       "symfony/twig-bundle": ">=6.3",
       "symfony/ux-live-component": "^2.12",
-      "symfony/ux-translator": "^2.13",
+      "symfony/ux-translator": "^2.30",
       "symfony/ux-twig-component": "^2.12",
       "symfony/ux-icons": "^2"
     },
