@@ -46,9 +46,9 @@ export default class extends Controller {
 			if (result.isConfirmed) {
 				const action = e.params.action;
 				if (action) {
-					const params = { ...e.params };
+					let params = e.params
 					delete params.action;
-					this.component.action({ params: { action, ...params } });
+					this.component.action(action, params);
 				}
 			}
 		};
